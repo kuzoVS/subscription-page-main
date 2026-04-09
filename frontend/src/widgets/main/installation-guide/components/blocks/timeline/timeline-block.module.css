@@ -1,12 +1,17 @@
 /* Timeline styles */
 .timelineRoot {
-    --tl-line-color: #222222;
+    --tl-line-color: #1e1e42;
     position: relative;
 }
 
 .timelineItem {
     padding-bottom: var(--mantine-spacing-md);
     position: relative;
+    border-bottom: 0.5px solid #141430;
+}
+
+.timelineItem:last-child {
+    border-bottom: none;
 }
 
 .timelineItem::before {
@@ -16,7 +21,7 @@
     top: 40px;
     bottom: -8px;
     width: 1px;
-    background: #222222;
+    background: #1e1e42;
     z-index: -1;
 }
 
@@ -25,15 +30,21 @@
 }
 
 .timelineItemBullet {
-    background: #1a1a1a !important;
-    border: 1px solid #333333 !important;
+    background: #16162e !important;
+    border: 0.5px solid #2a2a50 !important;
     border-radius: 8px !important;
-    width: 32px !important;
-    height: 32px !important;
+    width: 36px !important;
+    height: 36px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    color: #888888 !important;
+    color: #8888cc !important;
+}
+
+.completedStep .timelineItemBullet {
+    background: #0d2a1a !important;
+    border: 0.5px solid #1a4a2a !important;
+    color: #4dbb7a !important;
 }
 
 .bulletIconSvg {
@@ -42,11 +53,16 @@
     justify-content: center;
     width: 20px;
     height: 20px;
-    color: #888888;
+    color: #8888cc;
 }
 
 .bulletIconSvg svg {
     width: 18px;
     height: 18px;
-    color: #888888;
+    color: #8888cc;
+}
+
+.completedStep .bulletIconSvg,
+.completedStep .bulletIconSvg svg {
+    color: #4dbb7a !important;
 }
