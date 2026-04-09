@@ -1,27 +1,34 @@
 import { ThemeIcon } from '@mantine/core'
 
-import { ColorGradientStyle } from '@shared/utils/config-parser'
-
 interface IProps {
     getIconFromLibrary: (iconKey: string) => string
-    gradientStyle: ColorGradientStyle
     isMobile: boolean
     svgIconColor: string
     svgIconKey: string
 }
 export const ThemeIconShared = (props: IProps) => {
-    const { isMobile, svgIconColor, gradientStyle, svgIconKey, getIconFromLibrary } = props
+    const { isMobile, svgIconKey, getIconFromLibrary } = props
+
+    // Determine if this is a "Check" icon for special styling
+    const isCheckIcon = svgIconKey.toLowerCase().includes('check');
+
+    // Define styles based on whether it's a check icon
+    const backgroundColor = isCheckIcon ? '#1a1a1a' : '#1a1a1a';
+    const borderColor = isCheckIcon ? '0.5px solid #444444' : '0.5px solid #333333';
+    const iconColor = isCheckIcon ? '#ffffff' : '#666666';
+    const borderRadius = '8px';
+    const size = 36; // Fixed size of 36x36px
 
     return (
         <ThemeIcon
-            color={svgIconColor}
-            radius="xl"
-            size={isMobile ? 36 : 44}
+            color="gray"
+            radius="sm"
+            size={size}
             style={{
-                background: gradientStyle.background,
-                border: gradientStyle.border,
-                boxShadow: gradientStyle.boxShadow,
-                flexShrink: 0
+                background: backgroundColor,
+                border: borderColor,
+                flexShrink: 0,
+                borderRadius: borderRadius
             }}
             variant="light"
         >
@@ -29,7 +36,11 @@ export const ThemeIconShared = (props: IProps) => {
                 dangerouslySetInnerHTML={{
                     __html: getIconFromLibrary(svgIconKey)
                 }}
-                style={{ display: 'flex', alignItems: 'center' }}
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    color: iconColor
+                }}
             />
         </ThemeIcon>
     )
