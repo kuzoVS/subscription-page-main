@@ -1,22 +1,28 @@
 # Dependencies
 node_modules/
 
-# Logs
+  # Logs
 *.log
 
-# Environment variables
+  # Environment variables
 .env*
 
-# Git directory
+  # Git directory
 .git/
 
-# Backend node modules (already handled separately in Dockerfile)
+  # Backend node modules
 /backend/node_modules
 
-# Development files
+  # Development files
 *.md
 README.md
 LICENSE
 
-# Ignore everything except dist
+  # Позволяем использовать frontend/dist
 !frontend/dist/
+
+
+
+
+
+
