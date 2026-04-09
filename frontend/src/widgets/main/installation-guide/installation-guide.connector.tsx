@@ -215,6 +215,27 @@ export const InstallationGuideConnector = (props: IProps) => {
                                         }}
                                     >
                                         {app.featured && <span className={classes.featuredBadge} />}
+                                        {hasIcon && (
+                                            <span
+                                                className={clsx(
+                                                    classes.bgIcon,
+                                                    isActive && classes.bgIconActive
+                                                )}
+                                                dangerouslySetInnerHTML={{
+                                                    __html: getIconFromLibrary(
+                                                        app.svgIconKey!,
+                                                        svgLibrary
+                                                    )
+                                                }}
+                                                style={{
+                                                    width: 20,
+                                                    height: 20,
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'center'
+                                                }}
+                                            />
+                                        )}
                                         <span className={classes.appName}>{t(app.name)}</span>
                                     </UnstyledButton>
                                 )

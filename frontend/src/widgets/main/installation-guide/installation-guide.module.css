@@ -10,16 +10,17 @@
     display: flex;
     align-items: center;
     flex: 1 1 auto;
-    padding: 8px 16px;
+    padding: 6px 14px;
     min-height: 36px;
     min-width: 0;
     background: #1a1a1a;
-    border: 1px solid #333333;
+    border: 0.5px solid #333333;
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.2s ease;
     font-size: 0.875rem;
     font-weight: 400;
+    gap: 6px;
 }
 
 .appButton:hover {
@@ -29,26 +30,35 @@
 
 .appButtonActive,
 .appButtonActive:hover {
-    background: #111111;
-    border: 1px solid #222222;
-    color: #ffffff;
+    background: #ffffff;
+    border: 0.5px solid #333333;
+    color: #000000;
+    font-weight: 500;
 }
 
 .appButtonActive .appName {
-    color: #ffffff;
+    color: #000000;
 }
 
 .appName {
     position: relative;
     z-index: 1;
-    color: #888888;
+    color: #666666;
     font-size: 0.875rem;
     font-weight: 400;
     white-space: nowrap;
 }
 
 .appButtonActive .appName {
-    color: #ffffff;
+    color: #000000;
+}
+
+.bgIcon {
+    width: 20px !important;
+    height: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 .featuredBadge {
