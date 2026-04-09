@@ -7,54 +7,26 @@ body {
     position: relative;
     overflow-x: hidden;
     color: #ffffff;
-}
-
-/* Minimalist subtle animated particles */
-body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    background-image:
-        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        radial-gradient(circle at 90% 40%, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        radial-gradient(circle at 30% 90%, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
-    background-size: 100px 100px;
-    z-index: -1;
-    animation: floatParticles 30s infinite linear;
-}
-
-@keyframes floatParticles {
-    0% {
-        transform: translate(0, 0);
-    }
-    100% {
-        transform: translate(100px, 100px);
-    }
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 /* Minimalist scrollbar styling */
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 4px;
+    height: 4px;
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(30, 30, 30, 0.5);
-    border-radius: 3px;
+    background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(80, 80, 80, 0.8);
-    border-radius: 3px;
-    transition: background 0.2s ease;
+    background: #333333;
+    border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(120, 120, 120, 0.9);
+    background: #555555;
 }
 
 /* Global text selection styling */
@@ -65,21 +37,20 @@ body::after {
 
 /* Minimalist link styling */
 a {
-    color: #cccccc;
+    color: #aaaaaa;
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color 0.1s ease;
 }
 
 a:hover {
-    color: #ffffff;
+    color: #dddddd;
     text-decoration: underline;
 }
 
 /* Custom focus styles for accessibility */
 *:focus-visible {
-    outline: 2px solid #888888 !important;
-    outline-offset: 2px;
-    box-shadow: 0 0 0 3px rgba(136, 136, 136, 0.3);
+    outline: 1px solid #666666 !important;
+    outline-offset: 1px;
 }
 
 #root {
@@ -102,22 +73,19 @@ a:hover {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(10, 10, 10, 0.95);
-    border-bottom: 1px solid rgba(60, 60, 60, 0.5);
-    border-radius: 0 0 var(--mantine-radius-md) var(--mantine-radius-md);
-    border: 1px solid rgba(60, 60, 60, 0.3);
+    background: #0a0a0a;
+    border-bottom: 1px solid #222222;
 
     @media (min-width: 768px) {
-        border-radius: 0 0 var(--mantine-radius-md) var(--mantine-radius-md);
     }
 }
 
 .logo-text-highlight {
-    color: #cccccc;
+    color: #ffffff;
 }
 
 .logo-text-normal {
-    color: white;
+    color: #ffffff;
 }
 
 .info-card-cyan,
@@ -128,9 +96,8 @@ a:hover {
 .info-card-blue,
 .info-card-teal,
 .info-card-orange {
-    background: rgba(30, 30, 30, 0.8);
-    border: 1px solid rgba(80, 80, 80, 0.4);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background: #111111;
+    border: 1px solid #222222;
     position: relative;
     overflow: hidden;
 }
@@ -143,8 +110,6 @@ a:hover {
 .info-card-blue:hover,
 .info-card-teal:hover,
 .info-card-orange:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(120, 120, 120, 0.6);
+    border: 1px solid #333333;
     transition: all 0.2s ease;
 }

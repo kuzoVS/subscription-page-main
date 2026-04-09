@@ -1,21 +1,18 @@
 .cardItem {
     padding: var(--mantine-spacing-md);
-    background: rgba(20, 20, 20, 0.8);
-    border: 1px solid rgba(80, 80, 80, 0.3);
-    border-radius: var(--mantine-radius-lg);
+    background: #111111;
+    border: 1px solid #222222;
+    border-radius: var(--mantine-radius-sm);
     transition: all 0.2s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .cardItem:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-    border-color: rgba(120, 120, 120, 0.5);
+    border-color: #333333;
 }
 
 .iconWhite {
-    background: rgba(40, 40, 40, 0.8);
-    border: 1px solid rgba(100, 100, 100, 0.4);
+    background: #1a1a1a;
+    border: 1px solid #333333;
 }
 
 .label {
@@ -23,8 +20,9 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     font-weight: 400;
-    letter-spacing: 0.2px;
-    color: #aaa;
+    letter-spacing: 0.1px;
+    color: #888888;
+    font-size: 0.75rem;
 }
 
 .value {
@@ -33,46 +31,19 @@
     white-space: nowrap;
     font-weight: 500;
     letter-spacing: 0.1px;
-    color: #fff;
+    color: #ffffff;
+    font-size: 0.875rem;
 }
 
-/* Alternative color variants in grayscale */
-.iconBlue {
-    background: rgba(40, 40, 40, 0.8);
-    border: 1px solid rgba(100, 100, 100, 0.4);
-}
-
-.iconCyan {
-    background: rgba(40, 40, 40, 0.8);
-    border: 1px solid rgba(100, 100, 100, 0.4);
-}
-
-.iconGreen {
-    background: rgba(40, 40, 40, 0.8);
-    border: 1px solid rgba(100, 100, 100, 0.4);
-}
-
-.iconTeal {
-    background: rgba(40, 40, 40, 0.8);
-    border: 1px solid rgba(100, 100, 100, 0.4);
-}
-
-.iconRed {
-    background: rgba(40, 40, 40, 0.8);
-    border: 1px solid rgba(100, 100, 100, 0.4);
-}
-
-.iconYellow {
-    background: rgba(40, 40, 40, 0.8);
-    border: 1px solid rgba(100, 100, 100, 0.4);
-}
-
-.iconOrange {
-    background: rgba(40, 40, 40, 0.8);
-    border: 1px solid rgba(100, 100, 100, 0.4);
-}
-
+/* All icons use the same minimal style */
+.iconBlue,
+.iconCyan,
+.iconGreen,
+.iconTeal,
+.iconRed,
+.iconYellow,
+.iconOrange,
 .iconViolet {
-    background: rgba(40, 40, 40, 0.8);
-    border: 1px solid rgba(100, 100, 100, 0.4);
+    background: #1a1a1a;
+    border: 1px solid #333333;
 }

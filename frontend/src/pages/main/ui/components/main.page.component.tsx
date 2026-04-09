@@ -11,6 +11,8 @@ import {
     SubscriptionInfoCollapsedWidget,
     SubscriptionInfoExpandedWidget,
     SubscriptionInfoCardsMinimalDarkWidget,
+    SubscriptionInfoCollapsedMinimalDarkWidget,
+    SubscriptionInfoExpandedMinimalDarkWidget,
     SubscriptionLinkWidget,
     TimelineBlockRenderer
 } from '@widgets/main'
