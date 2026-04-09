@@ -1,0 +1,58 @@
+.root {
+    display: flex;
+    flex-grow: 1;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.main {
+    max-width: 1200px;
+    width: 100%;
+    align-self: center;
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+/* Youthful glass-morphism effect for content area */
+.main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(10, 15, 26, 0.3) 0%, rgba(12, 20, 37, 0.2) 100%);
+    border-radius: var(--mantine-radius-xl);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: -1;
+    margin: 1rem;
+    border: 1px solid rgba(6, 182, 212, 0.1);
+    box-shadow: 0 8px 32px rgba(6, 182, 212, 0.1);
+}
+
+/* Youthful glow effect for content container */
+.main {
+    position: relative;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .main {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+
+    .main::before {
+        margin: 0.5rem;
+    }
+}

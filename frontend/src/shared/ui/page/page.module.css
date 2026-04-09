@@ -1,0 +1,61 @@
+.page {
+    animation: slideUpFadeIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes slideUpFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Enhanced entrance animation for child elements */
+.page > * {
+    animation: staggerEntrance 0.6s ease-out 0.15s both;
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes staggerEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) rotateX(15deg);
+    }
+    70% {
+        opacity: 0.8;
+        transform: translateY(-5px) rotateX(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotateX(0deg);
+    }
+}
+
+/* Youthful floating animation for elements */
+.page > *:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+.page > *:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+/* Subtle pulse effect for interactive elements */
+.page .interactive-element {
+    animation: subtlePulse 3s infinite ease-in-out;
+}
+
+@keyframes subtlePulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(6, 182, 212, 0);
+    }
+}
