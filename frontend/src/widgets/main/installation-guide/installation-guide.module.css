@@ -13,8 +13,8 @@
     padding: 8px 16px;
     min-height: 36px;
     min-width: 0;
-    background: #16162e;
-    border: 0.5px solid #2a2a50;
+    background: #1a1a1a;
+    border: 1px solid #333333;
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -23,32 +23,32 @@
 }
 
 .appButton:hover {
-    border-color: #3a3a60;
-    background: #1a1a3a;
+    border-color: #444444;
+    background: #222222;
 }
 
 .appButtonActive,
 .appButtonActive:hover {
-    background: #ffffff;
-    border: 1px solid #ffffff;
-    color: #000000;
+    background: #111111;
+    border: 1px solid #222222;
+    color: #ffffff;
 }
 
 .appButtonActive .appName {
-    color: #000000;
+    color: #ffffff;
 }
 
 .appName {
     position: relative;
     z-index: 1;
-    color: #7070a0;
+    color: #888888;
     font-size: 0.875rem;
     font-weight: 400;
     white-space: nowrap;
 }
 
 .appButtonActive .appName {
-    color: #000000;
+    color: #ffffff;
 }
 
 .featuredBadge {

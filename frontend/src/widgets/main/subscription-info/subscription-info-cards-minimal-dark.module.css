@@ -1,19 +1,19 @@
 .cardItem {
     padding: var(--mantine-spacing-md);
-    background: #0f0f28;
-    border: 0.5px solid #1e1e42;
-    border-radius: 12px;
+    background: #111111;
+    border: 1px solid #222222;
+    border-radius: var(--mantine-radius-sm);
     transition: all 0.2s ease;
 }
 
 .cardItem:hover {
-    border-color: #2a2a50;
+    border-color: #333333;
 }
 
 .iconWhite {
-    background: #16162e;
-    border: 0.5px solid #2a2a50;
-    border-radius: 8px;
+    background: #1a1a1a;
+    border: 1px solid #333333;
+    border-radius: var(--mantine-radius-default);
 }
 
 .label {
@@ -22,7 +22,7 @@
     white-space: nowrap;
     font-weight: 400;
     letter-spacing: 0.1px;
-    color: #5a5a80;
+    color: #888888;
     font-size: 0.75rem;
     text-transform: lowercase;
 }
@@ -46,7 +46,7 @@
 .iconYellow,
 .iconOrange,
 .iconViolet {
-    background: #16162e;
-    border: 0.5px solid #2a2a50;
-    border-radius: 8px;
+    background: #1a1a1a;
+    border: 1px solid #333333;
+    border-radius: var(--mantine-radius-default);
 }

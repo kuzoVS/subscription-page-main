@@ -1,8 +1,7 @@
 html,
 body {
     min-height: 100vh;
-    background: #08081a;
-    background: #08081a radial-gradient(ellipse at center bottom, rgba(70, 30, 180, 0.35) 0%, transparent 70%) no-repeat;
+    background: #000000;
     background-attachment: fixed;
     background-repeat: no-repeat;
     position: relative;
@@ -95,9 +94,9 @@ a:hover {
 .info-card-blue,
 .info-card-teal,
 .info-card-orange {
-    background: #0f0f28;
-    border: 0.5px solid #1e1e42;
-    border-radius: 12px;
+    background: #111111;
+    border: 1px solid #222222;
+    border-radius: var(--mantine-radius-sm);
     position: relative;
     overflow: hidden;
 }
@@ -110,6 +109,6 @@ a:hover {
 .info-card-blue:hover,
 .info-card-teal:hover,
 .info-card-orange:hover {
-    border: 0.5px solid #2a2a50;
+    border: 1px solid #333333;
     transition: all 0.2s ease;
 }

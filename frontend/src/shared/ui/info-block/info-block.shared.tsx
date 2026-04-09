@@ -11,12 +11,12 @@ export const InfoBlockShared = ({ color, icon, title, value }: IInfoBlockProps) 
                 <Group gap={4} wrap="nowrap">
                     <ThemeIcon color="gray" radius="sm" size="xs" variant="light"
                         style={{
-                            background: '#16162e',
-                            border: '0.5px solid #2a2a50',
+                            background: '#1a1a1a',
+                            border: '1px solid #333333',
                         }}>
                         {icon}
                     </ThemeIcon>
-                    <Text c="#5a5a80" fw={400} size="xs" truncate style={{textTransform: 'lowercase'}}>
+                    <Text c="#888888" fw={400} size="xs" truncate style={{textTransform: 'lowercase'}}>
                         {title}
                     </Text>
                 </Group>

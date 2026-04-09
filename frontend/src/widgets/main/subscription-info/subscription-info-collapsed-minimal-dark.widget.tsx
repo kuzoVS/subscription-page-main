@@ -52,7 +52,7 @@ export const SubscriptionInfoCollapsedMinimalDarkWidget = ({ isMobile }: IProps)
     const statusColor = getStatusColor()
 
     return (
-        <Card p="sm" radius="12px" bg="#0f0f28" style={{ border: '0.5px solid #1e1e42' }}>
+        <Card p="sm" radius="sm" bg="#111111" style={{ border: '1px solid #222222' }}>
             <Group gap="sm" justify="space-between" wrap="nowrap">
                 <Group gap="xs" style={{ minWidth: 0, flex: 1 }} wrap="nowrap">
                     <ThemeIcon
