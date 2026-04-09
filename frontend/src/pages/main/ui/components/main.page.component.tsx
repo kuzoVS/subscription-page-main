@@ -10,6 +10,7 @@ import {
     SubscriptionInfoCardsWidget,
     SubscriptionInfoCollapsedWidget,
     SubscriptionInfoExpandedWidget,
+    SubscriptionInfoCardsMinimalDarkWidget,
     SubscriptionLinkWidget,
     TimelineBlockRenderer
 } from '@widgets/main'
@@ -33,6 +34,7 @@ const SUBSCRIPTION_INFO_BLOCK_RENDERERS = {
     cards: SubscriptionInfoCardsWidget,
     collapsed: SubscriptionInfoCollapsedWidget,
     expanded: SubscriptionInfoExpandedWidget,
+    minimalDark: SubscriptionInfoCardsMinimalDarkWidget,
     hidden: null
 } as const
 
