@@ -37,6 +37,8 @@ const SUBSCRIPTION_INFO_BLOCK_RENDERERS = {
     collapsed: SubscriptionInfoCollapsedWidget,
     expanded: SubscriptionInfoExpandedWidget,
     minimalDark: SubscriptionInfoCardsMinimalDarkWidget,
+    minimalDarkCollapsed: SubscriptionInfoCollapsedMinimalDarkWidget,
+    minimalDarkExpanded: SubscriptionInfoExpandedMinimalDarkWidget,
     hidden: null
 } as const
 
