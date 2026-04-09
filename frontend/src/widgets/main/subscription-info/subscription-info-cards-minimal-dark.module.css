@@ -13,6 +13,7 @@
 .iconWhite {
     background: #1a1a1a;
     border: 1px solid #333333;
+    border-radius: var(--mantine-radius-default);
 }
 
 .label {
@@ -23,6 +24,7 @@
     letter-spacing: 0.1px;
     color: #888888;
     font-size: 0.75rem;
+    text-transform: lowercase;
 }
 
 .value {
@@ -46,4 +48,5 @@
 .iconViolet {
     background: #1a1a1a;
     border: 1px solid #333333;
+    border-radius: var(--mantine-radius-default);
 }

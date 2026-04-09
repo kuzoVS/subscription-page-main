@@ -1,15 +1,39 @@
 /* Timeline styles */
 .timelineRoot {
-    --tl-line-color: rgba(255, 255, 255, 0.08);
+    --tl-line-color: #222222;
+    position: relative;
 }
 
 .timelineItem {
     padding-bottom: var(--mantine-spacing-md);
+    position: relative;
+}
+
+.timelineItem::before {
+    content: '';
+    position: absolute;
+    left: 16px;
+    top: 40px;
+    bottom: -8px;
+    width: 1px;
+    background: #222222;
+    z-index: -1;
+}
+
+.timelineItem:last-child::before {
+    display: none;
 }
 
 .timelineItemBullet {
-    background: transparent !important;
-    border: none !important;
+    background: #1a1a1a !important;
+    border: 1px solid #333333 !important;
+    border-radius: 8px !important;
+    width: 32px !important;
+    height: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #888888 !important;
 }
 
 .bulletIconSvg {
@@ -18,9 +42,11 @@
     justify-content: center;
     width: 20px;
     height: 20px;
+    color: #888888;
 }
 
 .bulletIconSvg svg {
     width: 18px;
     height: 18px;
+    color: #888888;
 }

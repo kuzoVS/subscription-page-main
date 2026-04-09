@@ -12,8 +12,8 @@ body {
 
 /* Minimalist scrollbar styling */
 ::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
+    width: 6px;
+    height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -21,12 +21,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #333333;
-    border-radius: 2px;
+    background: #222222;
+    border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555555;
+    background: #333333;
 }
 
 /* Global text selection styling */
@@ -75,9 +75,7 @@ a:hover {
     z-index: 100;
     background: #0a0a0a;
     border-bottom: 1px solid #222222;
-
-    @media (min-width: 768px) {
-    }
+    padding: 12px 0;
 }
 
 .logo-text-highlight {
@@ -98,6 +96,7 @@ a:hover {
 .info-card-orange {
     background: #111111;
     border: 1px solid #222222;
+    border-radius: var(--mantine-radius-sm);
     position: relative;
     overflow: hidden;
 }

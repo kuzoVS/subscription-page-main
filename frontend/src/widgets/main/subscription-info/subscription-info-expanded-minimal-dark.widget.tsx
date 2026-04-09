@@ -42,7 +42,7 @@ export const SubscriptionInfoExpandedMinimalDarkWidget = ({ isMobile }: IProps) 
     const statusColor = getStatusColor()
 
     return (
-        <Card p={{ base: 'sm', xs: 'sm', sm: 'md', md: 'md' }} radius="md" bg="#111111" style={{ border: '1px solid #222222' }}>
+        <Card p={{ base: 'sm', xs: 'sm', sm: 'md', md: 'md' }} radius="sm" bg="#111111" style={{ border: '1px solid #222222' }}>
             <Stack gap={isMobile ? 'sm' : 'md'}>
                 <Group gap="sm" justify="space-between">
                     <Group
@@ -52,7 +52,7 @@ export const SubscriptionInfoExpandedMinimalDarkWidget = ({ isMobile }: IProps) 
                     >
                         <ThemeIcon
                             color="gray"
-                            radius="md"
+                            radius="sm"
                             size={isMobile ? 36 : 44}
                             style={{
                                 background: '#1a1a1a',
