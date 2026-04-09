@@ -13,11 +13,11 @@ export const ThemeIconShared = (props: IProps) => {
     const isCheckIcon = svgIconKey.toLowerCase().includes('check');
 
     // Define styles based on whether it's a check icon
-    const backgroundColor = isCheckIcon ? '#1a1a1a' : '#1a1a1a';
-    const borderColor = isCheckIcon ? '0.5px solid #444444' : '0.5px solid #333333';
-    const iconColor = isCheckIcon ? '#ffffff' : '#666666';
+    const backgroundColor = isCheckIcon ? '#0a0a0a' : '#0a0a0a';
+    const borderColor = isCheckIcon ? '0.5px solid #1a3a1a' : '0.5px solid #222';
+    const iconColor = isCheckIcon ? '#3a6a3a' : '#444';
     const borderRadius = '8px';
-    const size = 36; // Fixed size of 36x36px
+    const size = isCheckIcon ? 20 : 32; // 20x20px for check icons, 32x32px for others
 
     return (
         <ThemeIcon

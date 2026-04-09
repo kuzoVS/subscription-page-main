@@ -2,6 +2,7 @@ html,
 body {
     min-height: 100vh;
     background: #000000;
+    background: #000000 radial-gradient(ellipse at center bottom, #1a1a1a 0%, #000000 60%) no-repeat;
     background-attachment: fixed;
     background-repeat: no-repeat;
     position: relative;
@@ -73,17 +74,22 @@ a:hover {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: #08081a;
-    border-bottom: 0.5px solid #1e1e42;
-    padding: 12px 0;
+    background: transparent;
+    border-bottom: 0.5px solid #1a1a1a;
+    padding: 14px 24px;
 }
 
 .logo-text-highlight {
     color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .logo-text-normal {
-    color: #7070a0;
+    color: #333;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
 }
 
 .info-card-cyan,
@@ -94,9 +100,8 @@ a:hover {
 .info-card-blue,
 .info-card-teal,
 .info-card-orange {
-    background: #111111;
-    border: 1px solid #222222;
-    border-radius: var(--mantine-radius-sm);
+    padding: 16px 0;
+    border-bottom: 0.5px solid #111;
     position: relative;
     overflow: hidden;
 }
@@ -109,6 +114,6 @@ a:hover {
 .info-card-blue:hover,
 .info-card-teal:hover,
 .info-card-orange:hover {
-    border: 1px solid #333333;
+    border-bottom: 0.5px solid #1a1a1a;
     transition: all 0.2s ease;
 }

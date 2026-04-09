@@ -2,12 +2,11 @@
     padding: var(--mantine-spacing-xs);
     border-radius: var(--mantine-radius-sm);
     transition: all 0.2s ease;
-    background: #111111;
-    border: 1px solid #222222;
+    border-bottom: 0.5px solid #111;
 }
 
 .infoBlock:hover {
-    border-color: #333333;
+    border-bottom: 0.5px solid #1a1a1a;
 }
 
 /* All colors use the same minimal style */
@@ -19,6 +18,5 @@
 .yellow,
 .orange,
 .violet {
-    background: #111111;
-    border: 1px solid #222222;
+    border-bottom: 0.5px solid #111;
 }

@@ -154,9 +154,9 @@ export const InstallationGuideConnector = (props: IProps) => {
         <Card p={{ base: 'sm', xs: 'md', sm: 'lg', md: 'xl' }} radius="lg">
             <Stack gap="md">
                 <Group gap="sm" justify="space-between">
-                    <Title c="white" fw={600} order={4}>
-                        {t(baseTranslations.installationGuideHeader)}
-                    </Title>
+                    <div style={{ fontSize: '11px', color: '#333', textTransform: 'uppercase', letterSpacing: '0.12em' }}>
+                        УСТАНОВКА
+                    </div>
 
                     {availablePlatforms.length > 1 && (
                         <NativeSelect
@@ -186,10 +186,22 @@ export const InstallationGuideConnector = (props: IProps) => {
                                 setSelectedPlatform(value)
                                 setSelectedAppIndex(0)
                             }}
-                            radius="md"
+                            radius="20px"
                             size="sm"
                             value={selectedPlatform}
                             w={150}
+                            styles={{
+                                input: {
+                                    borderRadius: '20px',
+                                    border: '0.5px solid #1a1a1a',
+                                    background: 'transparent',
+                                    fontSize: '11px',
+                                    color: '#444'
+                                },
+                                section: {
+                                    color: '#444'
+                                }
+                            }}
                         />
                     )}
                 </Group>
