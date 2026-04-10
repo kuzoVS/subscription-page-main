@@ -18,5 +18,6 @@
 .yellow,
 .orange,
 .violet {
-    border-bottom: 0.5px solid #111;
+    border: 0.5px solid #222222;
+    box-shadow: none;
 }

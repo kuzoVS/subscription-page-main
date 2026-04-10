@@ -1,8 +1,7 @@
 html,
 body {
     min-height: 100vh;
-    background: #000000;
-    background: radial-gradient(ellipse at center bottom, #1a1a1a 0%, #000000 60%);
+    background: radial-gradient(ellipse at center bottom, #1a1a1a 0%, #000000 65%);
     background-attachment: fixed;
     background-repeat: no-repeat;
     position: relative;
@@ -101,9 +100,10 @@ a:hover {
 .info-card-teal,
 .info-card-orange {
     padding: 16px 0;
-    border-bottom: 0.5px solid #111;
+    border: 0.5px solid #222222;
     position: relative;
     overflow: hidden;
+    box-shadow: none;
 }
 
 .info-card-cyan:hover,
@@ -114,6 +114,7 @@ a:hover {
 .info-card-blue:hover,
 .info-card-teal:hover,
 .info-card-orange:hover {
-    border-bottom: 0.5px solid #1a1a1a;
+    border: 0.5px solid #222222;
     transition: all 0.2s ease;
+    box-shadow: none;
 }
