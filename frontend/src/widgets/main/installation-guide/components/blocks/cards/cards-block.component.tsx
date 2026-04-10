@@ -20,6 +20,7 @@ export const CardsBlockRenderer = ({
                     <div
                         key={index}
                         className={classes.root}
+                        style={{ position: 'relative' }}
                     >
                         <Group align="flex-start" gap={isMobile ? 'sm' : 'md'} wrap="nowrap">
                             <TerminalIcon
@@ -29,7 +30,7 @@ export const CardsBlockRenderer = ({
                                 blockIndex={index}
                                 variant="cards"
                             />
-                            <Stack gap={isMobile ? 'xs' : 'sm'} style={{ flex: 1, minWidth: 0 }}>
+                            <Stack gap={isMobile ? 'xs' : 'sm'} style={{ flex: 1, minWidth: 0, paddingTop: '8px' }}>
                                 <Text
                                     style={{
                                         fontFamily: "'JetBrains Mono', monospace",

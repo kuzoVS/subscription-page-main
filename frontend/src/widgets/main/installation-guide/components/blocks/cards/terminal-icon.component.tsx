@@ -16,7 +16,7 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
             style={{
                 width: isCards ? '40px' : '40px',
                 minWidth: isCards ? '40px' : 'auto',
-                height: isCards ? '40px' : '40px',
+                height: isCards ? '100%' : '40px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -26,7 +26,7 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
         >
             {isCards ? (
                 <>
-                    {/* Вертикальная линия */}
+                    {/* Вертикальная линия на всю высоту */}
                     <Box
                         style={{
                             position: 'absolute',
@@ -59,34 +59,22 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
                     >
                         {blockIndex + 1}
                     </span>
-                    {/* Иконка — по центру, без рамки, чуть больше */}
-                    <Box
+                    {/* Иконка — без фона, прозрачная, чуть больше */}
+                    <span
+                        dangerouslySetInnerHTML={{
+                            __html: getIconFromLibrary(svgIconKey)
+                        }}
                         style={{
-                            width: '32px',
-                            height: '32px',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            background: '#0a0a0a',
-                            borderRadius: '50%',
+                            color: '#5aaa5a',
+                            width: '22px',
+                            height: '22px',
+                            filter: 'drop-shadow(0 0 5px rgba(90, 170, 90, 0.4))',
                             zIndex: 1
                         }}
-                    >
-                        <span
-                            dangerouslySetInnerHTML={{
-                                __html: getIconFromLibrary(svgIconKey)
-                            }}
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                color: '#5aaa5a',
-                                width: '20px',
-                                height: '20px',
-                                filter: 'drop-shadow(0 0 4px rgba(90, 170, 90, 0.3))'
-                            }}
-                        />
-                    </Box>
+                    />
                 </>
             ) : (
                 <>
@@ -117,7 +105,7 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            background: '#0f0f0f',
+                            background: 'transparent',
                             border: '1px solid #222',
                             borderRadius: '6px'
                         }}
