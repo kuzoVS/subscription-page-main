@@ -32,6 +32,8 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
             ? t(baseTranslations.active)
             : t(baseTranslations.inactive)
 
+    const statusColor = isActive || isExpiringSoon ? '#5aaa5a' : '#666'
+
     const handleToggle = () => {
         vibrate('tap')
         setIsExpanded(!isExpanded)
@@ -71,7 +73,7 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
                     </Stack>
 
                     <Group gap="xs" wrap="nowrap" style={{ flexShrink: 0 }}>
-                        <span className={classes.statusBadge}>
+                        <span className={classes.statusBadge} style={{ color: statusColor, borderColor: statusColor }}>
                             {isActive || isExpiringSoon ? '●' : '○'} {statusText}
                         </span>
                         {isExpanded ? (

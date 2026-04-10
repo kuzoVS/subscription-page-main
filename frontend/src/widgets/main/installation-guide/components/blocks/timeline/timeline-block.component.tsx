@@ -47,7 +47,7 @@ export const TimelineBlockRenderer = ({
                                     style={{
                                         fontFamily: "'JetBrains Mono', monospace",
                                         fontSize: isMobile ? '11px' : '12px',
-                                        color: '#aaa',
+                                        color: '#bbb',
                                         lineHeight: 1.6
                                     }}
                                 >

@@ -50,7 +50,7 @@ export const MinimalBlockRenderer = ({
                             style={{
                                 fontFamily: "'JetBrains Mono', monospace",
                                 fontSize: isMobile ? '11px' : '12px',
-                                color: '#888',
+                                color: '#bbb',
                                 lineHeight: 1.6
                             }}
                         >

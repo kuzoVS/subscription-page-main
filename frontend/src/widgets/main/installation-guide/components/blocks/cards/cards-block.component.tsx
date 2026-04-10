@@ -50,7 +50,7 @@ export const CardsBlockRenderer = ({
                                     style={{
                                         fontFamily: "'JetBrains Mono', monospace",
                                         fontSize: isMobile ? '11px' : '12px',
-                                        color: '#aaa',
+                                        color: '#bbb',
                                         whiteSpace: 'pre-line',
                                         lineHeight: 1.6
                                     }}

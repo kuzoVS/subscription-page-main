@@ -45,7 +45,7 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex }: IPr
                 style={{
                     display: 'flex',
                     alignItems: 'center',
-                    color: isCheckIcon ? '#5aaa5a' : '#666',
+                    color: isCheckIcon ? '#5aaa5a' : '#999',
                     width: '14px',
                     height: '14px'
                 }}

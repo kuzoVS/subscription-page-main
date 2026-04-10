@@ -147,8 +147,8 @@ export const InstallationGuideConnector = (props: IProps) => {
                             fontSize: '11px',
                             fontWeight: 400,
                             background: 'transparent',
-                            border: '0.5px solid #222',
-                            color: '#888',
+                            border: '0.5px solid #333',
+                            color: '#aaa',
                             padding: '4px 12px',
                             height: 'auto',
                             minHeight: '26px'
