@@ -4,6 +4,7 @@ import '@mantine/nprogress/styles.layer.css'
 import '@gfazioli/mantine-spinner/styles.css'
 
 import './global.css'
+import './glass-theme.css'
 
 import { polyfillCountryFlagEmojis } from 'country-flag-emoji-polyfill'
 import { DirectionProvider, MantineProvider } from '@mantine/core'
