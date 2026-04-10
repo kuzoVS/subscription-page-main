@@ -25,18 +25,18 @@
 }
 
 .fieldLabel {
-    color: #3a6a3a;
+    color: #5aaa5a;
 }
 
 .statusBadge {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
-    color: #3a3a3a;
+    font-weight: 500;
     white-space: nowrap;
-    padding: 3px 10px;
-    border: 0.5px solid #1a1a1a;
+    padding: 4px 12px;
+    border: 1px solid;
     border-radius: 0;
-    background: transparent;
+    transition: all 0.3s ease;
 }
 
 .expandedContent {
@@ -47,6 +47,7 @@
     padding: 12px 0 12px 14px;
     border-left: 2px solid #5aaa5a;
     background: transparent;
+    transition: border-left-color 0.3s ease;
 }
 
 .fieldsGrid {

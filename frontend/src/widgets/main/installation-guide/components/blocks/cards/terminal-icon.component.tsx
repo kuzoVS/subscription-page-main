@@ -13,26 +13,34 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex }: IPr
     return (
         <Box
             style={{
-                width: '28px',
-                height: '28px',
+                width: '40px',
+                height: '40px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexShrink: 0,
-                position: 'relative'
+                position: 'relative',
+                background: '#0f0f0f',
+                border: '1px solid #222',
+                borderRadius: '6px'
             }}
         >
             <span
                 style={{
                     position: 'absolute',
-                    top: '-6px',
-                    left: '-4px',
-                    fontSize: '9px',
+                    top: '-5px',
+                    right: '-5px',
+                    fontSize: '8px',
                     fontFamily: "'JetBrains Mono', monospace",
-                    color: '#5aaa5a',
-                    fontWeight: 600,
-                    background: '#000',
-                    padding: '0 2px'
+                    color: '#000',
+                    fontWeight: 700,
+                    background: '#5aaa5a',
+                    width: '14px',
+                    height: '14px',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
                 }}
             >
                 {blockIndex + 1}
@@ -45,9 +53,11 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex }: IPr
                 style={{
                     display: 'flex',
                     alignItems: 'center',
-                    color: isCheckIcon ? '#5aaa5a' : '#999',
-                    width: '14px',
-                    height: '14px'
+                    justifyContent: 'center',
+                    color: isCheckIcon ? '#5aaa5a' : '#ccc',
+                    width: '20px',
+                    height: '20px',
+                    filter: 'drop-shadow(0 0 3px rgba(90, 170, 90, 0.15))'
                 }}
             />
         </Box>
