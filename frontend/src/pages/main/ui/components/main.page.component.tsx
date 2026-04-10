@@ -151,6 +151,13 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                 px={{ base: 'md', sm: 'lg', md: 'xl' }}
                 pt="xl"
                 pb={0}
+                style={{
+                    position: 'relative',
+                    zIndex: 1,
+                    background: 'linear-gradient(to right, transparent 0%, rgba(18, 18, 32, 0.4) 10%, rgba(18, 18, 32, 0.4) 90%, transparent 100%)',
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)'
+                }}
             >
                 <Stack gap="md" style={{ paddingBottom: '0' }}>
                     {SubscriptionInfoBlockRenderer && (
