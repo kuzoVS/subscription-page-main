@@ -3,7 +3,7 @@
    ═══════════════════════════════════════════════════ */
 
 .root {
-    padding: 12px 0;
+    padding: 14px 0;
     border-bottom: 1px solid #111;
     background: transparent;
     position: relative;
@@ -11,16 +11,6 @@
 
 .root:last-child {
     border-bottom: none;
-}
-
-.root::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: #3a6a3a;
 }
 
 .root:hover {

@@ -29,7 +29,7 @@ export const CardsBlockRenderer = ({
                                 blockIndex={index}
                                 variant="cards"
                             />
-                            <Stack gap={isMobile ? 'xs' : 'sm'} style={{ flex: 1, minWidth: 0, paddingLeft: '12px' }}>
+                            <Stack gap={isMobile ? 'xs' : 'sm'} style={{ flex: 1, minWidth: 0 }}>
                                 <Text
                                     style={{
                                         fontFamily: "'JetBrains Mono', monospace",

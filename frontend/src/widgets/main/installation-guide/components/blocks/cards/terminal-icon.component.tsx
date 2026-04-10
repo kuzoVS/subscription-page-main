@@ -14,10 +14,11 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
     return (
         <Box
             style={{
-                width: isCards ? '2px' : '40px',
-                height: isCards ? 'auto' : '40px',
+                width: isCards ? '40px' : '40px',
+                minWidth: isCards ? '40px' : 'auto',
+                height: isCards ? '40px' : '40px',
                 display: 'flex',
-                alignItems: isCards ? 'flex-start' : 'center',
+                alignItems: 'center',
                 justifyContent: 'center',
                 flexShrink: 0,
                 position: 'relative'
@@ -25,43 +26,67 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
         >
             {isCards ? (
                 <>
-                    {/* Номер шага — зелёный кружок сверху на линии */}
+                    {/* Вертикальная линия */}
+                    <Box
+                        style={{
+                            position: 'absolute',
+                            left: '19px',
+                            top: 0,
+                            bottom: 0,
+                            width: '1px',
+                            background: '#222'
+                        }}
+                    />
+                    {/* Номер шага — зелёный кружок сверху */}
                     <span
                         style={{
                             position: 'absolute',
-                            top: '-2px',
-                            left: '-7px',
-                            fontSize: '8px',
+                            top: '-4px',
+                            left: '0px',
+                            fontSize: '9px',
                             fontFamily: "'JetBrains Mono', monospace",
                             color: '#000',
                             fontWeight: 700,
                             background: '#5aaa5a',
-                            width: '14px',
-                            height: '14px',
+                            width: '16px',
+                            height: '16px',
                             borderRadius: '50%',
                             display: 'flex',
                             alignItems: 'center',
-                            justifyContent: 'center'
+                            justifyContent: 'center',
+                            zIndex: 2
                         }}
                     >
                         {blockIndex + 1}
                     </span>
-                    {/* Иконка — по центру линии, без рамки */}
-                    <span
-                        dangerouslySetInnerHTML={{
-                            __html: getIconFromLibrary(svgIconKey)
-                        }}
+                    {/* Иконка — по центру, без рамки, чуть больше */}
+                    <Box
                         style={{
+                            width: '32px',
+                            height: '32px',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            color: '#5aaa5a',
-                            width: '18px',
-                            height: '18px',
-                            marginLeft: '-8px',
-                            filter: 'drop-shadow(0 0 4px rgba(90, 170, 90, 0.3))'
+                            background: '#0a0a0a',
+                            borderRadius: '50%',
+                            zIndex: 1
                         }}
-                    />
+                    >
+                        <span
+                            dangerouslySetInnerHTML={{
+                                __html: getIconFromLibrary(svgIconKey)
+                            }}
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                color: '#5aaa5a',
+                                width: '20px',
+                                height: '20px',
+                                filter: 'drop-shadow(0 0 4px rgba(90, 170, 90, 0.3))'
+                            }}
+                        />
+                    </Box>
                 </>
             ) : (
                 <>
