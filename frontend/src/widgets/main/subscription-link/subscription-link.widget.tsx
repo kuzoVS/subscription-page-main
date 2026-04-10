@@ -49,19 +49,20 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
             <ActionIcon
                 component="a"
                 href={supportUrl}
-                radius="50%"
+                radius={0}
                 rel="noopener noreferrer"
-                size={30}
+                size={28}
                 target="_blank"
                 variant="default"
                 style={{
-                    width: 30,
-                    height: 30,
-                    background: '#16162a',
-                    border: '0.5px solid #2a2a45'
+                    width: 28,
+                    height: 28,
+                    background: 'transparent',
+                    border: '0.5px solid #333',
+                    fontFamily: "'JetBrains Mono', monospace"
                 }}
             >
-                <IconBrandTelegram style={{ width: 14, height: 14, color: '#6666aa' }} />
+                <IconBrandTelegram style={{ width: 14, height: 14, color: '#aaa' }} />
             </ActionIcon>
         )
     }
@@ -122,11 +123,11 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
                         width: 28,
                         height: 28,
                         background: 'transparent',
-                        border: '0.5px solid #1a1a1a',
+                        border: '0.5px solid #333',
                         fontFamily: "'JetBrains Mono', monospace"
                     }}
                 >
-                    <IconLink style={{ width: 13, height: 13, color: '#444' }} />
+                    <IconLink style={{ width: 14, height: 14, color: '#aaa' }} />
                 </ActionIcon>
             )}
 

@@ -202,7 +202,7 @@ export const InstallationGuideConnector = (props: IProps) => {
                                         alignItems: 'center',
                                         width: 14,
                                         height: 14,
-                                        filter: 'grayscale(1) brightness(0.5)'
+                                        color: '#aaa'
                                     }}
                                 />
                             }
@@ -220,14 +220,15 @@ export const InstallationGuideConnector = (props: IProps) => {
                             styles={{
                                 input: {
                                     borderRadius: '0',
-                                    border: '0.5px solid #1a1a1a',
+                                    border: '0.5px solid #333',
                                     background: '#0a0a0a',
                                     fontSize: '11px',
-                                    color: '#555',
-                                    fontFamily: "'JetBrains Mono', monospace"
+                                    color: '#bbb',
+                                    fontFamily: "'JetBrains Mono', monospace",
+                                    paddingRight: '24px'
                                 },
                                 section: {
-                                    color: '#444'
+                                    color: '#aaa'
                                 }
                             }}
                         />
