@@ -80,8 +80,8 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
             <Box className="header-wrapper" py="md">
                 <div style={{
                     position: 'absolute',
-                    top: '7px',
-                    left: '14px',
+                    top: '12px',
+                    left: '16px',
                     zIndex: 200,
                     display: 'flex',
                     gap: '7px',
@@ -93,7 +93,7 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                 </div>
 
                 <Container maw={1200} px={{ base: 'md', sm: 'lg', md: 'xl' }}>
-                    <Group justify="space-between" wrap="nowrap">
+                    <Group justify="space-between" wrap="nowrap" style={{ paddingLeft: '44px' }}>
                         <Group gap="sm" style={{ userSelect: 'none' }} wrap="nowrap">
                             {hasCustomLogo ? (
                                 <Image
@@ -101,14 +101,14 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                                     fit="contain"
                                     src={config.brandingSettings.logoUrl}
                                     style={{
-                                        width: '24px',
-                                        height: '24px',
+                                        width: '36px',
+                                        height: '36px',
                                         flexShrink: 0,
-                                        opacity: 0.85
+                                        opacity: 0.9
                                     }}
                                 />
                             ) : (
-                                <RemnawaveLogo c="#5aaa5a" size={20} />
+                                <RemnawaveLogo c="#5aaa5a" size={28} />
                             )}
                             <Stack gap={0} style={{ lineHeight: 1.2 }}>
                                 <Title
@@ -116,7 +116,7 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                                     fw={400}
                                     order={6}
                                     size="xs"
-                                    style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', letterSpacing: '0.08em' }}
+                                    style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', letterSpacing: '0.08em' }}
                                 >
                                     ╭─ vpn-service
                                 </Title>
@@ -125,7 +125,7 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                                     fw={500}
                                     order={6}
                                     size="xs"
-                                    style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px' }}
+                                    style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '14px' }}
                                 >
                                     │ {brandName}
                                 </Title>
