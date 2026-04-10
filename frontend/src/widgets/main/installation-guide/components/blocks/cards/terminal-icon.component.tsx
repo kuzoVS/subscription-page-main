@@ -40,7 +40,7 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
                 {/* Линия до иконки */}
                 <div style={{ width: '1px', height: '12px', background: '#60a5fa', flexShrink: 0 }} />
 
-                {/* Иконка — фон совпадает с фоном блока, линия «прерывается» */}
+                {/* Иконка — прозрачный фон */}
                 <Box
                     style={{
                         display: 'flex',
@@ -48,7 +48,7 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
                         justifyContent: 'center',
                         width: '24px',
                         height: '24px',
-                        background: '#000',
+                        background: 'transparent',
                         flexShrink: 0
                     }}
                 >

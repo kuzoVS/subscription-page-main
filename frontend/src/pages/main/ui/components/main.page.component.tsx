@@ -169,7 +169,17 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
 
                     <RawKeysWidget isMobile={isMobile} />
 
-                    <Center>
+                    <Center style={{
+                        background: 'rgba(18, 18, 32, 0.85)',
+                        backdropFilter: 'blur(20px)',
+                        WebkitBackdropFilter: 'blur(20px)',
+                        borderRadius: '40px',
+                        padding: '12px 24px',
+                        border: '1px solid rgba(255, 255, 255, 0.08)',
+                        width: 'fit-content',
+                        margin: '0 auto',
+                        boxShadow: '0 4px 24px rgba(0, 0, 0, 0.3)'
+                    }}>
                         <LanguagePicker
                             currentLang={currentLang}
                             locales={config.locales}
