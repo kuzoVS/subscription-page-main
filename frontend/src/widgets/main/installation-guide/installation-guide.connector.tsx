@@ -151,7 +151,7 @@ export const InstallationGuideConnector = (props: IProps) => {
     const getIcon = (iconKey: string) => getIconFromLibrary(iconKey, svgLibrary)
 
     return (
-        <Card p={{ base: 'sm', xs: 'md', sm: 'lg', md: 'xl' }} radius="lg">
+        <Card p={{ base: 'sm', xs: 'md', sm: 'lg', md: 'xl' }} radius="lg" style={{ border: 'none' }}>
             <Stack gap="md">
                 <Group gap="sm" justify="space-between">
                     <div style={{ fontSize: '11px', color: '#333', textTransform: 'uppercase', letterSpacing: '0.12em' }}>
@@ -248,7 +248,7 @@ export const InstallationGuideConnector = (props: IProps) => {
                                                 }}
                                             />
                                         )}
-                                        <span style={{color: index === selectedAppIndex ? '#000' : '#aaaaaa', fontSize: '12px'}}>{t(app.name)}</span>
+                                        <span className={classes.appName} style={{color: index === selectedAppIndex ? '#000' : '#aaaaaa', fontSize: '12px'}}>{t(app.name)}</span>
                                     </UnstyledButton>
                                 )
                             })}

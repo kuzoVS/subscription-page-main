@@ -54,7 +54,7 @@ export const SubscriptionInfoCollapsedWidget = ({ isMobile }: IProps) => {
     const gradientColor = getColorGradientSolid(status.color)
 
     return (
-        <Card p={0} radius="lg" style={{ overflow: 'hidden' }}>
+        <Card p={0} radius="lg" style={{ border: 'none', overflow: 'hidden' }}>
             <UnstyledButton
                 onClick={() => {
                     vibrate('tap')
