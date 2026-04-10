@@ -8,8 +8,8 @@
   ],
   "version": "1",
   "uiConfig": {
-    "subscriptionInfoBlockType": "collapsed",
-    "installationGuidesBlockType": "timeline"
+    "subscriptionInfoBlockType": "cards",
+    "installationGuidesBlockType": "cards"
   },
   "platforms": {
     "ios": {
