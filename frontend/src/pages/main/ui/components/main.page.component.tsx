@@ -89,16 +89,27 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                                     }}
                                 />
                             ) : (
-                                <RemnawaveLogo c="cyan" size={32} />
+                                <RemnawaveLogo c="gray" size={32} />
                             )}
-                            <Title
-                                c={hasCustomLogo ? 'white' : 'cyan'}
-                                fw={700}
-                                order={4}
-                                size="lg"
-                            >
-                                {brandName}
-                            </Title>
+                            <Stack gap={2} style={{ lineHeight: 1 }}>
+                                <Title
+                                    c="#333"
+                                    fw={500}
+                                    order={6}
+                                    size="xs"
+                                    style={{ textTransform: 'uppercase', letterSpacing: '0.12em', fontSize: '10px' }}
+                                >
+                                    VPN Service
+                                </Title>
+                                <Title
+                                    c={hasCustomLogo ? 'white' : 'gray'}
+                                    fw={700}
+                                    order={4}
+                                    size="lg"
+                                >
+                                    {brandName}
+                                </Title>
+                            </Stack>
                         </Group>
 
                         <SubscriptionLinkWidget

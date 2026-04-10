@@ -7,11 +7,11 @@ import { useTranslation } from '@shared/hooks'
 
 import classes from './subscription-info-cards.module.css'
 
-type ColorVariant = 'blue' | 'cyan' | 'green' | 'orange' | 'red' | 'teal' | 'violet' | 'yellow'
+type ColorVariant = 'blue' | 'gray' | 'green' | 'orange' | 'red' | 'teal' | 'violet' | 'yellow'
 
 const iconColorClasses: Record<ColorVariant, string> = {
     blue: classes.iconBlue,
-    cyan: classes.iconCyan,
+    gray: classes.iconCyan, /* Using the same class as cyan for now */
     green: classes.iconGreen,
     teal: classes.iconTeal,
     red: classes.iconRed,
@@ -103,7 +103,7 @@ export const SubscriptionInfoCardsWidget = ({ isMobile: _ }: IProps) => {
             />
 
             <CardItem
-                color="cyan"
+                color="gray"
                 icon={<IconArrowsUpDown size={18} />}
                 label={t(baseTranslations.bandwidth)}
                 value={bandwidthValue}

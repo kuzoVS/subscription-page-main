@@ -11,7 +11,7 @@ export default {
                 color: '#0a0f1a'
             },
             loaderProps: {
-                color: 'cyan',
+                color: 'gray',
                 size: 'lg'
             }
         },

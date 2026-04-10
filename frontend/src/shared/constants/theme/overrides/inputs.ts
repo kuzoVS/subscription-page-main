@@ -13,8 +13,8 @@ export default {
                 transition: 'all 0.3s ease',
 
                 '&:focus': {
-                    borderColor: theme.colors.cyan[5],
-                    boxShadow: `0 0 0 2px ${theme.colors.cyan[8]}40`,
+                    borderColor: theme.colors.gray[5],
+                    boxShadow: `0 0 0 2px ${theme.colors.gray[8]}40`,
                     backgroundColor: 'rgba(10, 15, 26, 0.7)'
                 },
 
@@ -41,8 +41,8 @@ export default {
                 transition: 'all 0.3s ease',
 
                 '&:focus': {
-                    borderColor: theme.colors.cyan[5],
-                    boxShadow: `0 0 0 2px ${theme.colors.cyan[8]}40`,
+                    borderColor: theme.colors.gray[5],
+                    boxShadow: `0 0 0 2px ${theme.colors.gray[8]}40`,
                     backgroundColor: 'rgba(10, 15, 26, 0.7)'
                 },
 
@@ -69,8 +69,8 @@ export default {
                 transition: 'all 0.3s ease',
 
                 '&:focus': {
-                    borderColor: theme.colors.cyan[5],
-                    boxShadow: `0 0 0 2px ${theme.colors.cyan[8]}40`,
+                    borderColor: theme.colors.gray[5],
+                    boxShadow: `0 0 0 2px ${theme.colors.gray[8]}40`,
                     backgroundColor: 'rgba(10, 15, 26, 0.7)'
                 },
 
@@ -97,8 +97,8 @@ export default {
                 transition: 'all 0.3s ease',
 
                 '&:focus': {
-                    borderColor: theme.colors.cyan[5],
-                    boxShadow: `0 0 0 2px ${theme.colors.cyan[8]}40`,
+                    borderColor: theme.colors.gray[5],
+                    boxShadow: `0 0 0 2px ${theme.colors.gray[8]}40`,
                     backgroundColor: 'rgba(10, 15, 26, 0.7)'
                 },
 
@@ -118,10 +118,10 @@ export default {
             },
             item: {
                 '&[data-hovered]': {
-                    backgroundColor: theme.colors.cyan[8] + '30'
+                    backgroundColor: theme.colors.gray[8] + '30'
                 },
                 '&[data-selected]': {
-                    backgroundColor: theme.colors.cyan[7] + '50'
+                    backgroundColor: theme.colors.gray[7] + '50'
                 }
             }
         })

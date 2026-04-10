@@ -38,7 +38,7 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    color: #444 !important;
+    color: #cccccc !important; /* Changed from #444 to #ccc for inactive tabs */
 }
 
 .completedStep .timelineItemBullet {
@@ -52,13 +52,13 @@
     justify-content: center;
     width: 20px;
     height: 20px;
-    color: #444;
+    color: #cccccc; /* Changed from #444 to #ccc for inactive tabs */
 }
 
 .bulletIconSvg svg {
     width: 18px;
     height: 18px;
-    color: #444;
+    color: #cccccc; /* Changed from #444 to #ccc for inactive tabs */
 }
 
 .completedStep .bulletIconSvg,

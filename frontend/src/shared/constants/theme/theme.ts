@@ -25,28 +25,28 @@ export const theme = createTheme({
     black: '#050a14',
     colors: {
         dark: [
-            '#e6f7ff',
-            '#cceeff',
-            '#99e6ff',
-            '#66ddff',
-            '#33d4ff',
-            '#00ccff',
-            '#00a3cc',
-            '#007aa9',
-            '#005273',
-            '#00293d'
+            '#f0f0f0',
+            '#e0e0e0',
+            '#d0d0d0',
+            '#b0b0b0',
+            '#909090',
+            '#707070',
+            '#505050',
+            '#3a3a3a',
+            '#252525',
+            '#101010'
         ],
-        cyan: [
-            '#d0fcff',
-            '#a6faff',
-            '#68f0ff',
-            '#22e8f8',
-            '#06c0dc',
-            '#08a1c2',
-            '#0e82a0',
-            '#156d85',
-            '#165a6f',
-            '#083d4d'
+        gray: [
+            '#f8f9fa',
+            '#e9ecef',
+            '#dee2e6',
+            '#ced4da',
+            '#adb5bd',
+            '#868e96',
+            '#495057',
+            '#343a40',
+            '#212529',
+            '#121212'
         ],
         blue: [
             '#e0f7ff',
@@ -134,7 +134,7 @@ export const theme = createTheme({
         ]
     },
     primaryShade: 4,
-    primaryColor: 'cyan',
+    primaryColor: 'gray',
     autoContrast: true,
     luminanceThreshold: 0.3,
     headings: {
@@ -143,8 +143,8 @@ export const theme = createTheme({
     },
     defaultRadius: 'xl',
     defaultGradient: {
-        from: '#06c0dc',
-        to: '#22e8f8',
+        from: '#909090',
+        to: '#505050',
         deg: 135
     }
 })

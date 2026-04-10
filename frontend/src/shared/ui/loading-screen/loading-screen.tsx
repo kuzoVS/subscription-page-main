@@ -12,10 +12,10 @@ export function LoadingScreen({ height = '100%' }: { height?: string }) {
                     speed={1_900}
                     strokeLinecap="round"
                     thickness={3}
-                    color="cyan"
+                    color="gray"
                 />
                 <Text
-                    c="cyan"
+                    c="gray"
                     fz="lg"
                     fw={600}
                     style={{
