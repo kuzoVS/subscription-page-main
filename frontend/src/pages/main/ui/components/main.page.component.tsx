@@ -94,11 +94,11 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                                     }}
                                 />
                             ) : (
-                                <RemnawaveLogo c="#3a6a3a" size={20} />
+                                <RemnawaveLogo c="#5aaa5a" size={20} />
                             )}
                             <Stack gap={0} style={{ lineHeight: 1.2 }}>
                                 <Title
-                                    c="#444"
+                                    c="#555"
                                     fw={400}
                                     order={6}
                                     size="xs"
@@ -107,7 +107,7 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                                     ╭─ vpn-service
                                 </Title>
                                 <Title
-                                    c="#3a6a3a"
+                                    c="#5aaa5a"
                                     fw={500}
                                     order={6}
                                     size="xs"

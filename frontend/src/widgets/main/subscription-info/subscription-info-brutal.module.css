@@ -18,8 +18,8 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 14px;
     font-weight: 600;
-    color: #3a6a3a;
-    text-shadow: 0 0 6px rgba(58, 106, 58, 0.3);
+    color: #5aaa5a;
+    text-shadow: 0 0 6px rgba(90, 170, 90, 0.3);
     flex-shrink: 0;
     animation: glow-pulse 3s ease-in-out infinite;
 }
@@ -44,11 +44,9 @@
 }
 
 .terminalBlock {
-    border: 1px solid #1a1a1a;
-    border-left: 2px solid #3a6a3a;
-    padding: 12px 14px;
-    background: #0a0a0a;
-    position: relative;
+    padding: 12px 0 12px 14px;
+    border-left: 2px solid #5aaa5a;
+    background: transparent;
 }
 
 .fieldsGrid {

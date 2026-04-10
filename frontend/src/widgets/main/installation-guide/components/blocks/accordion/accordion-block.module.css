@@ -3,14 +3,29 @@
    ═══════════════════════════════════════════════════ */
 
 .accordionItem {
-    border: 0.5px solid #1a1a1a;
-    border-left: 2px solid #3a6a3a;
-    background: #0a0a0a;
-    margin-bottom: 6px;
+    border: none;
+    border-bottom: 1px solid #111;
+    background: transparent;
+    margin-bottom: 0;
+    position: relative;
+}
+
+.accordionItem:last-child {
+    border-bottom: none;
+}
+
+.accordionItem::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #3a6a3a;
 }
 
 .accordionControl {
-    padding: 10px 14px;
+    padding: 10px 0 10px 14px;
 }
 
 .accordionControl:hover {
@@ -22,7 +37,7 @@
 }
 
 .accordionContent {
-    padding: 0 14px 12px;
+    padding: 0 0 12px 14px;
     border-top: none;
 }
 

@@ -128,7 +128,7 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
                                         fontFamily: "'JetBrains Mono', monospace",
                                         fontSize: '13px',
                                         fontWeight: 500,
-                                        color: isActive || isExpiringSoon ? '#3a6a3a' : '#666',
+                                        color: isActive || isExpiringSoon ? '#5aaa5a' : '#666',
                                         marginTop: '4px'
                                     }}
                                 >

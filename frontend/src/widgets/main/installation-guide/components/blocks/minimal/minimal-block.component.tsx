@@ -17,10 +17,11 @@ export const MinimalBlockRenderer = ({
             {blocks.map((block, index) => {
                 return (
                     <Box key={index} style={{
-                        padding: '12px 14px',
-                        border: '0.5px solid #1a1a1a',
+                        padding: '12px 0 12px 14px',
+                        borderBottom: '1px solid #111',
                         borderLeft: '2px solid #3a6a3a',
-                        background: '#0a0a0a'
+                        background: 'transparent',
+                        position: 'relative'
                     }}>
                         <Group gap="sm" mb="xs" wrap="nowrap">
                             <TerminalIcon
@@ -34,10 +35,10 @@ export const MinimalBlockRenderer = ({
                                     fontFamily: "'JetBrains Mono', monospace",
                                     fontSize: isMobile ? '12px' : '13px',
                                     fontWeight: 500,
-                                    color: '#3a6a3a'
+                                    color: '#5aaa5a'
                                 }}
                             >
-                                <span style={{ color: '#555' }}>{'→ '}</span>
+                                <span style={{ color: '#666' }}>{'→ '}</span>
                                 <span
                                     dangerouslySetInnerHTML={{
                                         __html: getLocalizedText(block.title, currentLang)

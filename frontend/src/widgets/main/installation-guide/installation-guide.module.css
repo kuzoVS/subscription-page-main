@@ -38,8 +38,8 @@
 .appButtonActive,
 .appButtonActive:hover {
     background: transparent;
-    border: 0.5px solid #3a6a3a;
-    color: #3a6a3a;
+    border: 0.5px solid #5aaa5a;
+    color: #5aaa5a;
     font-weight: 500;
 }
 
@@ -47,7 +47,7 @@
     content: '█';
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px;
-    color: #3a6a3a;
+    color: #5aaa5a;
     animation: cursor-blink 1s step-start infinite;
     margin-left: 2px;
 }
@@ -56,14 +56,14 @@
     position: relative;
     z-index: 1;
     font-family: 'JetBrains Mono', monospace;
-    color: #555;
+    color: #666;
     font-size: 12px;
     font-weight: 400;
     white-space: nowrap;
 }
 
 .appButtonActive .appName {
-    color: #3a6a3a;
+    color: #5aaa5a;
 }
 
 .appButtonActive .appName::after {
@@ -82,12 +82,12 @@
 .bgIcon svg {
     width: 14px !important;
     height: 14px !important;
-    stroke: #444 !important;
+    stroke: #555 !important;
     fill: none !important;
 }
 
 .appButtonActive .bgIcon svg {
-    stroke: #3a6a3a !important;
+    stroke: #5aaa5a !important;
 }
 
 .featuredBadge {
@@ -100,5 +100,5 @@
     opacity: 1;
     z-index: 2;
     border-radius: 0;
-    background: #3a6a3a;
+    background: #5aaa5a;
 }

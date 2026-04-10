@@ -19,12 +19,9 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex }: IPr
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexShrink: 0,
-                border: '0.5px solid #1a1a1a',
-                background: '#0a0a0a',
                 position: 'relative'
             }}
         >
-            {/* Step number */}
             <span
                 style={{
                     position: 'absolute',
@@ -32,7 +29,7 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex }: IPr
                     left: '-4px',
                     fontSize: '9px',
                     fontFamily: "'JetBrains Mono', monospace",
-                    color: '#3a6a3a',
+                    color: '#5aaa5a',
                     fontWeight: 600,
                     background: '#000',
                     padding: '0 2px'
@@ -48,7 +45,7 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex }: IPr
                 style={{
                     display: 'flex',
                     alignItems: 'center',
-                    color: isCheckIcon ? '#3a6a3a' : '#555',
+                    color: isCheckIcon ? '#5aaa5a' : '#666',
                     width: '14px',
                     height: '14px'
                 }}

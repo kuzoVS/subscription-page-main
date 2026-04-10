@@ -147,8 +147,8 @@ export const InstallationGuideConnector = (props: IProps) => {
                             fontSize: '11px',
                             fontWeight: 400,
                             background: 'transparent',
-                            border: '0.5px solid #1a1a1a',
-                            color: '#666',
+                            border: '0.5px solid #222',
+                            color: '#888',
                             padding: '4px 12px',
                             height: 'auto',
                             minHeight: '26px'
@@ -176,9 +176,9 @@ export const InstallationGuideConnector = (props: IProps) => {
                     <div style={{
                         fontSize: '12px',
                         fontFamily: "'JetBrains Mono', monospace",
-                        color: '#3a6a3a',
+                        color: '#5aaa5a',
                         fontWeight: 500,
-                        textShadow: '0 0 6px rgba(58, 106, 58, 0.25)'
+                        textShadow: '0 0 6px rgba(90, 170, 90, 0.25)'
                     }}>
                         <span style={{ color: '#555' }}>╰─ </span>
                         install:~$

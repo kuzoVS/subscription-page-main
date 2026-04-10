@@ -34,11 +34,11 @@ export const CardsBlockRenderer = ({
                                         fontFamily: "'JetBrains Mono', monospace",
                                         fontSize: isMobile ? '12px' : '13px',
                                         fontWeight: 500,
-                                        color: '#3a6a3a',
+                                        color: '#5aaa5a',
                                         wordBreak: 'break-word'
                                     }}
                                 >
-                                    <span style={{ color: '#555' }}>{'→ '}</span>
+                                    <span style={{ color: '#666' }}>{'→ '}</span>
                                     <span
                                         dangerouslySetInnerHTML={{
                                             __html: getLocalizedText(block.title, currentLang)
@@ -50,7 +50,7 @@ export const CardsBlockRenderer = ({
                                     style={{
                                         fontFamily: "'JetBrains Mono', monospace",
                                         fontSize: isMobile ? '11px' : '12px',
-                                        color: '#888',
+                                        color: '#aaa',
                                         whiteSpace: 'pre-line',
                                         lineHeight: 1.6
                                     }}
