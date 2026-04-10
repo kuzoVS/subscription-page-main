@@ -28,7 +28,7 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
                     style={{
                         fontSize: '10px',
                         fontFamily: "'JetBrains Mono', monospace",
-                        color: '#5aaa5a',
+                        color: '#60a5fa',
                         fontWeight: 700,
                         lineHeight: 1,
                         marginBottom: '6px'
@@ -38,7 +38,7 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
                 </div>
 
                 {/* Линия до иконки */}
-                <div style={{ width: '1px', height: '12px', background: '#5aaa5a', flexShrink: 0 }} />
+                <div style={{ width: '1px', height: '12px', background: '#60a5fa', flexShrink: 0 }} />
 
                 {/* Иконка — фон совпадает с фоном блока, линия «прерывается» */}
                 <Box
@@ -60,16 +60,16 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            color: '#5aaa5a',
+                            color: '#60a5fa',
                             width: '20px',
                             height: '20px',
-                            filter: 'drop-shadow(0 0 4px rgba(90, 170, 90, 0.3))'
+                            filter: 'drop-shadow(0 0 4px rgba(96, 165, 250, 0.4))'
                         }}
                     />
                 </Box>
 
                 {/* Линия после иконки — тянется до конца */}
-                <div style={{ width: '1px', flex: 1, background: '#5aaa5a' }} />
+                <div style={{ width: '1px', flex: 1, background: '#60a5fa' }} />
             </Box>
         )
     }
@@ -95,7 +95,7 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
                     fontFamily: "'JetBrains Mono', monospace",
                     color: '#000',
                     fontWeight: 700,
-                    background: '#5aaa5a',
+                    background: '#60a5fa',
                     width: '14px',
                     height: '14px',
                     borderRadius: '50%',

@@ -36,7 +36,7 @@ export const MinimalBlockRenderer = ({
                                     fontFamily: "'JetBrains Mono', monospace",
                                     fontSize: isMobile ? '12px' : '13px',
                                     fontWeight: 500,
-                                    color: '#5aaa5a'
+                                    color: '#60a5fa'
                                 }}
                             >
                                 <span style={{ color: '#666' }}>{'→ '}</span>

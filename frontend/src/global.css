@@ -79,7 +79,7 @@ body::after {
    ═══════════════════════════════════════════════════ */
 
 ::selection {
-    background: #3a6a3a;
+    background: rgba(59, 130, 246, 0.3);
     color: #ffffff;
 }
 
@@ -88,13 +88,13 @@ body::after {
    ═══════════════════════════════════════════════════ */
 
 a {
-    color: #5a8a5a;
+    color: #3b82f6;
     text-decoration: none;
     transition: color 0.15s ease;
 }
 
 a:hover {
-    color: #7aba7a;
+    color: #60a5fa;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -102,7 +102,7 @@ a:hover {
    ═══════════════════════════════════════════════════ */
 
 *:focus-visible {
-    outline: 1px solid #3a6a3a !important;
+    outline: 1px solid #3b82f6 !important;
     outline-offset: 2px;
 }
 
@@ -130,8 +130,8 @@ a:hover {
 }
 
 @keyframes glow-pulse {
-    0%, 100% { text-shadow: 0 0 4px rgba(90, 170, 90, 0.3); }
-    50% { text-shadow: 0 0 14px rgba(90, 170, 90, 0.5); }
+    0%, 100% { text-shadow: 0 0 4px rgba(59, 130, 246, 0.3); }
+    50% { text-shadow: 0 0 14px rgba(59, 130, 246, 0.5); }
 }
 
 .animated-background {
@@ -162,7 +162,7 @@ a:hover {
 }
 
 .logo-text-highlight {
-    color: #5aaa5a;
+    color: #60a5fa;
     font-size: 13px;
     font-weight: 500;
     font-family: 'JetBrains Mono', monospace;

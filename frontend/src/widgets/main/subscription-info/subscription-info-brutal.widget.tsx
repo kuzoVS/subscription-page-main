@@ -38,10 +38,10 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
         : '0 0 8px rgba(255, 68, 68, 0.5)'
 
     const statusBg = isActive || isExpiringSoon
-        ? 'rgba(90, 170, 90, 0.12)'
+        ? 'rgba(96, 165, 250, 0.12)'
         : 'rgba(255, 68, 68, 0.12)'
-    const statusTextColor = isActive || isExpiringSoon ? '#5aaa5a' : '#ff4444'
-    const statusBorderColor = isActive || isExpiringSoon ? '#5aaa5a' : '#ff4444'
+    const statusTextColor = isActive || isExpiringSoon ? '#60a5fa' : '#ff4444'
+    const statusBorderColor = isActive || isExpiringSoon ? '#60a5fa' : '#ff4444'
 
     const handleToggle = () => {
         vibrate('tap')
@@ -105,7 +105,7 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
             <Collapse in={isExpanded}>
                 <div className={classes.expandedContent}>
                     <div className={classes.terminalBlock}
-                         style={{ borderLeftColor: isActive || isExpiringSoon ? '#5aaa5a' : '#ff4444' }}
+                         style={{ borderLeftColor: isActive || isExpiringSoon ? '#60a5fa' : '#ff4444' }}
                     >
                         <div className={classes.fieldsGrid}>
                             <div className={classes.field}>
@@ -150,7 +150,7 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
                                         fontFamily: "'JetBrains Mono', monospace",
                                         fontSize: '13px',
                                         fontWeight: 500,
-                                        color: isActive || isExpiringSoon ? '#5aaa5a' : '#ff4444',
+                                        color: isActive || isExpiringSoon ? '#60a5fa' : '#ff4444',
                                         marginTop: '4px'
                                     }}
                                 >

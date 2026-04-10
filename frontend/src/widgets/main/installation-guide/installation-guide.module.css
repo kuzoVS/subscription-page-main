@@ -38,8 +38,8 @@
 .appButtonActive,
 .appButtonActive:hover {
     background: transparent;
-    border: 0.5px solid #5aaa5a;
-    color: #5aaa5a;
+    border: 0.5px solid #60a5fa;
+    color: #60a5fa;
     font-weight: 500;
 }
 
@@ -47,7 +47,7 @@
     content: '█';
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px;
-    color: #5aaa5a;
+    color: #60a5fa;
     animation: cursor-blink 1s step-start infinite;
     margin-left: 2px;
 }
@@ -63,7 +63,7 @@
 }
 
 .appButtonActive .appName {
-    color: #5aaa5a;
+    color: #60a5fa;
 }
 
 .appButtonActive .appName::after {
@@ -87,7 +87,7 @@
 }
 
 .appButtonActive .bgIcon svg {
-    stroke: #5aaa5a !important;
+    stroke: #60a5fa !important;
 }
 
 .featuredBadge {
@@ -100,5 +100,5 @@
     opacity: 1;
     z-index: 2;
     border-radius: 0;
-    background: #5aaa5a;
+    background: #60a5fa;
 }
