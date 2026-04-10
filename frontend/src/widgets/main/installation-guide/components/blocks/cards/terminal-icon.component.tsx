@@ -19,10 +19,13 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
                     minWidth: '40px',
                     height: '100%',
                     position: 'relative',
-                    flexShrink: 0
+                    flexShrink: 0,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
                 }}
             >
-                {/* Вертикальная линия через весь блок */}
+                {/* Вертикальная линия через весь блок, цвет иконки */}
                 <div
                     style={{
                         position: 'absolute',
@@ -30,36 +33,31 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
                         top: 0,
                         bottom: 0,
                         width: '1px',
-                        background: '#222'
+                        background: '#5aaa5a'
                     }}
                 />
-                {/* Номер шага — зелёный кружок сверху */}
+                {/* Номер шага — просто текст на линии */}
                 <div
                     style={{
                         position: 'absolute',
-                        top: '0',
-                        left: '0',
-                        fontSize: '9px',
+                        top: '4px',
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        fontSize: '10px',
                         fontFamily: "'JetBrains Mono', monospace",
-                        color: '#000',
+                        color: '#5aaa5a',
                         fontWeight: 700,
-                        background: '#5aaa5a',
-                        width: '18px',
-                        height: '18px',
-                        borderRadius: '50%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
+                        lineHeight: 1,
                         zIndex: 2
                     }}
                 >
                     {blockIndex + 1}
                 </div>
-                {/* Иконка — ниже, по центру линии, без фона */}
+                {/* Иконка — ниже, по центру линии */}
                 <div
                     style={{
                         position: 'absolute',
-                        top: '24px',
+                        top: '20px',
                         left: '50%',
                         transform: 'translateX(-50%)',
                         display: 'flex',
@@ -77,9 +75,9 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
                             alignItems: 'center',
                             justifyContent: 'center',
                             color: '#5aaa5a',
-                            width: '22px',
-                            height: '22px',
-                            filter: 'drop-shadow(0 0 5px rgba(90, 170, 90, 0.4))'
+                            width: '20px',
+                            height: '20px',
+                            filter: 'drop-shadow(0 0 4px rgba(90, 170, 90, 0.3))'
                         }}
                     />
                 </div>

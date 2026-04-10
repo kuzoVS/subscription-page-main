@@ -18,7 +18,7 @@ export const CardsBlockRenderer = ({
                 return (
                     <div
                         key={index}
-                        style={{ display: 'flex', borderBottom: '1px solid #111', paddingBottom: '14px', paddingTop: '14px' }}
+                        style={{ display: 'flex', borderBottom: '1px solid #111', paddingBottom: '14px', paddingTop: '14px', position: 'relative' }}
                     >
                         <TerminalIcon
                             getIconFromLibrary={getIconFromLibrary}
