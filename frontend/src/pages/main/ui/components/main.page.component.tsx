@@ -78,20 +78,6 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
     return (
         <Page>
             <Box className="header-wrapper" py="md">
-                {/* Terminal dots */}
-                <div style={{
-                    position: 'absolute',
-                    top: '16px',
-                    left: '14px',
-                    zIndex: 200,
-                    display: 'flex',
-                    gap: '14px'
-                }}>
-                    <span style={{ width: 9, height: 9, borderRadius: '50%', background: '#ff6b6b', display: 'block' }} />
-                    <span style={{ width: 9, height: 9, borderRadius: '50%', background: '#ffa94d', display: 'block' }} />
-                    <span style={{ width: 9, height: 9, borderRadius: '50%', background: '#69db7c', display: 'block' }} />
-                </div>
-
                 <Container maw={1200} px={{ base: 'md', sm: 'lg', md: 'xl' }}>
                     <Group justify="space-between" wrap="nowrap">
                         <Group gap="sm" style={{ userSelect: 'none' }} wrap="nowrap">
