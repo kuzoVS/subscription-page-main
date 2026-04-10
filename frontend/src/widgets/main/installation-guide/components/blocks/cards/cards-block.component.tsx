@@ -1,10 +1,9 @@
-import { Group, Stack, Text } from '@mantine/core'
+import { Stack, Text } from '@mantine/core'
 
 import { getLocalizedText } from '@shared/utils/config-parser'
 import { TerminalIcon } from './terminal-icon.component'
 
 import { IBlockRendererProps } from '../renderer-block.interface'
-import classes from './cards-block.module.css'
 
 export const CardsBlockRenderer = ({
     blocks,
@@ -19,8 +18,7 @@ export const CardsBlockRenderer = ({
                 return (
                     <div
                         key={index}
-                        className={classes.root}
-                        style={{ display: 'flex' }}
+                        style={{ display: 'flex', borderBottom: '1px solid #111', paddingBottom: '14px', paddingTop: '14px' }}
                     >
                         <TerminalIcon
                             getIconFromLibrary={getIconFromLibrary}
@@ -30,42 +28,41 @@ export const CardsBlockRenderer = ({
                             variant="cards"
                         />
                         <Stack gap={isMobile ? 'xs' : 'sm'} style={{ flex: 1, minWidth: 0, paddingTop: '12px' }}>
-                                <Text
-                                    style={{
-                                        fontFamily: "'JetBrains Mono', monospace",
-                                        fontSize: isMobile ? '12px' : '13px',
-                                        fontWeight: 500,
-                                        color: '#5aaa5a',
-                                        wordBreak: 'break-word'
+                            <Text
+                                style={{
+                                    fontFamily: "'JetBrains Mono', monospace",
+                                    fontSize: isMobile ? '12px' : '13px',
+                                    fontWeight: 500,
+                                    color: '#5aaa5a',
+                                    wordBreak: 'break-word'
+                                }}
+                            >
+                                <span style={{ color: '#666' }}>{'→ '}</span>
+                                <span
+                                    dangerouslySetInnerHTML={{
+                                        __html: getLocalizedText(block.title, currentLang)
                                     }}
-                                >
-                                    <span style={{ color: '#666' }}>{'→ '}</span>
-                                    <span
-                                        dangerouslySetInnerHTML={{
-                                            __html: getLocalizedText(block.title, currentLang)
-                                        }}
-                                    />
-                                </Text>
+                                />
+                            </Text>
 
-                                <Text
-                                    style={{
-                                        fontFamily: "'JetBrains Mono', monospace",
-                                        fontSize: isMobile ? '11px' : '12px',
-                                        color: '#bbb',
-                                        whiteSpace: 'pre-line',
-                                        lineHeight: 1.6
+                            <Text
+                                style={{
+                                    fontFamily: "'JetBrains Mono', monospace",
+                                    fontSize: isMobile ? '11px' : '12px',
+                                    color: '#bbb',
+                                    whiteSpace: 'pre-line',
+                                    lineHeight: 1.6
+                                }}
+                            >
+                                <span
+                                    dangerouslySetInnerHTML={{
+                                        __html: getLocalizedText(block.description, currentLang)
                                     }}
-                                >
-                                    <span
-                                        dangerouslySetInnerHTML={{
-                                            __html: getLocalizedText(block.description, currentLang)
-                                        }}
-                                    />
-                                </Text>
+                                />
+                            </Text>
 
-                                {renderBlockButtons(block.buttons)}
-                            </Stack>
-                        </div>
+                            {renderBlockButtons(block.buttons)}
+                        </Stack>
                     </div>
                 )
             })}
