@@ -1,7 +1,7 @@
 import { Group, Stack, Text } from '@mantine/core'
 
 import { getLocalizedText } from '@shared/utils/config-parser'
-import { TerminalIcon } from '@shared/ui'
+import { TerminalIcon } from './terminal-icon.component'
 
 import { IBlockRendererProps } from '../renderer-block.interface'
 import classes from './cards-block.module.css'
