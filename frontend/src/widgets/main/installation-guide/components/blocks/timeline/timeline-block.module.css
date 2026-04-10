@@ -1,67 +1,28 @@
-/* Timeline styles */
+/* ═══════════════════════════════════════════════════
+   TIMELINE BLOCK — TERMINAL STYLE
+   ═══════════════════════════════════════════════════ */
+
 .timelineRoot {
-    --tl-line-color: #111;
-    position: relative;
+    padding: 0;
 }
 
 .timelineItem {
-    padding-bottom: var(--mantine-spacing-md);
     position: relative;
-    border-bottom: 0.5px solid #0f0f0f;
+    padding: 10px 0;
+    border-bottom: 1px solid #0f0f0f;
 }
 
 .timelineItem:last-child {
     border-bottom: none;
 }
 
-.timelineItem::before {
-    content: '';
-    position: absolute;
-    left: 16px;
-    top: 36px; /* Adjusted for 32px icon */
-    bottom: -8px;
-    width: 0.5px;
-    background: #111;
-    z-index: -1;
+.timelineItemContent {
+    padding-left: 0;
 }
 
-.timelineItem:last-child::before {
-    display: none;
-}
-
-.timelineItemBullet {
-    background: #0a0a0a !important;
-    border: 0.5px solid #1a1a1a !important;
-    border-radius: 8px !important;
-    width: 32px !important;
-    height: 32px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    color: #cccccc !important; /* Changed from #444 to #ccc for inactive tabs */
-}
-
-.completedStep .timelineItemBullet {
-    border-color: #1a3a1a !important;
-    color: #3a6a3a !important;
-}
-
-.bulletIconSvg {
+.timelineHeader {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    color: #cccccc; /* Changed from #444 to #ccc for inactive tabs */
-}
-
-.bulletIconSvg svg {
-    width: 18px;
-    height: 18px;
-    color: #cccccc; /* Changed from #444 to #ccc for inactive tabs */
-}
-
-.completedStep .bulletIconSvg,
-.completedStep .bulletIconSvg svg {
-    color: #3a6a3a !important;
+    gap: 10px;
+    margin-bottom: 8px;
 }

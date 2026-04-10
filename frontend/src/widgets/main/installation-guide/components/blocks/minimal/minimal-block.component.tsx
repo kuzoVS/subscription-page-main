@@ -1,10 +1,9 @@
 import { Box, Group, Stack, Text } from '@mantine/core'
 
-import { getColorGradient, getLocalizedText } from '@shared/utils/config-parser'
-import { ThemeIconShared } from '@shared/ui'
+import { getLocalizedText } from '@shared/utils/config-parser'
+import { TerminalIcon } from '../cards/terminal-icon.component'
 
 import { IBlockRendererProps } from '../renderer-block.interface'
-import classes from './minimal-block.module.css'
 
 export const MinimalBlockRenderer = ({
     blocks,
@@ -16,38 +15,53 @@ export const MinimalBlockRenderer = ({
     return (
         <Stack gap="md">
             {blocks.map((block, index) => {
-                const gradientStyle = getColorGradient(block.svgIconColor)
-
                 return (
-                    <Box className={classes.stepBlock} key={index}>
+                    <Box key={index} style={{
+                        padding: '12px 14px',
+                        border: '0.5px solid #1a1a1a',
+                        borderLeft: '2px solid #3a6a3a',
+                        background: '#0a0a0a'
+                    }}>
                         <Group gap="sm" mb="xs" wrap="nowrap">
-                            <ThemeIconShared
+                            <TerminalIcon
                                 getIconFromLibrary={getIconFromLibrary}
-                                gradientStyle={gradientStyle}
                                 isMobile={isMobile}
-                                svgIconColor={block.svgIconColor}
                                 svgIconKey={block.svgIconKey}
+                                blockIndex={index}
                             />
                             <Text
-                                c="white"
-                                dangerouslySetInnerHTML={{
-                                    __html: getLocalizedText(block.title, currentLang)
+                                style={{
+                                    fontFamily: "'JetBrains Mono', monospace",
+                                    fontSize: isMobile ? '12px' : '13px',
+                                    fontWeight: 500,
+                                    color: '#3a6a3a'
                                 }}
-                                fw={500}
-                                size={isMobile ? 'sm' : 'md'}
-                            />
+                            >
+                                <span style={{ color: '#555' }}>{'→ '}</span>
+                                <span
+                                    dangerouslySetInnerHTML={{
+                                        __html: getLocalizedText(block.title, currentLang)
+                                    }}
+                                />
+                            </Text>
                         </Group>
                         <Text
-                            c="dimmed"
-                            dangerouslySetInnerHTML={{
-                                __html: getLocalizedText(block.description, currentLang)
+                            style={{
+                                fontFamily: "'JetBrains Mono', monospace",
+                                fontSize: isMobile ? '11px' : '12px',
+                                color: '#888',
+                                lineHeight: 1.6
                             }}
-                            size={isMobile ? 'xs' : 'sm'}
-                            style={{ lineHeight: 1.6 }}
-                        />
+                        >
+                            <span
+                                dangerouslySetInnerHTML={{
+                                    __html: getLocalizedText(block.description, currentLang)
+                                }}
+                            />
+                        </Text>
                         {block.buttons.length > 0 && (
                             <Box style={{ marginTop: 8 }}>
-                                {renderBlockButtons(block.buttons, 'subtle')}
+                                {renderBlockButtons(block.buttons)}
                             </Box>
                         )}
                     </Box>

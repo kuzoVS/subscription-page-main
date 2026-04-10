@@ -1,7 +1,7 @@
-import { Card, Group, Stack, Text, Title } from '@mantine/core'
+import { Group, Stack, Text } from '@mantine/core'
 
-import { getColorGradient, getLocalizedText } from '@shared/utils/config-parser'
-import { ThemeIconShared } from '@shared/ui'
+import { getLocalizedText } from '@shared/utils/config-parser'
+import { TerminalIcon } from '@shared/ui'
 
 import { IBlockRendererProps } from '../renderer-block.interface'
 import classes from './cards-block.module.css'
@@ -16,40 +16,44 @@ export const CardsBlockRenderer = ({
     return (
         <Stack gap="sm">
             {blocks.map((block, index) => {
-                const gradientStyle = getColorGradient(block.svgIconColor)
-
                 return (
-                    <Card
-                        className={classes.root}
+                    <div
                         key={index}
-                        p={{ base: 'sm', xs: 'md', sm: 'lg' }}
-                        radius="lg"
+                        className={classes.root}
                     >
                         <Group align="flex-start" gap={isMobile ? 'sm' : 'md'} wrap="nowrap">
-                            <ThemeIconShared
+                            <TerminalIcon
                                 getIconFromLibrary={getIconFromLibrary}
-                                gradientStyle={gradientStyle}
                                 isMobile={isMobile}
-                                svgIconColor={block.svgIconColor}
                                 svgIconKey={block.svgIconKey}
+                                blockIndex={index}
                             />
                             <Stack gap={isMobile ? 'xs' : 'sm'} style={{ flex: 1, minWidth: 0 }}>
-                                <Title
-                                    c="white"
-                                    fw={600}
-                                    order={6}
-                                    style={{ wordBreak: 'break-word' }}
+                                <Text
+                                    style={{
+                                        fontFamily: "'JetBrains Mono', monospace",
+                                        fontSize: isMobile ? '12px' : '13px',
+                                        fontWeight: 500,
+                                        color: '#3a6a3a',
+                                        wordBreak: 'break-word'
+                                    }}
                                 >
+                                    <span style={{ color: '#555' }}>{'→ '}</span>
                                     <span
                                         dangerouslySetInnerHTML={{
                                             __html: getLocalizedText(block.title, currentLang)
                                         }}
                                     />
-                                </Title>
+                                </Text>
 
                                 <Text
-                                    size={isMobile ? 'xs' : 'sm'}
-                                    style={{ whiteSpace: 'pre-line', lineHeight: 1.6 }}
+                                    style={{
+                                        fontFamily: "'JetBrains Mono', monospace",
+                                        fontSize: isMobile ? '11px' : '12px',
+                                        color: '#888',
+                                        whiteSpace: 'pre-line',
+                                        lineHeight: 1.6
+                                    }}
                                 >
                                     <span
                                         dangerouslySetInnerHTML={{
@@ -58,10 +62,10 @@ export const CardsBlockRenderer = ({
                                     />
                                 </Text>
 
-                                {renderBlockButtons(block.buttons, 'light')}
+                                {renderBlockButtons(block.buttons)}
                             </Stack>
                         </Group>
-                    </Card>
+                    </div>
                 )
             })}
         </Stack>

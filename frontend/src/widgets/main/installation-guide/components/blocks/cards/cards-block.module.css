@@ -1,3 +1,16 @@
+/* ═══════════════════════════════════════════════════
+   CARDS BLOCK — TERMINAL STYLE
+   ═══════════════════════════════════════════════════ */
+
+.root {
+    padding: 12px 14px;
+    border: 0.5px solid #1a1a1a;
+    border-left: 2px solid #3a6a3a;
+    background: #0a0a0a;
+    position: relative;
+    transition: background 0.15s ease;
+}
+
 .root:hover {
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(58, 106, 58, 0.03);
 }

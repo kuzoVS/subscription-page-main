@@ -7,7 +7,7 @@ export const theme = createTheme({
     cursorType: 'pointer',
     fontFamily:
         'Montserrat, Vazirmatn, Apple Color Emoji, Noto Sans SC, Twemoji Country Flags, sans-serif',
-    fontFamilyMonospace: 'Fira Mono, monospace',
+    fontFamilyMonospace: "'JetBrains Mono', 'Fira Mono', monospace",
     breakpoints: {
         xs: '25em',
         sm: '30em',

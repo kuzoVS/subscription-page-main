@@ -1,95 +1,194 @@
+/* ═══════════════════════════════════════════════════
+   TERMINAL VPN — GLOBAL STYLES
+   ═══════════════════════════════════════════════════ */
+
 html,
 body {
     min-height: 100vh;
-    background: radial-gradient(ellipse at center bottom, #1a1a1a 0%, #000000 65%);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    position: relative;
-    overflow-x: hidden;
-    color: #ffffff;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-}
-
-/* Minimalist scrollbar styling */
-::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-}
-
-::-webkit-scrollbar-track {
     background: #000000;
+    color: #c5c5c5;
+    font-family: 'JetBrains Mono', 'Fira Mono', 'Cascadia Code', 'Consolas', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    position: relative;
 }
 
-::-webkit-scrollbar-thumb {
-    background: #222222;
-    border-radius: 3px;
-}
+/* ═══════════════════════════════════════════════════
+   CRT SCANLINES EFFECT
+   ═══════════════════════════════════════════════════ */
 
-::-webkit-scrollbar-thumb:hover {
-    background: #333333;
-}
-
-/* Global text selection styling */
-::selection {
-    background: rgba(255, 255, 255, 0.15);
-    color: #ffffff;
-}
-
-/* Minimalist link styling */
-a {
-    color: #aaaaaa;
-    text-decoration: none;
-    transition: color 0.1s ease;
-}
-
-a:hover {
-    color: #dddddd;
-    text-decoration: underline;
-}
-
-/* Custom focus styles for accessibility */
-*:focus-visible {
-    outline: 1px solid #666666 !important;
-    outline-offset: 1px;
-}
-
-#root {
-    height: 100vh;
-}
-
-.animated-background {
+body::before {
+    content: '';
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     pointer-events: none;
-    z-index: 0;
-    background: transparent;
-    opacity: 1;
+    z-index: 9999;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.08) 2px,
+        rgba(0, 0, 0, 0.08) 4px
+    );
+    opacity: 0.4;
 }
+
+/* Subtle CRT flicker */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 9998;
+    background: radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.25) 100%);
+}
+
+/* ═══════════════════════════════════════════════════
+   SCROLLBAR
+   ═══════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1a1a1a;
+    border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2a2a2a;
+}
+
+/* ═══════════════════════════════════════════════════
+   SELECTION
+   ═══════════════════════════════════════════════════ */
+
+::selection {
+    background: #3a6a3a;
+    color: #ffffff;
+}
+
+/* ═══════════════════════════════════════════════════
+   LINKS
+   ═══════════════════════════════════════════════════ */
+
+a {
+    color: #5a8a5a;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+a:hover {
+    color: #7aba7a;
+}
+
+/* ═══════════════════════════════════════════════════
+   FOCUS
+   ═══════════════════════════════════════════════════ */
+
+*:focus-visible {
+    outline: 1px solid #3a6a3a !important;
+    outline-offset: 2px;
+}
+
+#root {
+    min-height: 100vh;
+}
+
+/* ═══════════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════════ */
+
+@keyframes cursor-blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes glow-pulse {
+    0%, 100% { text-shadow: 0 0 4px rgba(58, 106, 58, 0.2); }
+    50% { text-shadow: 0 0 12px rgba(58, 106, 58, 0.4); }
+}
+
+.animated-background {
+    display: none;
+}
+
+/* ═══════════════════════════════════════════════════
+   HEADER — TERMINAL TITLE BAR
+   ═══════════════════════════════════════════════════ */
 
 .header-wrapper {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: transparent;
-    border-bottom: 0.5px solid #1a1a1a;
-    padding: 14px 24px;
+    background: #0a0a0a;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 10px 24px;
+}
+
+/* Terminal window dots */
+.header-wrapper::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    width: 36px;
+    height: 10px;
+    display: flex;
+    gap: 6px;
+    background:
+        radial-gradient(circle, #ff5f57 3.5px, transparent 3.5px) 0 0,
+        radial-gradient(circle, #febc2e 3.5px, transparent 3.5px) 13px 0,
+        radial-gradient(circle, #28c840 3.5px, transparent 3.5px) 26px 0;
+    background-size: 36px 10px;
+    background-repeat: no-repeat;
 }
 
 .logo-text-highlight {
-    color: #ffffff;
-    font-size: 14px;
+    color: #3a6a3a;
+    font-size: 13px;
     font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+    animation: glow-pulse 3s ease-in-out infinite;
 }
 
 .logo-text-normal {
-    color: #333;
+    color: #444;
     font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
     text-transform: uppercase;
     letter-spacing: 0.12em;
 }
+
+/* ═══════════════════════════════════════════════════
+   TERMINAL CARD BORDERS (box-drawing style)
+   ═══════════════════════════════════════════════════ */
 
 .info-card-cyan,
 .info-card-violet,
@@ -100,10 +199,10 @@ a:hover {
 .info-card-teal,
 .info-card-orange {
     padding: 16px 0;
-    border: 0.5px solid #222222;
+    border: none;
     position: relative;
-    overflow: hidden;
     box-shadow: none;
+    background: transparent;
 }
 
 .info-card-cyan:hover,
@@ -114,7 +213,7 @@ a:hover {
 .info-card-blue:hover,
 .info-card-teal:hover,
 .info-card-orange:hover {
-    border: 0.5px solid #222222;
-    transition: all 0.2s ease;
+    border: none;
     box-shadow: none;
+    transition: all 0.2s ease;
 }

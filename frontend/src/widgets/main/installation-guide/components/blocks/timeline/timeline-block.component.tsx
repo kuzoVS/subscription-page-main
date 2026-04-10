@@ -1,7 +1,7 @@
-import { Stack, Text, Timeline } from '@mantine/core'
+import { Stack, Text } from '@mantine/core'
 
-import { getColorGradientSolid, getLocalizedText } from '@shared/utils/config-parser'
-import { ThemeIconShared } from '@shared/ui'
+import { getLocalizedText } from '@shared/utils/config-parser'
+import { TerminalIcon } from '../cards/terminal-icon.component'
 
 import { IBlockRendererProps } from '../renderer-block.interface'
 import classes from './timeline-block.module.css'
@@ -14,57 +14,55 @@ export const TimelineBlockRenderer = ({
     getIconFromLibrary
 }: IBlockRendererProps) => {
     return (
-        <Timeline
-            active={blocks.length}
-            bulletSize={isMobile ? 36 : 44}
-            classNames={{
-                root: classes.timelineRoot,
-                item: classes.timelineItem,
-                itemBullet: classes.timelineItemBullet
-            }}
-            color="gray"
-            lineWidth={2}
-        >
+        <Stack gap="sm" className={classes.timelineRoot}>
             {blocks.map((block, index) => {
-                const gradientStyle = getColorGradientSolid(block.svgIconColor)
-
                 return (
-                    <Timeline.Item
-                        bullet={
-                            <ThemeIconShared
-                                getIconFromLibrary={getIconFromLibrary}
-                                gradientStyle={gradientStyle}
-                                isMobile={isMobile}
-                                svgIconColor={block.svgIconColor}
-                                svgIconKey={block.svgIconKey}
-                            />
-                        }
-                        key={index}
-                        title={
-                            <Text
-                                c="white"
-                                dangerouslySetInnerHTML={{
-                                    __html: getLocalizedText(block.title, currentLang)
-                                }}
-                                fw={600}
-                                size={isMobile ? 'sm' : 'md'}
-                            />
-                        }
-                    >
-                        <Stack gap="xs">
-                            <Text
-                                c="dimmed"
-                                dangerouslySetInnerHTML={{
-                                    __html: getLocalizedText(block.description, currentLang)
-                                }}
-                                size={isMobile ? 'xs' : 'sm'}
-                                style={{ lineHeight: 1.6 }}
-                            />
-                            {renderBlockButtons(block.buttons, 'light')}
-                        </Stack>
-                    </Timeline.Item>
+                    <div key={index} className={classes.timelineItem}>
+                        <div className={classes.timelineItemContent}>
+                            <div className={classes.timelineHeader}>
+                                <TerminalIcon
+                                    getIconFromLibrary={getIconFromLibrary}
+                                    isMobile={isMobile}
+                                    svgIconKey={block.svgIconKey}
+                                    blockIndex={index}
+                                />
+                                <Text
+                                    style={{
+                                        fontFamily: "'JetBrains Mono', monospace",
+                                        fontSize: isMobile ? '12px' : '13px',
+                                        fontWeight: 500,
+                                        color: '#3a6a3a'
+                                    }}
+                                >
+                                    <span style={{ color: '#555' }}>{'→ '}</span>
+                                    <span
+                                        dangerouslySetInnerHTML={{
+                                            __html: getLocalizedText(block.title, currentLang)
+                                        }}
+                                    />
+                                </Text>
+                            </div>
+                            <Stack gap="xs" style={{ marginLeft: '40px' }}>
+                                <Text
+                                    style={{
+                                        fontFamily: "'JetBrains Mono', monospace",
+                                        fontSize: isMobile ? '11px' : '12px',
+                                        color: '#888',
+                                        lineHeight: 1.6
+                                    }}
+                                >
+                                    <span
+                                        dangerouslySetInnerHTML={{
+                                            __html: getLocalizedText(block.description, currentLang)
+                                        }}
+                                    />
+                                </Text>
+                                {renderBlockButtons(block.buttons)}
+                            </Stack>
+                        </div>
+                    </div>
                 )
             })}
-        </Timeline>
+        </Stack>
     )
 }

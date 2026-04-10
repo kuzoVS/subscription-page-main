@@ -1,4 +1,4 @@
-import { IconArrowsUpDown, IconCalendar, IconCheck, IconChevronRight, IconUserScan, IconX } from '@tabler/icons-react'
+import { IconCheck, IconChevronDown, IconChevronUp, IconX } from '@tabler/icons-react'
 import { Collapse, Group, Stack, Text, UnstyledButton } from '@mantine/core'
 import { useState } from 'react'
 
@@ -40,88 +40,149 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
     return (
         <div className={classes.wrapper}>
             <UnstyledButton onClick={handleToggle} className={classes.header}>
-                <Group gap="sm" justify="space-between" wrap="nowrap" style={{ width: '100%' }}>
-                    <Group gap="sm" wrap="nowrap" style={{ minWidth: 0, flex: 1 }}>
-                        <div className={classes.iconCircle}>
-                            {isActive || isExpiringSoon ? (
-                                <IconCheck size={12} style={{ color: '#3a6a3a' }} stroke={1.5} />
-                            ) : (
-                                <IconX size={12} style={{ color: '#444' }} stroke={1.5} />
-                            )}
-                        </div>
-                        <Stack gap={2} style={{ minWidth: 0, flex: 1 }}>
-                            <Text
-                                c="white"
-                                fw={500}
-                                style={{ fontSize: '14px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
-                            >
-                                {user.username}
-                            </Text>
-                            <Text size="xs" style={{ color: '#333', fontSize: '11px', whiteSpace: 'nowrap' }}>
-                                {getExpirationTextUtil(user.expiresAt, currentLang, baseTranslations)}
-                            </Text>
-                        </Stack>
-                    </Group>
+                <Group gap="xs" wrap="nowrap" style={{ width: '100%' }}>
+                    <span className={classes.prompt}>$</span>
+                    <Stack gap={2} style={{ minWidth: 0, flex: 1 }}>
+                        <Text
+                            style={{
+                                fontFamily: "'JetBrains Mono', monospace",
+                                fontSize: '13px',
+                                fontWeight: 500,
+                                color: '#ffffff',
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                                whiteSpace: 'nowrap'
+                            }}
+                        >
+                            <span className={classes.fieldLabel}>user</span>
+                            {'='}
+                            {user.username}
+                        </Text>
+                        <Text
+                            style={{
+                                fontFamily: "'JetBrains Mono', monospace",
+                                fontSize: '11px',
+                                color: '#555',
+                                whiteSpace: 'nowrap'
+                            }}
+                        >
+                            {getExpirationTextUtil(user.expiresAt, currentLang, baseTranslations)}
+                        </Text>
+                    </Stack>
 
                     <Group gap="xs" wrap="nowrap" style={{ flexShrink: 0 }}>
-                        <div className={classes.statusPill}>
-                            {statusText}
-                        </div>
-                        <IconChevronRight size={14} style={{ color: '#333', flexShrink: 0 }} />
+                        <span className={classes.statusBadge}>
+                            {isActive || isExpiringSoon ? '●' : '○'} {statusText}
+                        </span>
+                        {isExpanded ? (
+                            <IconChevronUp size={12} style={{ color: '#333', flexShrink: 0 }} />
+                        ) : (
+                            <IconChevronDown size={12} style={{ color: '#333', flexShrink: 0 }} />
+                        )}
                     </Group>
                 </Group>
             </UnstyledButton>
 
             <Collapse in={isExpanded}>
                 <div className={classes.expandedContent}>
-                    <div className={classes.fieldsGrid}>
-                        <div className={classes.field}>
-                            <Group gap={4} wrap="nowrap">
-                                <IconUserScan size={14} style={{ color: '#333', flexShrink: 0 }} />
-                                <Text style={{ fontSize: '10px', color: '#333', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                                    {t(baseTranslations.name)}
+                    <div className={classes.terminalBlock}>
+                        <div className={classes.fieldsGrid}>
+                            <div className={classes.field}>
+                                <Text
+                                    style={{
+                                        fontFamily: "'JetBrains Mono', monospace",
+                                        fontSize: '10px',
+                                        color: '#555',
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '0.08em'
+                                    }}
+                                >
+                                    name
                                 </Text>
-                            </Group>
-                            <Text style={{ fontSize: '13px', fontWeight: 500, color: '#fff', marginTop: '4px' }}>
-                                {user.username}
-                            </Text>
-                        </div>
-                        <div className={classes.field}>
-                            <Group gap={4} wrap="nowrap">
-                                {(isActive || isExpiringSoon) ? (
-                                    <IconCheck size={14} style={{ color: '#333', flexShrink: 0 }} />
-                                ) : (
-                                    <IconX size={14} style={{ color: '#333', flexShrink: 0 }} />
-                                )}
-                                <Text style={{ fontSize: '10px', color: '#333', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                                    {t(baseTranslations.status)}
+                                <Text
+                                    style={{
+                                        fontFamily: "'JetBrains Mono', monospace",
+                                        fontSize: '13px',
+                                        fontWeight: 500,
+                                        color: '#fff',
+                                        marginTop: '4px'
+                                    }}
+                                >
+                                    {user.username}
                                 </Text>
-                            </Group>
-                            <Text style={{ fontSize: '13px', fontWeight: 500, color: '#fff', marginTop: '4px' }}>
-                                {statusText}
-                            </Text>
-                        </div>
-                        <div className={classes.field}>
-                            <Group gap={4} wrap="nowrap">
-                                <IconCalendar size={14} style={{ color: '#333', flexShrink: 0 }} />
-                                <Text style={{ fontSize: '10px', color: '#333', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                                    {t(baseTranslations.expires)}
+                            </div>
+                            <div className={classes.field}>
+                                <Text
+                                    style={{
+                                        fontFamily: "'JetBrains Mono', monospace",
+                                        fontSize: '10px',
+                                        color: '#555',
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '0.08em'
+                                    }}
+                                >
+                                    status
                                 </Text>
-                            </Group>
-                            <Text style={{ fontSize: '13px', fontWeight: 500, color: '#fff', marginTop: '4px' }}>
-                                {formatDate(user.expiresAt, currentLang, baseTranslations)}
-                            </Text>
-                        </div>
-                        <div className={classes.field}>
-                            <Group gap={4} wrap="nowrap">
-                                <IconArrowsUpDown size={14} style={{ color: '#333', flexShrink: 0 }} />
-                                <Text style={{ fontSize: '10px', color: '#333', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                                    {t(baseTranslations.bandwidth)}
+                                <Text
+                                    style={{
+                                        fontFamily: "'JetBrains Mono', monospace",
+                                        fontSize: '13px',
+                                        fontWeight: 500,
+                                        color: isActive || isExpiringSoon ? '#3a6a3a' : '#666',
+                                        marginTop: '4px'
+                                    }}
+                                >
+                                    {isActive || isExpiringSoon ? '✓' : '✗'} {statusText}
                                 </Text>
-                            </Group>
-                            <Text style={{ fontSize: '13px', fontWeight: 500, color: '#fff', marginTop: '4px' }}>
-                                {user.trafficUsed} / {user.trafficLimit === '0' ? '∞' : user.trafficLimit}
-                            </Text>
+                            </div>
+                            <div className={classes.field}>
+                                <Text
+                                    style={{
+                                        fontFamily: "'JetBrains Mono', monospace",
+                                        fontSize: '10px',
+                                        color: '#555',
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '0.08em'
+                                    }}
+                                >
+                                    expires
+                                </Text>
+                                <Text
+                                    style={{
+                                        fontFamily: "'JetBrains Mono', monospace",
+                                        fontSize: '13px',
+                                        fontWeight: 500,
+                                        color: '#fff',
+                                        marginTop: '4px'
+                                    }}
+                                >
+                                    {formatDate(user.expiresAt, currentLang, baseTranslations)}
+                                </Text>
+                            </div>
+                            <div className={classes.field}>
+                                <Text
+                                    style={{
+                                        fontFamily: "'JetBrains Mono', monospace",
+                                        fontSize: '10px',
+                                        color: '#555',
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '0.08em'
+                                    }}
+                                >
+                                    bandwidth
+                                </Text>
+                                <Text
+                                    style={{
+                                        fontFamily: "'JetBrains Mono', monospace",
+                                        fontSize: '13px',
+                                        fontWeight: 500,
+                                        color: '#fff',
+                                        marginTop: '4px'
+                                    }}
+                                >
+                                    {user.trafficUsed} / {user.trafficLimit === '0' ? '∞' : user.trafficLimit}
+                                </Text>
+                            </div>
                         </div>
                     </div>
                 </div>

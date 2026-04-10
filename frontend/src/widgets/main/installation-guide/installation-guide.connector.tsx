@@ -6,7 +6,6 @@ import {
 import {
     Box,
     Button,
-    ButtonVariant,
     Card,
     Group,
     NativeSelect,
@@ -119,8 +118,7 @@ export const InstallationGuideConnector = (props: IProps) => {
     }
 
     const renderBlockButtons = (
-        buttons: TSubscriptionPageButtonConfig[],
-        variant: ButtonVariant
+        buttons: TSubscriptionPageButtonConfig[]
     ) => {
         if (buttons.length === 0) return null
 
@@ -134,14 +132,36 @@ export const InstallationGuideConnector = (props: IProps) => {
                                 dangerouslySetInnerHTML={{
                                     __html: getIconFromLibrary(button.svgIconKey, svgLibrary)
                                 }}
-                                style={{ display: 'flex', alignItems: 'center' }}
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    width: '12px',
+                                    height: '12px'
+                                }}
                             />
                         }
                         onClick={() => handleButtonClick(button)}
-                        radius="md"
-                        variant={variant}
+                        radius={0}
+                        variant="default"
+                        style={{
+                            fontFamily: "'JetBrains Mono', monospace",
+                            fontSize: '11px',
+                            fontWeight: 400,
+                            background: 'transparent',
+                            border: '0.5px solid #1a1a1a',
+                            color: '#666',
+                            padding: '4px 12px',
+                            height: 'auto',
+                            minHeight: '26px'
+                        }}
+                        styles={{
+                            label: {
+                                textTransform: 'none',
+                                letterSpacing: 'normal'
+                            }
+                        }}
                     >
-                        {t(button.text)}
+                        [{t(button.text)} ▸]
                     </Button>
                 ))}
             </Group>
@@ -151,11 +171,18 @@ export const InstallationGuideConnector = (props: IProps) => {
     const getIcon = (iconKey: string) => getIconFromLibrary(iconKey, svgLibrary)
 
     return (
-        <Card p={{ base: 'sm', xs: 'md', sm: 'lg', md: 'xl' }} radius="lg" style={{ border: 'none' }}>
+        <Card p={{ base: 'sm', xs: 'md', sm: 'lg', md: 'xl' }} radius={0} style={{ border: 'none', background: 'transparent' }}>
             <Stack gap="md">
                 <Group gap="sm" justify="space-between">
-                    <div style={{ fontSize: '11px', color: '#333', textTransform: 'uppercase', letterSpacing: '0.12em' }}>
-                        УСТАНОВКА
+                    <div style={{
+                        fontSize: '12px',
+                        fontFamily: "'JetBrains Mono', monospace",
+                        color: '#3a6a3a',
+                        fontWeight: 500,
+                        textShadow: '0 0 6px rgba(58, 106, 58, 0.25)'
+                    }}>
+                        <span style={{ color: '#555' }}>╰─ </span>
+                        install:~$
                     </div>
 
                     {availablePlatforms.length > 1 && (
@@ -174,8 +201,9 @@ export const InstallationGuideConnector = (props: IProps) => {
                                     style={{
                                         display: 'flex',
                                         alignItems: 'center',
-                                        width: 20,
-                                        height: 20
+                                        width: 14,
+                                        height: 14,
+                                        filter: 'grayscale(1) brightness(0.5)'
                                     }}
                                 />
                             }
@@ -186,17 +214,18 @@ export const InstallationGuideConnector = (props: IProps) => {
                                 setSelectedPlatform(value)
                                 setSelectedAppIndex(0)
                             }}
-                            radius="20px"
+                            radius={0}
                             size="sm"
                             value={selectedPlatform}
                             w={150}
                             styles={{
                                 input: {
-                                    borderRadius: '20px',
+                                    borderRadius: '0',
                                     border: '0.5px solid #1a1a1a',
-                                    background: 'transparent',
+                                    background: '#0a0a0a',
                                     fontSize: '11px',
-                                    color: '#444'
+                                    color: '#555',
+                                    fontFamily: "'JetBrains Mono', monospace"
                                 },
                                 section: {
                                     color: '#444'

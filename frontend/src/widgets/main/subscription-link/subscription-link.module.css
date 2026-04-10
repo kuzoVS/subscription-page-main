@@ -1,19 +1,19 @@
 .modalContent {
     background: #0a0a0a;
-    border: 0.5px solid #1a1a1a;
+    border: 1px solid #1a1a1a;
+    border-left: 2px solid #3a6a3a;
+    padding: 16px;
+    font-family: 'JetBrains Mono', monospace;
 }
 
 .modalHeader {
-    background: transparent;
+    border-bottom: 1px solid #111;
+    padding-bottom: 10px;
 }
 
 .modalTitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
     font-weight: 500;
-    color: #ffffff;
-    font-size: 14px;
-}
-
-.actionIcon {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #3a6a3a;
 }

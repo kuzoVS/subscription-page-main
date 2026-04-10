@@ -79,7 +79,7 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
         <Page>
             <Box className="header-wrapper" py="md">
                 <Container maw={1200} px={{ base: 'md', sm: 'lg', md: 'xl' }}>
-                    <Group justify="space-between">
+                    <Group justify="space-between" wrap="nowrap" style={{ paddingLeft: '48px' }}>
                         <Group gap="sm" style={{ userSelect: 'none' }} wrap="nowrap">
                             {hasCustomLogo ? (
                                 <Image
@@ -87,32 +87,33 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                                     fit="contain"
                                     src={config.brandingSettings.logoUrl}
                                     style={{
-                                        width: '32px',
-                                        height: '32px',
-                                        flexShrink: 0
+                                        width: '24px',
+                                        height: '24px',
+                                        flexShrink: 0,
+                                        opacity: 0.85
                                     }}
                                 />
                             ) : (
-                                <RemnawaveLogo c="gray" size={32} />
+                                <RemnawaveLogo c="#3a6a3a" size={20} />
                             )}
-                            <Stack gap={2} style={{ lineHeight: 1 }}>
+                            <Stack gap={0} style={{ lineHeight: 1.2 }}>
                                 <Title
-                                    c="#333"
-                                    fw={500}
+                                    c="#444"
+                                    fw={400}
                                     order={6}
                                     size="xs"
-                                    style={{ textTransform: 'uppercase', letterSpacing: '0.12em', fontSize: '10px' }}
+                                    style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', letterSpacing: '0.08em' }}
                                 >
-                                    VPN SERVICE
+                                    ╭─ vpn-service
                                 </Title>
                                 <Title
-                                    c="white"
+                                    c="#3a6a3a"
                                     fw={500}
                                     order={6}
                                     size="xs"
-                                    style={{ fontSize: '14px' }}
+                                    style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px' }}
                                 >
-                                    {brandName}
+                                    │ {brandName}
                                 </Title>
                             </Stack>
                         </Group>

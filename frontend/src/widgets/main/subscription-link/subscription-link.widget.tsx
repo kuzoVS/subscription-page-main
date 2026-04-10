@@ -115,17 +115,18 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
                 <ActionIcon
                     className={classes.actionIcon}
                     onClick={handleGetLink}
-                    radius="6px"
-                    size={30}
+                    radius={0}
+                    size={28}
                     variant="default"
                     style={{
-                        width: 30,
-                        height: 30,
+                        width: 28,
+                        height: 28,
                         background: 'transparent',
-                        border: '0.5px solid #222'
+                        border: '0.5px solid #1a1a1a',
+                        fontFamily: "'JetBrains Mono', monospace"
                     }}
                 >
-                    <IconLink style={{ width: 14, height: 14, color: '#444' }} />
+                    <IconLink style={{ width: 13, height: 13, color: '#444' }} />
                 </ActionIcon>
             )}
 
