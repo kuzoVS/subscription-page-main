@@ -1,134 +1,246 @@
-# VPN Subscription Page - Hermit Style Design
-
-## Reference
-The target design is inspired by the Hermit VPN service UI:
-- Deep dark navy/indigo background (not pure black)
-- Soft purple-blue radial glow at the bottom of the page (background only)
-- Semi-transparent dark cards with very subtle borders
-- Clean white typography, no ALL CAPS anywhere
-- Pill-shaped buttons with soft borders
-- Minimal, calm aesthetic — no neon, no cyan, no harsh gradients
+ # VPN Subscription Page — Brutal Minimal Design
+# Полное описание дизайна для реализации
 
 ---
 
-## Strictly Forbidden
-- NO cyan or teal accent colors anywhere (buttons, borders, icons, glows)
-- NO bright blue glow or neon border effects on any card or container
-- NO box-shadow with colored glow (e.g. `box-shadow: 0 0 10px cyan`)
-- NO ALL CAPS text in buttons, tabs, or labels
-- NO animal or mascot icons inside tabs
-- NO gradient borders or animated effects
-- NO colored icon backgrounds (warning icon must not be red/orange)
+## СТРОГО ЗАПРЕЩЕНО (применяется ко всей странице)
+- NO cyan, teal, или любые синие акцентные цвета (#00b4d8, #06b6d4, #0891b2, #22d3ee и подобные)
+- NO box-shadow с цветным свечением на любом элементе
+- NO border с цветным свечением (только нейтральные серые #111–#222)
+- NO text-transform: uppercase на кнопках (только на двух метках: VPN SERVICE и УСТАНОВКА)
+- NO letter-spacing на кнопках
+- NO карточки-контейнеры с видимыми рамками вокруг всей секции
+- NO градиентные или анимированные рамки
+- NO font-size ниже 10px
 
 ---
 
-## Background
-- Deep dark navy: `#08081a`
-- Subtle radial glow at the very bottom center of the page: `radial-gradient(ellipse at center bottom, rgba(70, 30, 180, 0.35) 0%, transparent 70%)`
-- This glow is only on the page background — NOT on any card or element
+## ФОН СТРАНИЦЫ
+```css
+background: radial-gradient(ellipse at center bottom, #1a1a1a 0%, #000000 65%);
+```
+- Градиент идёт снизу по центру — тёмно-серый в центре снизу, чёрный к краям и верху
+- Применяется на корневой элемент (body, #root, .page-wrapper)
+- НЕ применять на карточки или контейнеры
 
 ---
 
-## Header
-- Transparent or very dark background (`#08081a`)
-- Logo icon: small rounded square, dark purple (`#2a1f6e`), simple line icon inside
-- Logo text: service name in white (`#ffffff`, 14px, weight 500), subtitle in muted purple-gray (`#7070a0`, 11px)
-- Right side: single circular icon button for Telegram — dark background (`#1a1a3a`), thin border (`#2a2a50`), muted icon
+## ХЕДЕР
+```
+Фон: transparent (наследует фон страницы)
+border-bottom: 0.5px solid #1a1a1a
+padding: 14px 24px
+```
+
+**Левая часть:**
+- Строка сверху: текст "VPN SERVICE"
+  - font-size: 10px, color: #333, text-transform: uppercase, letter-spacing: 0.12em
+- Строка снизу: название сервиса (из конфига)
+  - font-size: 14px, font-weight: 500, color: #ffffff
+
+**Правая часть — две кнопки:**
+- Кнопка "Получить ссылку":
+  - 30×30px, border-radius: 6px
+  - background: transparent, border: 0.5px solid #222
+  - иконка цвет: #444
+- Кнопка Telegram:
+  - 30×30px, border-radius: 50% (круглая)
+  - background: #16162a, border: 0.5px solid #2a2a45
+  - иконка цвет: #6666aa
 
 ---
 
-## Subscription Status Card
-- Background: `#0f0f28`
-- Border: `0.5px solid #1e1e42` — no glow, no colored shadow
-- Border radius: 12px
-- Left side: status badge (pill shape) — dark green background (`#0d2a1a`), green border (`#1a4a2a`), green text (`#4dbb7a`), checkmark circle
-- Right side: traffic label in muted color (`#5a5a80`), traffic value in white
-- Bottom left: expiry date in muted purple-gray (`#4a4a70`)
+## БЛОК ИНФОРМАЦИИ О ПОДПИСКЕ
+
+### Свёрнутый вид (collapsed)
+```
+padding: 16px 24px
+border-bottom: 0.5px solid #111
+background: transparent
+БЕЗ рамки вокруг блока
+```
+- Левая часть:
+  - Круглая иконка-чекбокс 20×20px, border: 0.5px solid #222, галочка: #3a6a3a
+  - Имя пользователя: font-size: 14px, font-weight: 500, color: #fff
+  - Подпись (срок/статус): font-size: 11px, color: #333
+- Правая часть:
+  - Статус-пилюля: border-radius: 20px, border: 0.5px solid #1a1a1a, font-size: 11px, color: #3a3a3a
+  - Стрелка ›: color: #333
+
+### Развёрнутый вид (expanded)
+```
+padding: 16px 24px
+border-bottom: 0.5px solid #111
+background: transparent
+БЕЗ рамки вокруг блока
+```
+Сетка 2×2 с полями:
+- Метка поля: font-size: 10px, color: #333, text-transform: uppercase, letter-spacing: 0.08em
+- Значение поля: font-size: 13px, font-weight: 500, color: #fff
+- Иконка поля: 14×14px, color: #333
+- Разделители между полями: border-bottom: 0.5px solid #0f0f0f
 
 ---
 
-## Installation Card
-- Background: `#0f0f28`
-- Border: `0.5px solid #1e1e42` — NO cyan border, NO glow effect
-- Border radius: 12px
-- Header row: "Установка" title (white, 16px, weight 500) on left; OS selector on right
+## СЕКЦИЯ УСТАНОВКИ
+
+### Заголовок секции
+```
+padding: 16px 24px 12px
+БЕЗ рамки вокруг секции
+border-top: 0.5px solid #111 (разделитель от блока выше)
+```
+- Левая часть: текст "УСТАНОВКА"
+  - font-size: 11px, color: #333, text-transform: uppercase, letter-spacing: 0.12em
+- Правая часть — OS селектор:
+  - border-radius: 20px, border: 0.5px solid #1a1a1a, background: transparent
+  - font-size: 11px, color: #444
+  - Иконка ОС (14×14px, color: #333) + название ОС + chevron вниз (8×8px, color: #333)
+
+### Табы приложений
+```
+display: flex, gap: 6px
+padding: 0 24px 12px
+```
+Каждый таб:
+- border-radius: 20px, padding: 5px 14px
+- display: flex, align-items: center, gap: 6px
+- Иконка приложения: 16×16px (оригинальная svg иконка из конфига svgIconKey)
+- Текст: app.name из конфига — font-size: 12px
+
+Активный таб:
+- background: #ffffff, color: #000000, font-weight: 500
+- Иконка: оригинальные цвета или stroke: #000
+
+Неактивный таб:
+- background: transparent, border: 0.5px solid #1a1a1a, color: #aaaaaa
+- Иконка: stroke/fill: #555
 
 ---
 
-## OS Selector (Windows dropdown)
-- Background: `#16162e`
-- Border: `0.5px solid #2a2a50`
-- Border radius: 8px
-- Text: muted gray (`#9090c0`), 12px
-- Small OS icon + label + chevron down arrow
-- NO cyan, NO bright blue background
+## ШАГИ УСТАНОВКИ — ВАРИАНТ TIMELINE
+
+### Контейнер шагов
+```
+padding: 0 24px
+БЕЗ внешней рамки вокруг всего блока шагов
+```
+
+### Каждый шаг
+```
+display: flex, gap: 14px
+padding: 14px 0
+border-bottom: 0.5px solid #0f0f0f
+последний шаг: border-bottom: none
+```
+
+**Левая колонка (иконка + линия):**
+- Иконка шага: 32×32px, border-radius: 8px, background: #0a0a0a, border: 0.5px solid #1a1a1a
+- Все иконки одного нейтрального стиля: stroke: #444 — игнорировать svgIconColor из конфига
+- Завершённый шаг (Check): border-color: #1a3a1a, галочка stroke: #3a6a3a
+- Вертикальная линия под иконкой: width: 0.5px, background: #111, flex: 1, margin-top: 4px
+- У последнего шага линии нет
+
+**Правая колонка (текст):**
+- Заголовок: font-size: 12px, font-weight: 500, color: #cccccc
+- Описание: font-size: 11px, color: #333333, line-height: 1.6, margin-bottom: 10px
+
+**Кнопки в шаге:**
+- border-radius: 20px (pill)
+- border: 0.5px solid #1a1a1a, background: transparent
+- font-size: 11px, color: #555555
+- Основная кнопка (скачать/установить): border-color: #222, color: #888888
+- Иконка внутри кнопки: 11×11px слева от текста
+- Текст как в конфиге — sentence case, НИКОГДА не ALL CAPS
 
 ---
 
-## App Tabs (Koala Clash / FClashX / Clash Verge or Happ / Throne)
-- Simple pill-shaped tabs, NO icons, NO mascots, NO emoji
-- Active tab: white background (`#ffffff`), black text (`#000000`), font weight 500
-- Inactive tabs: dark background (`#16162e`), border `0.5px solid #2a2a50`, gray text (`#7070a0`)
-- Border radius: 20px
-- Gap between tabs: 8px
+## ШАГИ УСТАНОВКИ — ВАРИАНТ CARDS
+
+### Контейнер шагов
+```
+padding: 0 24px
+display: flex, flex-direction: column, gap: 8px
+БЕЗ внешней рамки вокруг всего блока
+```
+
+### Каждая карточка шага
+```
+background: #0a0a0a
+border: 0.5px solid #1a1a1a
+border-radius: 8px
+padding: 14px 16px
+display: flex, gap: 14px
+БЕЗ box-shadow
+```
+
+**Иконка шага:**
+- 32×32px, border-radius: 8px, background: #111111, border: 0.5px solid #1a1a1a
+- Все иконки: stroke: #444 — игнорировать svgIconColor из конфига
+- Завершённый шаг: border-color: #1a3a1a, галочка stroke: #3a6a3a
+
+**Текст:**
+- Заголовок: font-size: 12px, font-weight: 500, color: #cccccc
+- Описание: font-size: 11px, color: #333333, line-height: 1.6
+
+**Кнопки:**
+- border-radius: 20px (pill)
+- border: 0.5px solid #1a1a1a, background: transparent
+- font-size: 11px, color: #555555
+- Текст sentence case — НИКОГДА не ALL CAPS
+- text-transform: none !important
+- letter-spacing: normal !important
 
 ---
 
-## Installation Steps (Timeline)
-- Each step: icon on the left, title + description + optional button on the right
-- Thin vertical connector line (`#1e1e42`, 1px) runs between step icons
-- Steps separated by `border-bottom: 0.5px solid #141430`
-- Last step has no bottom border
-
-### Step Icons
-- All icons identical style: background `#16162e`, border `0.5px solid #2a2a50`, border radius 8px, size 36×36px
-- Icon stroke color: `#8888cc` (muted purple-white)
-- Completed step icon: background `#0d2a1a`, border `#1a4a2a`, checkmark in `#4dbb7a`
-- NO red, orange, or any accent-colored icons (warning step uses same neutral gray style)
-
-### Step Text
-- Title: white (`#ffffff`), 13px, weight 500
-- Description: muted (`#5a5a80`), 12px, line-height 1.5
-
-### Step Buttons
-- Pill shape, border-radius: 20px
-- Background: `#16162e`, border: `0.5px solid #2a2a50`, text color: `#c0c0e0`
-- Primary action button (e.g. download): background `#1e1260`, border `#3a2a80`
-- Text in sentence case — e.g. "Windows", "Добавить подписку" — never ALL CAPS
-- Small inline icon where applicable (12×12px)
+## ИКОНКА ЯЗЫКА (внизу страницы)
+- Глобус SVG, 20×20px
+- opacity: 0.15
+- display: block, margin: 24px auto 0
+- Без текста, без рамки, без фона
 
 ---
 
-## Language Picker
-- Small icon centered at the bottom, muted opacity (0.4)
-- No label, just icon
+## ТИПОГРАФИКА (общие правила)
+- Font stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif
+- Основной текст: #ffffff, font-weight: 400–500
+- Второстепенный: #333333–#555555
+- Два исключения для uppercase: метка "VPN SERVICE" в хедере и метка "УСТАНОВКА" в секции
+- Все остальные тексты — sentence case как написано в конфиге
 
 ---
 
-## Typography Rules
-- Font: system sans-serif stack
-- Sentence case everywhere — no ALL CAPS, no Title Case on buttons or labels
-- Primary text: `#ffffff`, weight 500
-- Secondary text: `#5a5a80` or `#7070a0`
-- Never use font-size below 11px
+## ПАЛИТРА ЦВЕТОВ (только эти цвета, никаких других)
+| Назначение | Цвет |
+|---|---|
+| Фон страницы | #000000 + градиент |
+| Фон карточек | #0a0a0a |
+| Фон иконок шагов | #111111 |
+| Основные границы | #1a1a1a |
+| Акцентные границы | #222222 |
+| Разделители | #0f0f0f–#111111 |
+| Текст основной | #ffffff |
+| Текст заголовков шагов | #cccccc |
+| Текст описаний | #333333 |
+| Текст кнопок | #555555–#888888 |
+| Метки полей | #333333 |
+| Иконки | #444444 |
+| Telegram кнопка фон | #16162a |
+| Telegram кнопка граница | #2a2a45 |
+| Telegram иконка | #6666aa |
+| Галочка активна | #3a6a3a |
+| Граница завершён | #1a3a1a |
 
 ---
 
-## Spacing & Layout
-- Page max-width: ~680px, centered
-- Card padding: 20px 24px
-- Gap between cards: 16px
-- Step internal padding: 14px 0
-- Icon-to-text gap: 14px
+## ЧТО ИЗМЕНИТЬ В КОДЕ (чеклист)
 
----
-
-## What Must Change vs Current Implementation
-1. Remove cyan/teal glow from installation card border
-2. Remove ALL CAPS from all buttons (use sentence case)
-3. Remove mascot/animal icons from app tabs — use plain text pills only
-4. Change cyan OS selector button to neutral dark style
-5. Make all step icons the same neutral style — remove red/orange warning icon
-6. Add thin vertical connector line between timeline step icons
-7. Background should be deep navy (`#08081a`), not pure black
-8. Subtle purple radial glow on page background only (not on cards)
+1. **global.css / page wrapper** — заменить background на радиальный градиент снизу
+2. **Все CSS модули кнопок** — удалить text-transform: uppercase и letter-spacing, добавить border-radius: 20px
+3. **installation-guide контейнер** — убрать border и box-shadow полностью
+4. **subscription-info контейнер** — убрать border и box-shadow, оставить только border-bottom
+5. **timeline-block / cards-block** — иконки шагов игнорируют svgIconColor, всегда stroke: #444
+6. **Таб компонент** — рядом с иконкой обязательно рендерить {app.name}, color для неактивных: #aaaaaa
+7. **OS селектор** — border-radius: 20px, убрать cyan цвет
+8. **Хедер** — добавить строку "VPN SERVICE" над названием
+9. **cards-block карточки** — border: 0.5px solid #1a1a1a, убрать box-shadow

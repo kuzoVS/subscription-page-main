@@ -99,13 +99,14 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                                     size="xs"
                                     style={{ textTransform: 'uppercase', letterSpacing: '0.12em', fontSize: '10px' }}
                                 >
-                                    VPN Service
+                                    VPN SERVICE
                                 </Title>
                                 <Title
-                                    c={hasCustomLogo ? 'white' : 'gray'}
-                                    fw={700}
-                                    order={4}
-                                    size="lg"
+                                    c="white"
+                                    fw={500}
+                                    order={6}
+                                    size="xs"
+                                    style={{ fontSize: '14px' }}
                                 >
                                     {brandName}
                                 </Title>

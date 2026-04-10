@@ -248,7 +248,7 @@ export const InstallationGuideConnector = (props: IProps) => {
                                                 }}
                                             />
                                         )}
-                                        <span className={classes.appName} style={{color: index === selectedAppIndex ? '#000' : '#aaaaaa', fontSize: '12px'}}>{t(app.name)}</span>
+                                        <span className={classes.appName} style={{fontSize: '12px'}}>{app.name}</span>
                                     </UnstyledButton>
                                 )
                             })}
