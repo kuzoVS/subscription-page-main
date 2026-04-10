@@ -6,7 +6,6 @@ import {
 import {
     Box,
     Button,
-    Card,
     Group,
     NativeSelect,
     Stack,
@@ -171,7 +170,7 @@ export const InstallationGuideConnector = (props: IProps) => {
     const getIcon = (iconKey: string) => getIconFromLibrary(iconKey, svgLibrary)
 
     return (
-        <Card p={{ base: 'sm', xs: 'md', sm: 'lg', md: 'xl' }} radius={0} style={{ border: 'none', background: 'transparent' }}>
+        <div style={{ padding: isMobile ? '12px 0' : '16px 0' }}>
             <Stack gap="md">
                 <Group gap="sm" justify="space-between">
                     <div style={{
@@ -289,6 +288,6 @@ export const InstallationGuideConnector = (props: IProps) => {
                     </Box>
                 )}
             </Stack>
-        </Card>
+        </div>
     )
 }

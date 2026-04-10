@@ -151,23 +151,21 @@ a:hover {
     padding: 10px 24px;
 }
 
-/* Terminal window dots */
+/* Terminal window dots — only red and faint orange */
 .header-wrapper::before {
     content: '';
     display: block;
     position: absolute;
     top: 14px;
     left: 16px;
-    width: 36px;
+    width: 23px;
     height: 10px;
-    display: flex;
-    gap: 6px;
     background:
         radial-gradient(circle, #ff5f57 3.5px, transparent 3.5px) 0 0,
-        radial-gradient(circle, #febc2e 3.5px, transparent 3.5px) 13px 0,
-        radial-gradient(circle, #28c840 3.5px, transparent 3.5px) 26px 0;
-    background-size: 36px 10px;
+        radial-gradient(circle, #febc2e 2.5px, transparent 2.5px) 11px 0;
+    background-size: 23px 10px;
     background-repeat: no-repeat;
+    opacity: 0.7;
 }
 
 .logo-text-highlight {
