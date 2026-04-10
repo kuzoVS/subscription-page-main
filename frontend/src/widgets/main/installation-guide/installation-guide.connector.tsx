@@ -239,13 +239,6 @@ export const InstallationGuideConnector = (props: IProps) => {
                                                         svgLibrary
                                                     )
                                                 }}
-                                                style={{
-                                                    width: 20,
-                                                    height: 20,
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    justifyContent: 'center'
-                                                }}
                                             />
                                         )}
                                         <span className={classes.appName} style={{fontSize: '12px'}}>{app.name}</span>

@@ -13,6 +13,7 @@ import {
     SubscriptionInfoCardsMinimalDarkWidget,
     SubscriptionInfoCollapsedMinimalDarkWidget,
     SubscriptionInfoExpandedMinimalDarkWidget,
+    SubscriptionInfoBrutalWidget,
     SubscriptionLinkWidget,
     TimelineBlockRenderer
 } from '@widgets/main'
@@ -39,6 +40,7 @@ const SUBSCRIPTION_INFO_BLOCK_RENDERERS = {
     minimalDark: SubscriptionInfoCardsMinimalDarkWidget,
     minimalDarkCollapsed: SubscriptionInfoCollapsedMinimalDarkWidget,
     minimalDarkExpanded: SubscriptionInfoExpandedMinimalDarkWidget,
+    brutal: SubscriptionInfoBrutalWidget,
     hidden: null
 } as const
 
@@ -69,7 +71,9 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
     const atLeastOnePlatformApp = Object.values(hasPlatformApps).some((value) => value)
 
     const SubscriptionInfoBlockRenderer =
-        SUBSCRIPTION_INFO_BLOCK_RENDERERS[config.uiConfig.subscriptionInfoBlockType]
+        SUBSCRIPTION_INFO_BLOCK_RENDERERS[config.uiConfig.subscriptionInfoBlockType === 'cards'
+            ? 'brutal'
+            : config.uiConfig.subscriptionInfoBlockType]
 
     return (
         <Page>

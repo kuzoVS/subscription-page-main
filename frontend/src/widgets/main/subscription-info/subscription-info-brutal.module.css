@@ -1,0 +1,47 @@
+.wrapper {
+    padding: 16px 24px;
+    border-bottom: 0.5px solid #111;
+    background: transparent;
+}
+
+.header {
+    width: 100%;
+    display: block;
+}
+
+.iconCircle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 0.5px solid #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: transparent;
+}
+
+.statusPill {
+    border-radius: 20px;
+    border: 0.5px solid #1a1a1a;
+    padding: 3px 10px;
+    font-size: 11px;
+    color: #3a3a3a;
+    white-space: nowrap;
+    background: transparent;
+}
+
+.expandedContent {
+    padding-top: 12px;
+}
+
+.fieldsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+.field {
+    padding: 10px 0;
+    border-bottom: 0.5px solid #0f0f0f;
+}

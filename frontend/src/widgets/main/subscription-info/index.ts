@@ -4,3 +4,4 @@ export { SubscriptionInfoExpandedWidget } from './subscription-info-expanded.wid
 export { SubscriptionInfoCardsMinimalDarkWidget } from './subscription-info-cards-minimal-dark.widget'
 export { SubscriptionInfoCollapsedMinimalDarkWidget } from './subscription-info-collapsed-minimal-dark.widget'
 export { SubscriptionInfoExpandedMinimalDarkWidget } from './subscription-info-expanded-minimal-dark.widget'
+export { SubscriptionInfoBrutalWidget } from './subscription-info-brutal.widget'
