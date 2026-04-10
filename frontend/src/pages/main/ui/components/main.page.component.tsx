@@ -79,7 +79,7 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
         <Page>
             <Box className="header-wrapper" py="md">
                 <Container maw={1200} px={{ base: 'md', sm: 'lg', md: 'xl' }}>
-                    <Group justify="space-between" wrap="nowrap" style={{ paddingLeft: '48px' }}>
+                    <Group justify="space-between" wrap="nowrap">
                         <Group gap="sm" style={{ userSelect: 'none' }} wrap="nowrap">
                             {hasCustomLogo ? (
                                 <Image
