@@ -151,23 +151,6 @@ a:hover {
     padding: 10px 24px;
 }
 
-/* Terminal window dots — red, orange, green */
-.header-wrapper::before {
-    content: '';
-    position: absolute;
-    top: 16px;
-    left: 14px;
-    width: 48px;
-    height: 14px;
-    background:
-        radial-gradient(circle, #ff6b6b 4.5px, transparent 4.5px) 0 0,
-        radial-gradient(circle, #ffa94d 4.5px, transparent 4.5px) 14px 0,
-        radial-gradient(circle, #69db7c 4.5px, transparent 4.5px) 28px 0;
-    background-size: 48px 14px;
-    background-repeat: no-repeat;
-    z-index: 101;
-}
-
 .logo-text-highlight {
     color: #5aaa5a;
     font-size: 13px;
