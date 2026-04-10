@@ -131,10 +131,17 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                             </Group>
                         </Stack>
 
-                        <SubscriptionLinkWidget
-                            hideGetLink={config.baseSettings.hideGetLinkButton}
-                            supportUrl={config.brandingSettings.supportUrl}
-                        />
+                        <Group gap="xs" wrap="nowrap">
+                            <SubscriptionLinkWidget
+                                hideGetLink={config.baseSettings.hideGetLinkButton}
+                                supportUrl={config.brandingSettings.supportUrl}
+                            />
+                            <LanguagePicker
+                                currentLang={currentLang}
+                                locales={config.locales}
+                                onLanguageChange={setLanguage}
+                            />
+                        </Group>
                     </Group>
                 </Container>
             </Box>
@@ -151,7 +158,7 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                     WebkitBackdropFilter: 'blur(12px)'
                 }}
             >
-                <Stack gap="xl">
+                <Stack gap="md">
                     {SubscriptionInfoBlockRenderer && (
                         <SubscriptionInfoBlockRenderer isMobile={isMobile} />
                     )}
@@ -168,18 +175,6 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                     )}
 
                     <RawKeysWidget isMobile={isMobile} />
-
-                    <Center style={{
-                        width: '100%',
-                        paddingTop: '16px',
-                        borderTop: '1px solid rgba(255, 255, 255, 0.04)'
-                    }}>
-                        <LanguagePicker
-                            currentLang={currentLang}
-                            locales={config.locales}
-                            onLanguageChange={setLanguage}
-                        />
-                    </Center>
                 </Stack>
             </Container>
         </Page>
