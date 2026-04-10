@@ -71,39 +71,48 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
         vibrate('tap')
 
         const subscriptionQrCode = renderSVG(subscriptionUrl, {
-            whiteColor: '#ffffff',
-            blackColor: '#333333'
+            whiteColor: '#5aaa5a',
+            blackColor: '#000000'
         })
 
         modals.open({
             centered: true,
-            title: t(baseTranslations.getLink),
+            title: '$ scan-qr',
             classNames: {
                 content: classes.modalContent,
                 header: classes.modalHeader,
                 title: classes.modalTitle
             },
             children: (
-                <Stack align="center">
-                    <Image
-                        src={`data:image/svg+xml;utf8,${encodeURIComponent(subscriptionQrCode)}`}
-                        style={{ borderRadius: 'var(--mantine-radius-md)' }}
-                    />
-                    <Text c="white" fw={600} size="lg" ta="center">
+                <Stack align="center" style={{ padding: '16px' }}>
+                    <div className={classes.qrLabel}>
+                        {'┌─ qr-code ──────────────────┐'}
+                    </div>
+                    <div className={classes.qrContainer}>
+                        <Image
+                            src={`data:image/svg+xml;utf8,${encodeURIComponent(subscriptionQrCode)}`}
+                        />
+                    </div>
+                    <div style={{ width: '100%', textAlign: 'right' }}>
+                        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', color: '#5aaa5a' }}>
+                            {'└──────────────────────────┘'}
+                        </div>
+                    </div>
+                    <div className={classes.qrDescription}>
                         {t(baseTranslations.scanQrCode)}
-                    </Text>
-                    <Text c="dimmed" size="sm" ta="center">
+                    </div>
+                    <div className={classes.qrDescription}>
                         {t(baseTranslations.scanQrCodeDescription)}
-                    </Text>
+                    </div>
 
                     <Button
                         fullWidth
-                        leftSection={<IconCopy />}
+                        leftSection={<IconCopy size={14} />}
                         onClick={handleCopy}
-                        radius="md"
-                        variant="light"
+                        variant="default"
+                        className={classes.copyButton}
                     >
-                        {t(baseTranslations.copyLink)}
+                        [copy-link ▸]
                     </Button>
                 </Stack>
             )

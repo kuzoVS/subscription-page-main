@@ -78,59 +78,58 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
     return (
         <Page>
             <Box className="header-wrapper" py="md">
-                <div style={{
-                    position: 'absolute',
-                    top: '12px',
-                    left: '16px',
-                    zIndex: 200,
-                    display: 'flex',
-                    gap: '7px',
-                    alignItems: 'center'
-                }}>
-                    <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#ff6b6b', display: 'block', flexShrink: 0 }} />
-                    <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#ffa94d', display: 'block', flexShrink: 0 }} />
-                    <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#69db7c', display: 'block', flexShrink: 0 }} />
-                </div>
-
                 <Container maw={1200} px={{ base: 'md', sm: 'lg', md: 'xl' }}>
-                    <Group justify="space-between" wrap="nowrap" style={{ paddingLeft: '44px' }}>
-                        <Group gap="sm" style={{ userSelect: 'none' }} wrap="nowrap">
-                            {hasCustomLogo ? (
-                                <Image
-                                    alt="logo"
-                                    fit="contain"
-                                    src={config.brandingSettings.logoUrl}
-                                    style={{
-                                        width: '36px',
-                                        height: '36px',
-                                        flexShrink: 0,
-                                        opacity: 0.9
-                                    }}
-                                />
-                            ) : (
-                                <RemnawaveLogo c="#5aaa5a" size={28} />
-                            )}
-                            <Stack gap={0} style={{ lineHeight: 1.2 }}>
-                                <Title
-                                    c="#555"
-                                    fw={400}
-                                    order={6}
-                                    size="xs"
-                                    style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', letterSpacing: '0.08em' }}
-                                >
-                                    ╭─ vpn-service
-                                </Title>
-                                <Title
-                                    c="#5aaa5a"
-                                    fw={500}
-                                    order={6}
-                                    size="xs"
-                                    style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '14px' }}
-                                >
-                                    │ {brandName}
-                                </Title>
-                            </Stack>
-                        </Group>
+                    <Group justify="space-between" wrap="nowrap" style={{ paddingLeft: '0' }}>
+                        <Stack gap={0} style={{ userSelect: 'none' }}>
+                            {/* Terminal dots above logo */}
+                            <div style={{
+                                display: 'flex',
+                                gap: '6px',
+                                marginBottom: '6px',
+                                paddingLeft: '2px'
+                            }}>
+                                <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#ff6b6b', display: 'block' }} />
+                                <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#ffa94d', display: 'block' }} />
+                                <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#69db7c', display: 'block' }} />
+                            </div>
+                            <Group gap="sm" wrap="nowrap">
+                                {hasCustomLogo ? (
+                                    <Image
+                                        alt="logo"
+                                        fit="contain"
+                                        src={config.brandingSettings.logoUrl}
+                                        style={{
+                                            width: '38px',
+                                            height: '38px',
+                                            flexShrink: 0,
+                                            opacity: 0.9
+                                        }}
+                                    />
+                                ) : (
+                                    <RemnawaveLogo c="#5aaa5a" size={30} />
+                                )}
+                                <Stack gap={0} style={{ lineHeight: 1.2 }}>
+                                    <Title
+                                        c="#555"
+                                        fw={400}
+                                        order={6}
+                                        size="xs"
+                                        style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', letterSpacing: '0.08em' }}
+                                    >
+                                        ╭─ vpn-service
+                                    </Title>
+                                    <Title
+                                        c="#5aaa5a"
+                                        fw={500}
+                                        order={6}
+                                        size="xs"
+                                        style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '14px' }}
+                                    >
+                                        │ {brandName}
+                                    </Title>
+                                </Stack>
+                            </Group>
+                        </Stack>
 
                         <SubscriptionLinkWidget
                             hideGetLink={config.baseSettings.hideGetLinkButton}

@@ -146,9 +146,19 @@ a:hover {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: #0a0a0a;
-    border-bottom: 1px solid #1a1a1a;
-    padding: 14px 24px;
+    background: linear-gradient(to right, transparent 0%, #0a0a0a 12%, #0a0a0a 88%, transparent 100%);
+    padding: 18px 24px 16px;
+    position: relative;
+}
+
+.header-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent 0%, #1a1a1a 15%, #1a1a1a 85%, transparent 100%);
 }
 
 .logo-text-highlight {
