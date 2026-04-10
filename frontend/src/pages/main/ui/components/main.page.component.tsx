@@ -143,7 +143,13 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                 maw={1200}
                 px={{ base: 'md', sm: 'lg', md: 'xl' }}
                 py="xl"
-                style={{ position: 'relative', zIndex: 1 }}
+                style={{
+                    position: 'relative',
+                    zIndex: 1,
+                    background: 'linear-gradient(to right, transparent 0%, rgba(10, 10, 10, 0.5) 10%, rgba(10, 10, 10, 0.5) 90%, transparent 100%)',
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)'
+                }}
             >
                 <Stack gap="xl">
                     {SubscriptionInfoBlockRenderer && (
