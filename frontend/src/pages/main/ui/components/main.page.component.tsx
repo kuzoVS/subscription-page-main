@@ -146,9 +146,9 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                 style={{
                     position: 'relative',
                     zIndex: 1,
-                    background: 'linear-gradient(to right, transparent 0%, rgba(10, 10, 10, 0.5) 10%, rgba(10, 10, 10, 0.5) 90%, transparent 100%)',
-                    backdropFilter: 'blur(8px)',
-                    WebkitBackdropFilter: 'blur(8px)'
+                    background: 'linear-gradient(to right, transparent 0%, rgba(18, 18, 32, 0.4) 10%, rgba(18, 18, 32, 0.4) 90%, transparent 100%)',
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)'
                 }}
             >
                 <Stack gap="xl">
