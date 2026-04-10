@@ -23,7 +23,7 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
                     flexShrink: 0
                 }}
             >
-                {/* Номер шага — просто текст */}
+                {/* Номер шага */}
                 <div
                     style={{
                         fontSize: '10px',
@@ -31,48 +31,45 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
                         color: '#5aaa5a',
                         fontWeight: 700,
                         lineHeight: 1,
-                        marginBottom: '4px'
+                        marginBottom: '6px'
                     }}
                 >
                     {blockIndex + 1}
                 </div>
-                {/* Линия — тянется вниз до конца блока */}
-                <div
+
+                {/* Линия до иконки */}
+                <div style={{ width: '1px', height: '12px', background: '#5aaa5a', flexShrink: 0 }} />
+
+                {/* Иконка — фон совпадает с фоном блока, линия «прерывается» */}
+                <Box
                     style={{
-                        width: '1px',
-                        flex: 1,
-                        background: '#5aaa5a',
-                        position: 'relative'
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        width: '24px',
+                        height: '24px',
+                        background: '#000',
+                        flexShrink: 0
                     }}
                 >
-                    {/* Иконка — в центре линии */}
-                    <div
+                    <span
+                        dangerouslySetInnerHTML={{
+                            __html: getIconFromLibrary(svgIconKey)
+                        }}
                         style={{
-                            position: 'absolute',
-                            top: '20px',
-                            left: '50%',
-                            transform: 'translateX(-50%)',
                             display: 'flex',
                             alignItems: 'center',
-                            justifyContent: 'center'
+                            justifyContent: 'center',
+                            color: '#5aaa5a',
+                            width: '20px',
+                            height: '20px',
+                            filter: 'drop-shadow(0 0 4px rgba(90, 170, 90, 0.3))'
                         }}
-                    >
-                        <span
-                            dangerouslySetInnerHTML={{
-                                __html: getIconFromLibrary(svgIconKey)
-                            }}
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                color: '#5aaa5a',
-                                width: '20px',
-                                height: '20px',
-                                filter: 'drop-shadow(0 0 4px rgba(90, 170, 90, 0.3))'
-                            }}
-                        />
-                    </div>
-                </div>
+                    />
+                </Box>
+
+                {/* Линия после иконки — тянется до конца */}
+                <div style={{ width: '1px', flex: 1, background: '#5aaa5a' }} />
             </Box>
         )
     }
