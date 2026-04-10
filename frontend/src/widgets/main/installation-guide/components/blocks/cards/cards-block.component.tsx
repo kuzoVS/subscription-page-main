@@ -20,17 +20,16 @@ export const CardsBlockRenderer = ({
                     <div
                         key={index}
                         className={classes.root}
-                        style={{ position: 'relative' }}
+                        style={{ display: 'flex' }}
                     >
-                        <Group align="flex-start" gap={isMobile ? 'sm' : 'md'} wrap="nowrap">
-                            <TerminalIcon
-                                getIconFromLibrary={getIconFromLibrary}
-                                isMobile={isMobile}
-                                svgIconKey={block.svgIconKey}
-                                blockIndex={index}
-                                variant="cards"
-                            />
-                            <Stack gap={isMobile ? 'xs' : 'sm'} style={{ flex: 1, minWidth: 0, paddingTop: '8px' }}>
+                        <TerminalIcon
+                            getIconFromLibrary={getIconFromLibrary}
+                            isMobile={isMobile}
+                            svgIconKey={block.svgIconKey}
+                            blockIndex={index}
+                            variant="cards"
+                        />
+                        <Stack gap={isMobile ? 'xs' : 'sm'} style={{ flex: 1, minWidth: 0, paddingTop: '12px' }}>
                                 <Text
                                     style={{
                                         fontFamily: "'JetBrains Mono', monospace",
@@ -66,7 +65,7 @@ export const CardsBlockRenderer = ({
 
                                 {renderBlockButtons(block.buttons)}
                             </Stack>
-                        </Group>
+                        </div>
                     </div>
                 )
             })}
