@@ -27,8 +27,9 @@ export const CardsBlockRenderer = ({
                                 isMobile={isMobile}
                                 svgIconKey={block.svgIconKey}
                                 blockIndex={index}
+                                variant="cards"
                             />
-                            <Stack gap={isMobile ? 'xs' : 'sm'} style={{ flex: 1, minWidth: 0 }}>
+                            <Stack gap={isMobile ? 'xs' : 'sm'} style={{ flex: 1, minWidth: 0, paddingLeft: '12px' }}>
                                 <Text
                                     style={{
                                         fontFamily: "'JetBrains Mono', monospace",

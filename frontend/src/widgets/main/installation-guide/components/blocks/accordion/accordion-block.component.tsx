@@ -47,6 +47,7 @@ export const AccordionBlockRenderer = ({
                                     isMobile={isMobile}
                                     svgIconKey={block.svgIconKey}
                                     blockIndex={index}
+                                    variant="accordion"
                                 />
                                 <Stack gap={2} style={{ flex: 1, minWidth: 0 }}>
                                     <Text

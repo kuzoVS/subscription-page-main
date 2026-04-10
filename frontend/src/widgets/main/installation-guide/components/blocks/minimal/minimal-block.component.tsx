@@ -29,6 +29,7 @@ export const MinimalBlockRenderer = ({
                                 isMobile={isMobile}
                                 svgIconKey={block.svgIconKey}
                                 blockIndex={index}
+                                variant="minimal"
                             />
                             <Text
                                 style={{

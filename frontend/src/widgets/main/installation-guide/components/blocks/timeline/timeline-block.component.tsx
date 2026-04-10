@@ -25,6 +25,7 @@ export const TimelineBlockRenderer = ({
                                     isMobile={isMobile}
                                     svgIconKey={block.svgIconKey}
                                     blockIndex={index}
+                                    variant="timeline"
                                 />
                                 <Text
                                     style={{
