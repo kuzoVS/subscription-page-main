@@ -71,8 +71,8 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
         vibrate('tap')
 
         const subscriptionQrCode = renderSVG(subscriptionUrl, {
-            whiteColor: '#60a5fa',
-            blackColor: 'transparent'
+            whiteColor: 'transparent',
+            blackColor: '#60a5fa'
         })
 
         modals.open({
