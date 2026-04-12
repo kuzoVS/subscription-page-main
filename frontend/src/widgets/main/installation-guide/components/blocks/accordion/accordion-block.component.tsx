@@ -20,7 +20,7 @@ export const AccordionBlockRenderer = ({
 
     return (
         <Accordion
-            chevron={<IconChevronDown size={14} style={{ color: '#444' }} />}
+            chevron={<IconChevronDown size={18} style={{ color: '#64748b' }} />}
             classNames={{
                 item: classes.accordionItem,
                 control: classes.accordionControl,
@@ -32,8 +32,8 @@ export const AccordionBlockRenderer = ({
                 vibrate('tap')
                 setOpenedAccordion(value)
             }}
-            radius={0}
-            transitionDuration={150}
+            radius="lg"
+            transitionDuration={200}
             value={openedAccordion}
             variant="separated"
         >
@@ -52,13 +52,12 @@ export const AccordionBlockRenderer = ({
                                 <Stack gap={2} style={{ flex: 1, minWidth: 0 }}>
                                     <Text
                                         style={{
-                                            fontFamily: "'JetBrains Mono', monospace",
-                                            fontSize: isMobile ? '12px' : '13px',
-                                            fontWeight: 500,
-                                            color: '#60a5fa'
+                                            fontFamily: "'Inter', sans-serif",
+                                            fontSize: isMobile ? '14px' : '15px',
+                                            fontWeight: 600,
+                                            color: '#f8fafc'
                                         }}
                                     >
-                                        <span style={{ color: '#666' }}>{'→ '}</span>
                                         <span
                                             dangerouslySetInnerHTML={{
                                                 __html: getLocalizedText(block.title, currentLang)
@@ -71,9 +70,9 @@ export const AccordionBlockRenderer = ({
                         <Accordion.Panel>
                             <Text
                                 style={{
-                                    fontFamily: "'JetBrains Mono', monospace",
-                                    fontSize: isMobile ? '11px' : '12px',
-                                    color: '#bbb',
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontSize: isMobile ? '13px' : '14px',
+                                    color: '#94a3b8',
                                     lineHeight: 1.6
                                 }}
                             >
@@ -83,7 +82,7 @@ export const AccordionBlockRenderer = ({
                                     }}
                                 />
                             </Text>
-                            <Group gap="xs" mt="sm" wrap="wrap">
+                            <Group gap="xs" mt="md" wrap="wrap">
                                 {renderBlockButtons(block.buttons)}
                             </Group>
                         </Accordion.Panel>

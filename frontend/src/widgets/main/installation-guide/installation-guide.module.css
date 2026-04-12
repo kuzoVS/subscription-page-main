@@ -1,14 +1,14 @@
 /* ═══════════════════════════════════════════════════
-   INSTALLATION GUIDE — TERMINAL TABS
+   INSTALLATION GUIDE — MODERN TABS
    ═══════════════════════════════════════════════════ */
 
 .appsGrid {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px;
-    margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #111;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 .appButton {
@@ -16,49 +16,46 @@
     display: flex;
     align-items: center;
     flex: 0 0 auto;
-    padding: 4px 12px;
-    min-height: 28px;
-    background: transparent;
-    border: 0.5px solid #1a1a1a;
-    border-radius: 0;
+    padding: 8px 16px;
+    min-height: 40px;
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
     cursor: pointer;
-    transition: all 0.15s ease;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    font-weight: 400;
-    gap: 6px;
-    color: #555;
+    transition: all 0.25s ease;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    gap: 8px;
+    color: #94a3b8;
 }
 
 .appButton:hover {
-    background: rgba(58, 106, 58, 0.05);
-    color: #888;
+    background: rgba(15, 23, 42, 0.6);
+    color: #cbd5e1;
+    border-color: rgba(255, 255, 255, 0.12);
 }
 
 .appButtonActive,
 .appButtonActive:hover {
-    background: transparent;
-    border: 0.5px solid #60a5fa;
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.3);
     color: #60a5fa;
-    font-weight: 500;
+    font-weight: 600;
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.1);
 }
 
 .appButtonActive::after {
-    content: '█';
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: #60a5fa;
-    animation: cursor-blink 1s step-start infinite;
-    margin-left: 2px;
+    content: none;
 }
 
 .appName {
     position: relative;
     z-index: 1;
-    font-family: 'JetBrains Mono', monospace;
-    color: #666;
-    font-size: 12px;
-    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    color: #94a3b8;
+    font-size: 14px;
+    font-weight: 500;
     white-space: nowrap;
 }
 
@@ -71,8 +68,8 @@
 }
 
 .bgIcon {
-    width: 14px !important;
-    height: 14px !important;
+    width: 18px !important;
+    height: 18px !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -80,9 +77,9 @@
 }
 
 .bgIcon svg {
-    width: 14px !important;
-    height: 14px !important;
-    stroke: #555 !important;
+    width: 18px !important;
+    height: 18px !important;
+    stroke: #64748b !important;
     fill: none !important;
 }
 
@@ -92,13 +89,14 @@
 
 .featuredBadge {
     position: absolute;
-    top: -3px;
-    right: -3px;
-    width: 6px;
-    height: 6px;
+    top: -4px;
+    right: -4px;
+    width: 8px;
+    height: 8px;
     display: inline-block;
     opacity: 1;
     z-index: 2;
-    border-radius: 0;
-    background: #60a5fa;
+    border-radius: 50%;
+    background: #3b82f6;
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
 }

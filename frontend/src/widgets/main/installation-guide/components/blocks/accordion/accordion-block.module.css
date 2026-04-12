@@ -1,46 +1,46 @@
 /* ═══════════════════════════════════════════════════
-   ACCORDION BLOCK — TERMINAL STYLE
+   ACCORDION BLOCK — MODERN STYLE
    ═══════════════════════════════════════════════════ */
 
 .accordionItem {
-    border: none;
-    border-bottom: 1px solid #111;
-    background: transparent;
-    margin-bottom: 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    margin-bottom: 12px;
     position: relative;
+    transition: all 0.25s ease;
+    overflow: hidden;
+}
+
+.accordionItem:hover {
+    border-color: rgba(59, 130, 246, 0.2);
+    background: rgba(15, 23, 42, 0.6);
 }
 
 .accordionItem:last-child {
-    border-bottom: none;
-}
-
-.accordionItem::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: #3a6a3a;
+    margin-bottom: 0;
 }
 
 .accordionControl {
-    padding: 10px 0 10px 14px;
+    padding: 16px 20px;
 }
 
 .accordionControl:hover {
-    background: rgba(58, 106, 58, 0.03);
+    background: rgba(59, 130, 246, 0.05);
 }
 
 .accordionChevron {
-    color: #444 !important;
+    color: #64748b !important;
+    transition: all 0.25s ease;
 }
 
 .accordionContent {
-    padding: 0 0 12px 14px;
-    border-top: none;
+    padding: 0 20px 16px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .accordionLabel {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Inter', sans-serif;
 }

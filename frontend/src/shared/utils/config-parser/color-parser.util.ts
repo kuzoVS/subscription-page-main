@@ -11,7 +11,6 @@ const COLORS: Record<string, [number, number, number]> = {
     violet: [151, 117, 250],
     indigo: [92, 124, 250],
     blue: [34, 139, 230],
-    gray: [134, 142, 150],
     dark: [55, 58, 64]
 }
 

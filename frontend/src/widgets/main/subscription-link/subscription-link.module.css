@@ -1,63 +1,79 @@
+.actionIcon {
+    width: 36px !important;
+    height: 36px !important;
+    background: rgba(15, 23, 42, 0.5) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 10px !important;
+    transition: all 0.25s ease !important;
+}
+
+.actionIcon:hover {
+    background: rgba(15, 23, 42, 0.7) !important;
+    border-color: rgba(59, 130, 246, 0.3) !important;
+    transform: translateY(-1px);
+}
+
 .modalContent {
-    background: #000;
-    border: 1px solid #1a1a1a;
-    border-left: 2px solid #5aaa5a;
+    background: rgba(10, 14, 23, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
     padding: 0;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
 }
 
 .modalHeader {
-    border-bottom: 1px solid #111;
-    padding: 14px 16px;
-    background: #0a0a0a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 16px 20px;
+    background: rgba(15, 23, 42, 0.5);
 }
 
 .modalTitle {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
-    font-weight: 500;
-    color: #5aaa5a;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #f8fafc;
 }
 
 .qrContainer {
-    border: 1px solid #1a1a1a;
-    background: #000;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #ffffff;
     margin: 16px auto;
-    padding: 12px;
+    padding: 16px;
     display: inline-block;
-}
-
-.qrLabel {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
-    font-weight: 500;
-    color: #5aaa5a;
-    text-align: center;
-    margin-bottom: 4px;
+    border-radius: 12px;
 }
 
 .qrDescription {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: #888;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #94a3b8;
     text-align: center;
     margin-bottom: 16px;
+    line-height: 1.5;
 }
 
 .copyButton {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    font-weight: 400;
-    background: transparent;
-    border: 0.5px solid #333;
-    color: #aaa;
-    border-radius: 0;
-    height: 32px;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    background: rgba(59, 130, 246, 0.15) !important;
+    border: 1px solid rgba(59, 130, 246, 0.3) !important;
+    color: #60a5fa !important;
+    border-radius: 10px !important;
+    height: 42px !important;
     margin-top: 16px;
+    transition: all 0.25s ease !important;
 }
 
 .copyButton:hover {
-    background: rgba(90, 170, 90, 0.05);
-    border-color: #444;
-    color: #bbb;
+    background: rgba(59, 130, 246, 0.25) !important;
+    border-color: rgba(59, 130, 246, 0.4) !important;
+    color: #93c5fd !important;
+    transform: translateY(-1px);
 }

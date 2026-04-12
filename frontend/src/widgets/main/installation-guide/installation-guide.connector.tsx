@@ -134,24 +134,24 @@ export const InstallationGuideConnector = (props: IProps) => {
                                 style={{
                                     display: 'flex',
                                     alignItems: 'center',
-                                    width: '12px',
-                                    height: '12px'
+                                    width: '14px',
+                                    height: '14px'
                                 }}
                             />
                         }
                         onClick={() => handleButtonClick(button)}
-                        radius={0}
+                        radius="lg"
                         variant="default"
                         style={{
-                            fontFamily: "'JetBrains Mono', monospace",
-                            fontSize: '11px',
-                            fontWeight: 400,
-                            background: 'transparent',
-                            border: '0.5px solid #333',
-                            color: '#aaa',
-                            padding: '4px 12px',
+                            fontFamily: "'Inter', sans-serif",
+                            fontSize: '13px',
+                            fontWeight: 500,
+                            background: 'rgba(15, 23, 42, 0.5)',
+                            border: '1px solid rgba(255, 255, 255, 0.1)',
+                            color: '#cbd5e1',
+                            padding: '8px 16px',
                             height: 'auto',
-                            minHeight: '26px'
+                            minHeight: '36px'
                         }}
                         styles={{
                             label: {
@@ -160,7 +160,7 @@ export const InstallationGuideConnector = (props: IProps) => {
                             }
                         }}
                     >
-                        [{t(button.text)} ▸]
+                        {t(button.text)}
                     </Button>
                 ))}
             </Group>
@@ -172,16 +172,15 @@ export const InstallationGuideConnector = (props: IProps) => {
     return (
         <div style={{ padding: isMobile ? '12px 0' : '16px 0' }}>
             <Stack gap="md">
-                <Group gap="sm" justify="space-between">
+                <Group gap="sm" justify="space-between" align="center">
                     <div style={{
-                        fontSize: '12px',
-                        fontFamily: "'JetBrains Mono', monospace",
-                        color: '#60a5fa',
-                        fontWeight: 500,
-                        textShadow: '0 0 6px rgba(59, 130, 246, 0.35)'
+                        fontSize: '16px',
+                        fontFamily: "'Inter', sans-serif",
+                        color: '#f8fafc',
+                        fontWeight: 600,
+                        letterSpacing: '-0.02em'
                     }}>
-                        <span style={{ color: '#555' }}>╰─ </span>
-                        install:~$
+                        Install Apps
                     </div>
 
                     {availablePlatforms.length > 1 && (
@@ -200,9 +199,9 @@ export const InstallationGuideConnector = (props: IProps) => {
                                     style={{
                                         display: 'flex',
                                         alignItems: 'center',
-                                        width: 14,
-                                        height: 14,
-                                        color: '#aaa'
+                                        width: 16,
+                                        height: 16,
+                                        color: '#64748b'
                                     }}
                                 />
                             }
@@ -213,22 +212,24 @@ export const InstallationGuideConnector = (props: IProps) => {
                                 setSelectedPlatform(value)
                                 setSelectedAppIndex(0)
                             }}
-                            radius={0}
-                            size="sm"
+                            radius="lg"
+                            size="md"
                             value={selectedPlatform}
-                            w={150}
+                            w={180}
                             styles={{
                                 input: {
-                                    borderRadius: '0',
-                                    border: '0.5px solid #333',
-                                    background: '#0a0a0a',
-                                    fontSize: '11px',
-                                    color: '#bbb',
-                                    fontFamily: "'JetBrains Mono', monospace",
-                                    paddingRight: '24px'
+                                    borderRadius: '10px',
+                                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                                    background: 'rgba(15, 23, 42, 0.6)',
+                                    fontSize: '14px',
+                                    color: '#f8fafc',
+                                    fontFamily: "'Inter', sans-serif",
+                                    paddingRight: '32px',
+                                    paddingLeft: '12px',
+                                    height: '40px'
                                 },
                                 section: {
-                                    color: '#aaa'
+                                    color: '#64748b'
                                 }
                             }}
                         />

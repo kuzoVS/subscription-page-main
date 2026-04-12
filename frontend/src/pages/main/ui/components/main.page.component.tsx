@@ -80,52 +80,41 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
             <Box className="header-wrapper" py="md">
                 <Container maw={1200} px={{ base: 'md', sm: 'lg', md: 'xl' }}>
                     <Group justify="space-between" wrap="nowrap" style={{ paddingLeft: '0' }}>
-                        <Stack gap={0} style={{ userSelect: 'none' }}>
-                            {/* Terminal dots above logo */}
-                            <div style={{
-                                display: 'flex',
-                                gap: '6px',
-                                marginBottom: '6px',
-                                paddingLeft: '2px'
-                            }}>
-                                <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#ff6b6b', display: 'block' }} />
-                                <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#ffa94d', display: 'block' }} />
-                                <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#69db7c', display: 'block' }} />
-                            </div>
-                            <Group gap="sm" wrap="nowrap">
+                        <Stack gap={4} style={{ userSelect: 'none' }}>
+                            <Group gap="sm" wrap="nowrap" align="center">
                                 {hasCustomLogo ? (
                                     <Image
                                         alt="logo"
                                         fit="contain"
                                         src={config.brandingSettings.logoUrl}
                                         style={{
-                                            width: '38px',
-                                            height: '38px',
+                                            width: '40px',
+                                            height: '40px',
                                             flexShrink: 0,
-                                            opacity: 0.9
+                                            borderRadius: '10px'
                                         }}
                                     />
                                 ) : (
-                                    <RemnawaveLogo c="#60a5fa" size={30} />
+                                    <RemnawaveLogo c="#10b981" size={36} />
                                 )}
-                                <Stack gap={0} style={{ lineHeight: 1.2 }}>
+                                <Stack gap={2} style={{ lineHeight: 1.2 }}>
                                     <Title
-                                        c="#555"
-                                        fw={400}
-                                        order={6}
-                                        size="xs"
-                                        style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', letterSpacing: '0.08em' }}
-                                    >
-                                        ╭─ vpn-service
-                                    </Title>
-                                    <Title
-                                        c="#60a5fa"
+                                        c="#64748b"
                                         fw={500}
                                         order={6}
                                         size="xs"
-                                        style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '14px' }}
+                                        style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', letterSpacing: '0.05em', textTransform: 'uppercase' }}
                                     >
-                                        │ {brandName}
+                                        VPN Service
+                                    </Title>
+                                    <Title
+                                        c="#10b981"
+                                        fw={600}
+                                        order={6}
+                                        size="md"
+                                        style={{ fontFamily: "'Inter', sans-serif", fontSize: '18px', letterSpacing: '-0.02em' }}
+                                    >
+                                        {brandName}
                                     </Title>
                                 </Stack>
                             </Group>
@@ -153,10 +142,7 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                 pb={0}
                 style={{
                     position: 'relative',
-                    zIndex: 1,
-                    background: 'linear-gradient(to right, transparent 0%, rgba(18, 18, 32, 0.4) 10%, rgba(18, 18, 32, 0.4) 90%, transparent 100%)',
-                    backdropFilter: 'blur(12px)',
-                    WebkitBackdropFilter: 'blur(12px)'
+                    zIndex: 1
                 }}
             >
                 <Stack gap="md" style={{ paddingBottom: '0' }}>

@@ -1,62 +1,76 @@
 /* ═══════════════════════════════════════════════════
-   SUBSCRIPTION INFO — TERMINAL STYLE
+   SUBSCRIPTION INFO — MODERN CARD STYLE
    ═══════════════════════════════════════════════════ */
 
 .wrapper {
-    padding: 12px 24px;
-    border-bottom: 1px solid #111;
-    background: transparent;
-    animation: fade-in 0.3s ease-out;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.25s ease;
+    animation: fade-in 0.4s ease-out;
+}
+
+.wrapper:hover {
+    border-color: rgba(59, 130, 246, 0.2);
+    background: rgba(15, 23, 42, 0.7);
 }
 
 .header {
     width: 100%;
     display: block;
+    padding: 4px;
 }
 
-.prompt {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 14px;
-    font-weight: 600;
-    color: #60a5fa;
-    text-shadow: 0 0 6px rgba(96, 165, 250, 0.4);
+.statusIndicator {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(16, 185, 129, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
-    animation: glow-pulse 3s ease-in-out infinite;
 }
 
-.fieldLabel {
-    color: #60a5fa;
-}
-
-.statusBadge {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    white-space: nowrap;
-    padding: 4px 12px;
-    border: 1px solid;
-    border-radius: 0;
+.statusDot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
     transition: all 0.3s ease;
 }
 
+.statusBadge {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+}
+
 .expandedContent {
-    padding-top: 10px;
+    padding-top: 16px;
+    margin-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .terminalBlock {
-    padding: 12px 0 12px 14px;
-    border-left: 2px solid #60a5fa;
-    background: transparent;
-    transition: border-left-color 0.3s ease;
+    padding: 16px;
+    border-radius: 10px;
+    background: rgba(10, 14, 23, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .fieldsGrid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
 }
 
 .field {
-    padding: 8px 0;
-    border-bottom: 1px solid #0f0f0f;
+    padding: 12px;
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.04);
 }

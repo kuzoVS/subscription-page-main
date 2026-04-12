@@ -15,8 +15,8 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
         return (
             <Box
                 style={{
-                    width: '40px',
-                    minWidth: '40px',
+                    width: '48px',
+                    minWidth: '48px',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -26,29 +26,38 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
                 {/* Номер шага */}
                 <div
                     style={{
-                        fontSize: '10px',
-                        fontFamily: "'JetBrains Mono', monospace",
+                        fontSize: '12px',
+                        fontFamily: "'Inter', sans-serif",
                         color: '#60a5fa',
                         fontWeight: 700,
                         lineHeight: 1,
-                        marginBottom: '6px'
+                        marginBottom: '8px',
+                        width: '24px',
+                        height: '24px',
+                        borderRadius: '6px',
+                        background: 'rgba(59, 130, 246, 0.15)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
                     }}
                 >
                     {blockIndex + 1}
                 </div>
 
                 {/* Линия до иконки */}
-                <div style={{ width: '1px', height: '12px', background: '#60a5fa', flexShrink: 0 }} />
+                <div style={{ width: '2px', height: '12px', background: 'linear-gradient(to bottom, rgba(59, 130, 246, 0.3), rgba(59, 130, 246, 0.6))', flexShrink: 0, borderRadius: '1px' }} />
 
-                {/* Иконка — прозрачный фон */}
+                {/* Иконка */}
                 <Box
                     style={{
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        width: '24px',
-                        height: '24px',
-                        background: 'transparent',
+                        width: '36px',
+                        height: '36px',
+                        background: 'rgba(59, 130, 246, 0.1)',
+                        borderRadius: '10px',
+                        border: '1px solid rgba(59, 130, 246, 0.2)',
                         flexShrink: 0
                     }}
                 >
@@ -62,14 +71,13 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
                             justifyContent: 'center',
                             color: '#60a5fa',
                             width: '20px',
-                            height: '20px',
-                            filter: 'drop-shadow(0 0 4px rgba(96, 165, 250, 0.4))'
+                            height: '20px'
                         }}
                     />
                 </Box>
 
                 {/* Линия после иконки — тянется до конца */}
-                <div style={{ width: '1px', flex: 1, background: '#60a5fa' }} />
+                <div style={{ width: '2px', flex: 1, background: 'linear-gradient(to bottom, rgba(59, 130, 246, 0.6), rgba(59, 130, 246, 0.1))', borderRadius: '1px' }} />
             </Box>
         )
     }
@@ -77,8 +85,8 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
     return (
         <Box
             style={{
-                width: '40px',
-                height: '40px',
+                width: '48px',
+                height: '48px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -89,33 +97,34 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
             <span
                 style={{
                     position: 'absolute',
-                    top: '-5px',
-                    right: '-5px',
-                    fontSize: '8px',
-                    fontFamily: "'JetBrains Mono', monospace",
-                    color: '#000',
+                    top: '-4px',
+                    right: '-4px',
+                    fontSize: '10px',
+                    fontFamily: "'Inter', sans-serif",
+                    color: '#fff',
                     fontWeight: 700,
-                    background: '#60a5fa',
-                    width: '14px',
-                    height: '14px',
+                    background: '#3b82f6',
+                    width: '18px',
+                    height: '18px',
                     borderRadius: '50%',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center'
+                    justifyContent: 'center',
+                    boxShadow: '0 0 8px rgba(59, 130, 246, 0.5)'
                 }}
             >
                 {blockIndex + 1}
             </span>
             <Box
                 style={{
-                    width: '40px',
-                    height: '40px',
+                    width: '48px',
+                    height: '48px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    background: 'transparent',
-                    border: '1px solid #222',
-                    borderRadius: '6px'
+                    background: 'rgba(59, 130, 246, 0.1)',
+                    border: '1px solid rgba(59, 130, 246, 0.2)',
+                    borderRadius: '12px'
                 }}
             >
                 <span
@@ -126,10 +135,9 @@ export const TerminalIcon = ({ getIconFromLibrary, svgIconKey, blockIndex, varia
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        color: '#ccc',
-                        width: '20px',
-                        height: '20px',
-                        filter: 'drop-shadow(0 0 3px rgba(90, 170, 90, 0.15))'
+                        color: '#94a3b8',
+                        width: '24px',
+                        height: '24px'
                     }}
                 />
             </Box>

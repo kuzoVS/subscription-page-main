@@ -1,5 +1,5 @@
 import { IconCheck, IconChevronDown, IconChevronUp, IconX } from '@tabler/icons-react'
-import { Collapse, Group, Stack, Text, UnstyledButton } from '@mantine/core'
+import { Collapse, Group, Stack, Text, UnstyledButton, Badge, Paper } from '@mantine/core'
 import { useState } from 'react'
 
 import {
@@ -32,71 +32,64 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
             ? t(baseTranslations.active)
             : t(baseTranslations.inactive)
 
-    const userColor = isActive || isExpiringSoon ? '#fff' : '#ff4444'
-    const userGlow = isActive || isExpiringSoon
-        ? 'none'
-        : '0 0 8px rgba(255, 68, 68, 0.5)'
-
-    const statusBg = isActive || isExpiringSoon
-        ? 'rgba(96, 165, 250, 0.12)'
-        : 'rgba(255, 68, 68, 0.12)'
-    const statusTextColor = isActive || isExpiringSoon ? '#60a5fa' : '#ff4444'
-    const statusBorderColor = isActive || isExpiringSoon ? '#60a5fa' : '#ff4444'
-
     const handleToggle = () => {
         vibrate('tap')
         setIsExpanded(!isExpanded)
     }
 
     return (
-        <div className={classes.wrapper}>
+        <Paper className={classes.wrapper} radius="lg" withBorder>
             <UnstyledButton onClick={handleToggle} className={classes.header}>
-                <Group gap="xs" wrap="nowrap" style={{ width: '100%' }}>
-                    <span className={classes.prompt}>$</span>
-                    <Stack gap={2} style={{ minWidth: 0, flex: 1 }}>
+                <Group gap="md" wrap="nowrap" style={{ width: '100%' }}>
+                    {/* Status indicator */}
+                    <div className={classes.statusIndicator}>
+                        <div 
+                            className={classes.statusDot}
+                            style={{
+                                background: isActive || isExpiringSoon ? '#10b981' : '#ef4444',
+                                animation: (isActive || isExpiringSoon) ? 'status-active 2s ease-in-out infinite' : 'none'
+                            }}
+                        />
+                    </div>
+
+                    <Stack gap={4} style={{ minWidth: 0, flex: 1 }}>
                         <Text
                             style={{
-                                fontFamily: "'JetBrains Mono', monospace",
-                                fontSize: '13px',
-                                fontWeight: 500,
-                                color: userColor,
+                                fontFamily: "'Inter', sans-serif",
+                                fontSize: '16px',
+                                fontWeight: 600,
+                                color: '#f8fafc',
                                 overflow: 'hidden',
                                 textOverflow: 'ellipsis',
-                                whiteSpace: 'nowrap',
-                                textShadow: userGlow
+                                whiteSpace: 'nowrap'
                             }}
                         >
-                            <span className={classes.fieldLabel}>user</span>
-                            {'='}
                             {user.username}
                         </Text>
                         <Text
                             style={{
-                                fontFamily: "'JetBrains Mono', monospace",
-                                fontSize: '11px',
-                                color: '#555',
-                                whiteSpace: 'nowrap'
+                                fontFamily: "'Inter', sans-serif",
+                                fontSize: '13px',
+                                color: '#64748b'
                             }}
                         >
                             {getExpirationTextUtil(user.expiresAt, currentLang, baseTranslations)}
                         </Text>
                     </Stack>
 
-                    <Group gap="xs" wrap="nowrap" style={{ flexShrink: 0 }}>
-                        <span
+                    <Group gap="sm" wrap="nowrap" style={{ flexShrink: 0 }}>
+                        <Badge
                             className={classes.statusBadge}
-                            style={{
-                                color: statusTextColor,
-                                borderColor: statusBorderColor,
-                                background: statusBg
-                            }}
+                            color={isActive || isExpiringSoon ? 'green' : 'red'}
+                            variant={(isActive || isExpiringSoon) ? 'light' : 'outline'}
+                            size="md"
                         >
-                            {isActive || isExpiringSoon ? '●' : '✗'} {statusText}
-                        </span>
+                            {statusText}
+                        </Badge>
                         {isExpanded ? (
-                            <IconChevronUp size={12} style={{ color: '#333', flexShrink: 0 }} />
+                            <IconChevronUp size={18} style={{ color: '#64748b', flexShrink: 0 }} />
                         ) : (
-                            <IconChevronDown size={12} style={{ color: '#333', flexShrink: 0 }} />
+                            <IconChevronDown size={18} style={{ color: '#64748b', flexShrink: 0 }} />
                         )}
                     </Group>
                 </Group>
@@ -104,54 +97,28 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
 
             <Collapse in={isExpanded}>
                 <div className={classes.expandedContent}>
-                    <div className={classes.terminalBlock}
-                         style={{ borderLeftColor: isActive || isExpiringSoon ? '#60a5fa' : '#ff4444' }}
-                    >
+                    <div className={classes.terminalBlock}>
                         <div className={classes.fieldsGrid}>
                             <div className={classes.field}>
                                 <Text
                                     style={{
-                                        fontFamily: "'JetBrains Mono', monospace",
-                                        fontSize: '10px',
-                                        color: '#555',
+                                        fontFamily: "'Inter', sans-serif",
+                                        fontSize: '11px',
+                                        color: '#64748b',
                                         textTransform: 'uppercase',
-                                        letterSpacing: '0.08em'
+                                        letterSpacing: '0.05em',
+                                        fontWeight: 500
                                     }}
                                 >
-                                    name
+                                    Status
                                 </Text>
                                 <Text
                                     style={{
-                                        fontFamily: "'JetBrains Mono', monospace",
-                                        fontSize: '13px',
-                                        fontWeight: 500,
-                                        color: userColor,
-                                        marginTop: '4px',
-                                        textShadow: userGlow
-                                    }}
-                                >
-                                    {user.username}
-                                </Text>
-                            </div>
-                            <div className={classes.field}>
-                                <Text
-                                    style={{
-                                        fontFamily: "'JetBrains Mono', monospace",
-                                        fontSize: '10px',
-                                        color: '#555',
-                                        textTransform: 'uppercase',
-                                        letterSpacing: '0.08em'
-                                    }}
-                                >
-                                    status
-                                </Text>
-                                <Text
-                                    style={{
-                                        fontFamily: "'JetBrains Mono', monospace",
-                                        fontSize: '13px',
-                                        fontWeight: 500,
-                                        color: isActive || isExpiringSoon ? '#60a5fa' : '#ff4444',
-                                        marginTop: '4px'
+                                        fontFamily: "'Inter', sans-serif",
+                                        fontSize: '14px',
+                                        fontWeight: 600,
+                                        color: isActive || isExpiringSoon ? '#10b981' : '#ef4444',
+                                        marginTop: '6px'
                                     }}
                                 >
                                     {isActive || isExpiringSoon ? '✓' : '✗'} {statusText}
@@ -160,22 +127,23 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
                             <div className={classes.field}>
                                 <Text
                                     style={{
-                                        fontFamily: "'JetBrains Mono', monospace",
-                                        fontSize: '10px',
-                                        color: '#555',
+                                        fontFamily: "'Inter', sans-serif",
+                                        fontSize: '11px',
+                                        color: '#64748b',
                                         textTransform: 'uppercase',
-                                        letterSpacing: '0.08em'
+                                        letterSpacing: '0.05em',
+                                        fontWeight: 500
                                     }}
                                 >
-                                    expires
+                                    Expires
                                 </Text>
                                 <Text
                                     style={{
-                                        fontFamily: "'JetBrains Mono', monospace",
-                                        fontSize: '13px',
-                                        fontWeight: 500,
-                                        color: '#fff',
-                                        marginTop: '4px'
+                                        fontFamily: "'Inter', sans-serif",
+                                        fontSize: '14px',
+                                        fontWeight: 600,
+                                        color: '#f8fafc',
+                                        marginTop: '6px'
                                     }}
                                 >
                                     {formatDate(user.expiresAt, currentLang, baseTranslations)}
@@ -184,22 +152,23 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
                             <div className={classes.field}>
                                 <Text
                                     style={{
-                                        fontFamily: "'JetBrains Mono', monospace",
-                                        fontSize: '10px',
-                                        color: '#555',
+                                        fontFamily: "'Inter', sans-serif",
+                                        fontSize: '11px',
+                                        color: '#64748b',
                                         textTransform: 'uppercase',
-                                        letterSpacing: '0.08em'
+                                        letterSpacing: '0.05em',
+                                        fontWeight: 500
                                     }}
                                 >
-                                    bandwidth
+                                    Bandwidth
                                 </Text>
                                 <Text
                                     style={{
-                                        fontFamily: "'JetBrains Mono', monospace",
-                                        fontSize: '13px',
-                                        fontWeight: 500,
-                                        color: '#fff',
-                                        marginTop: '4px'
+                                        fontFamily: "'Inter', sans-serif",
+                                        fontSize: '14px',
+                                        fontWeight: 600,
+                                        color: '#f8fafc',
+                                        marginTop: '6px'
                                     }}
                                 >
                                     {user.trafficUsed} / {user.trafficLimit === '0' ? '∞' : user.trafficLimit}
@@ -209,6 +178,6 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
                     </div>
                 </div>
             </Collapse>
-        </div>
+        </Paper>
     )
 }

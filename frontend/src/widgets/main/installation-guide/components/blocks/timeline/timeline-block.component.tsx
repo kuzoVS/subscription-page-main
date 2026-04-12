@@ -14,7 +14,7 @@ export const TimelineBlockRenderer = ({
     getIconFromLibrary
 }: IBlockRendererProps) => {
     return (
-        <Stack gap="sm" className={classes.timelineRoot}>
+        <Stack gap="md" className={classes.timelineRoot}>
             {blocks.map((block, index) => {
                 return (
                     <div key={index} className={classes.timelineItem}>
@@ -29,13 +29,12 @@ export const TimelineBlockRenderer = ({
                                 />
                                 <Text
                                     style={{
-                                        fontFamily: "'JetBrains Mono', monospace",
-                                        fontSize: isMobile ? '12px' : '13px',
-                                        fontWeight: 500,
-                                        color: '#60a5fa'
+                                        fontFamily: "'Inter', sans-serif",
+                                        fontSize: isMobile ? '14px' : '15px',
+                                        fontWeight: 600,
+                                        color: '#f8fafc'
                                     }}
                                 >
-                                    <span style={{ color: '#666' }}>{'→ '}</span>
                                     <span
                                         dangerouslySetInnerHTML={{
                                             __html: getLocalizedText(block.title, currentLang)
@@ -43,12 +42,12 @@ export const TimelineBlockRenderer = ({
                                     />
                                 </Text>
                             </div>
-                            <Stack gap="xs" style={{ marginLeft: '40px' }}>
+                            <Stack gap="xs" style={{ marginLeft: '48px' }}>
                                 <Text
                                     style={{
-                                        fontFamily: "'JetBrains Mono', monospace",
-                                        fontSize: isMobile ? '11px' : '12px',
-                                        color: '#bbb',
+                                        fontFamily: "'Inter', sans-serif",
+                                        fontSize: isMobile ? '13px' : '14px',
+                                        color: '#94a3b8',
                                         lineHeight: 1.6
                                     }}
                                 >

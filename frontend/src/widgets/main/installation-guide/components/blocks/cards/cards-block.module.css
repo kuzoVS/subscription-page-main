@@ -1,18 +1,5 @@
 /* ═══════════════════════════════════════════════════
-   CARDS BLOCK — TERMINAL STYLE
+   CARDS BLOCK — MODERN STYLE
    ═══════════════════════════════════════════════════ */
 
-.root {
-    padding: 14px 0;
-    border-bottom: 1px solid #111;
-    background: transparent;
-    position: relative;
-}
-
-.root:last-child {
-    border-bottom: none;
-}
-
-.root:hover {
-    background: rgba(58, 106, 58, 0.02);
-}
+/* Styles are now inline in the component for better flexibility */

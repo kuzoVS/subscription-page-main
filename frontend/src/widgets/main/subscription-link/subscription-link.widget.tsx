@@ -1,7 +1,8 @@
 import {
     IconBrandTelegram,
     IconCopy,
-    IconLink
+    IconLink,
+    IconQrcode
 } from '@tabler/icons-react'
 import { ActionIcon, Button, Group, Image, Stack, Text } from '@mantine/core'
 import { notifications } from '@mantine/notifications'
@@ -49,20 +50,14 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
             <ActionIcon
                 component="a"
                 href={supportUrl}
-                radius={0}
+                radius="lg"
                 rel="noopener noreferrer"
-                size={28}
+                size={36}
                 target="_blank"
                 variant="default"
-                style={{
-                    width: 28,
-                    height: 28,
-                    background: 'transparent',
-                    border: '0.5px solid #333',
-                    fontFamily: "'JetBrains Mono', monospace"
-                }}
+                className={classes.actionIcon}
             >
-                <IconBrandTelegram style={{ width: 14, height: 14, color: '#aaa' }} />
+                <IconBrandTelegram style={{ width: 18, height: 18, color: '#60a5fa' }} />
             </ActionIcon>
         )
     }
@@ -71,48 +66,49 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
         vibrate('tap')
 
         const subscriptionQrCode = renderSVG(subscriptionUrl, {
-            whiteColor: 'transparent',
-            blackColor: '#60a5fa'
+            whiteColor: '#ffffff',
+            blackColor: '#0a0e17'
         })
 
         modals.open({
             centered: true,
-            title: '$ scan-qr',
+            title: (
+                <Text style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: '18px',
+                    fontWeight: 600,
+                    color: '#f8fafc'
+                }}>
+                    {t(baseTranslations.scanQrCode)}
+                </Text>
+            ),
             classNames: {
                 content: classes.modalContent,
                 header: classes.modalHeader,
                 title: classes.modalTitle
             },
             children: (
-                <Stack align="center" style={{ padding: '16px' }}>
-                    <div className={classes.qrLabel}>
-                        {'┌─ qr-code ──────────────────┐'}
-                    </div>
+                <Stack align="center" style={{ padding: '20px' }}>
+                    <Text className={classes.qrDescription}>
+                        {t(baseTranslations.scanQrCodeDescription)}
+                    </Text>
+                    
                     <div className={classes.qrContainer}>
                         <Image
                             src={`data:image/svg+xml;utf8,${encodeURIComponent(subscriptionQrCode)}`}
+                            style={{ maxWidth: '200px' }}
                         />
-                    </div>
-                    <div style={{ width: '100%', textAlign: 'right' }}>
-                        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', color: '#5aaa5a' }}>
-                            {'└──────────────────────────┘'}
-                        </div>
-                    </div>
-                    <div className={classes.qrDescription}>
-                        {t(baseTranslations.scanQrCode)}
-                    </div>
-                    <div className={classes.qrDescription}>
-                        {t(baseTranslations.scanQrCodeDescription)}
                     </div>
 
                     <Button
                         fullWidth
-                        leftSection={<IconCopy size={14} />}
+                        leftSection={<IconCopy size={16} />}
                         onClick={handleCopy}
                         variant="default"
                         className={classes.copyButton}
+                        radius="lg"
                     >
-                        [copy-link ▸]
+                        {t(baseTranslations.copyLink)}
                     </Button>
                 </Stack>
             )
@@ -125,18 +121,11 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
                 <ActionIcon
                     className={classes.actionIcon}
                     onClick={handleGetLink}
-                    radius={0}
-                    size={28}
+                    radius="lg"
+                    size={36}
                     variant="default"
-                    style={{
-                        width: 28,
-                        height: 28,
-                        background: 'transparent',
-                        border: '0.5px solid #333',
-                        fontFamily: "'JetBrains Mono', monospace"
-                    }}
                 >
-                    <IconLink style={{ width: 14, height: 14, color: '#aaa' }} />
+                    <IconQrcode style={{ width: 18, height: 18, color: '#94a3b8' }} />
                 </ActionIcon>
             )}
 
