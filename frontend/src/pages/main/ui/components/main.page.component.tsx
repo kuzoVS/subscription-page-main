@@ -40,6 +40,10 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
     const currentLang = useCurrentLang()
     const { setLanguage } = useAppConfigStoreActions()
 
+    const brandTitle = config.brandingSettings.title
+    const logoUrl = config.brandingSettings.logoUrl
+    const svgLibrary = config.svgLibrary
+
     const hasPlatformApps: Record<TSubscriptionPagePlatformKey, boolean> = {
         ios: Boolean(config.platforms.ios?.apps.length),
         android: Boolean(config.platforms.android?.apps.length),
@@ -53,10 +57,6 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
     const atLeastOnePlatformApp = Object.values(hasPlatformApps).some((value) => value)
 
     const SubscriptionInfoBlockRenderer = SUBSCRIPTION_INFO_BLOCK_RENDERERS.cards
-    const normalizedSupportUrl =
-        config.brandingSettings.supportUrl.trim() === 'https://t.me/remnawave'
-            ? 'https://t.me/HermitVPNBot'
-            : config.brandingSettings.supportUrl
 
     return (
         <Page>
@@ -64,35 +64,51 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                 <Container maw={1000} px={{ base: 20, md: 50 }}>
                     <Group justify="space-between">
                         <Group gap="sm" style={{ userSelect: 'none' }} wrap="nowrap">
-                            <Image
-                                alt="Hermit icon"
-                                fit="contain"
-                                src="/assets/icons/figma/hermit-brand-logo.svg"
-                                style={{
-                                    width: isMobile ? '39px' : '39px',
-                                    height: isMobile ? '37px' : '37px',
-                                    flexShrink: 0
-                                }}
-                            />
-                            <Stack gap={3.52} style={{ width: '50.91px' }}>
+                            {logoUrl ? (
                                 <Image
-                                    alt="Hermit"
+                                    alt="Brand logo"
                                     fit="contain"
-                                    src="/assets/icons/figma/logo-hermit-wordmark.svg"
+                                    src={logoUrl}
                                     style={{
-                                        width: '50.91px',
-                                        height: '11.65px',
+                                        width: isMobile ? '39px' : '39px',
+                                        height: isMobile ? '37px' : '37px',
                                         flexShrink: 0
                                     }}
                                 />
+                            ) : (
+                                <div
+                                    style={{
+                                        width: isMobile ? '39px' : '39px',
+                                        height: isMobile ? '37px' : '37px',
+                                        flexShrink: 0,
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center'
+                                    }}
+                                    dangerouslySetInnerHTML={{
+                                        __html: svgLibrary['DefaultIcon'] || ''
+                                    }}
+                                />
+                            )}
+                            <Stack gap={3.52}>
+                                <Text
+                                    c="#ffffff"
+                                    fw={700}
+                                    size={isMobile ? '18px' : '20px'}
+                                    style={{
+                                        lineHeight: 1.2,
+                                        letterSpacing: '-0.02em',
+                                        whiteSpace: 'nowrap'
+                                    }}
+                                >
+                                    {brandTitle}
+                                </Text>
                                 <Text
                                     c="rgba(255, 255, 255, 0.7)"
                                     fw={500}
-                                    size="8.79049px"
+                                    size="12px"
                                     style={{
-                                        lineHeight: '10px',
-                                        width: '48px',
-                                        height: '10px',
+                                        lineHeight: '14px',
                                         whiteSpace: 'nowrap'
                                     }}
                                 >
@@ -102,7 +118,7 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                         </Group>
 
                         <SubscriptionLinkWidget
-                            supportUrl={normalizedSupportUrl}
+                            supportUrl={config.brandingSettings.supportUrl}
                         />
                     </Group>
                 </Container>
