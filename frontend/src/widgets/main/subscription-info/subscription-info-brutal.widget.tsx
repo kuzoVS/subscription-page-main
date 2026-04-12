@@ -1,5 +1,5 @@
 import { IconChevronDown, IconChevronUp } from '@tabler/icons-react'
-import { Collapse, Group, Stack, Text, UnstyledButton, Badge } from '@mantine/core'
+import { Collapse, Group, Stack, Text, UnstyledButton } from '@mantine/core'
 import { useState } from 'react'
 
 import {
@@ -38,60 +38,50 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
     }
 
     return (
-        <div className={classes.wrapper}>
+        <div className={classes.cardRoot}>
             <UnstyledButton onClick={handleToggle} className={classes.header}>
-                <Group gap="md" wrap="nowrap" style={{ width: '100%' }}>
-                    <div
-                        className={classes.statusDot}
-                        style={{
-                            background: isActive || isExpiringSoon ? '#10b981' : '#ef4444'
-                        }}
-                    />
-
-                    <Stack gap={4} style={{ minWidth: 0, flex: 1 }}>
+                <Group justify="space-between" wrap="nowrap" style={{ width: '100%' }}>
+                    <div className={classes.leftInfo}>
+                        <div className={classes.statusBadge}>
+                            {isActive || isExpiringSoon ? '✓' : '✗'} {statusText}
+                        </div>
                         <Text
                             style={{
-                                fontSize: '16px',
-                                fontWeight: 700,
+                                fontSize: '15px',
                                 color: '#ffffff',
-                                overflow: 'hidden',
-                                textOverflow: 'ellipsis',
-                                whiteSpace: 'nowrap'
-                            }}
-                        >
-                            {user.username}
-                        </Text>
-                        <Text
-                            style={{
-                                fontSize: '13px',
-                                color: '#888888'
+                                opacity: 0.7,
+                                marginTop: '10px'
                             }}
                         >
                             {getExpirationTextUtil(user.expiresAt, currentLang, baseTranslations)}
                         </Text>
-                    </Stack>
+                    </div>
 
-                    <Group gap="sm" wrap="nowrap" style={{ flexShrink: 0 }}>
-                        <Badge
-                            color={isActive || isExpiringSoon ? 'green' : 'red'}
-                            size="md"
-                            styles={{
-                                root: {
-                                    borderRadius: '16px',
-                                    padding: '6px 14px',
+                    <Group gap="xs" wrap="nowrap" style={{ flexShrink: 0, minHeight: '70px' }} align="flex-end">
+                        <Stack gap={4} style={{ alignItems: 'flex-end' }}>
+                            <Text
+                                style={{
+                                    fontSize: '13px',
+                                    color: '#ffffff',
+                                    opacity: 0.5
+                                }}
+                            >
+                                Трафик
+                            </Text>
+                            <Text
+                                style={{
+                                    fontSize: '15px',
                                     fontWeight: 600,
-                                    background: isActive || isExpiringSoon ? 'rgba(16, 185, 129, 0.15)' : 'rgba(239, 68, 68, 0.15)',
-                                    color: isActive || isExpiringSoon ? '#10b981' : '#ef4444',
-                                    border: 'none'
-                                }
-                            }}
-                        >
-                            {statusText}
-                        </Badge>
+                                    color: '#ffffff'
+                                }}
+                            >
+                                {user.trafficUsed} / {user.trafficLimit === '0' ? '∞' : user.trafficLimit}
+                            </Text>
+                        </Stack>
                         {isExpanded ? (
-                            <IconChevronUp size={18} style={{ color: '#666666' }} />
+                            <IconChevronUp size={20} style={{ color: '#6b6b80', marginLeft: '8px' }} />
                         ) : (
-                            <IconChevronDown size={18} style={{ color: '#666666' }} />
+                            <IconChevronDown size={20} style={{ color: '#6b6b80', marginLeft: '8px' }} />
                         )}
                     </Group>
                 </Group>
@@ -103,21 +93,40 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
                         <div className={classes.field}>
                             <Text
                                 style={{
-                                    fontSize: '11px',
-                                    color: '#666666',
-                                    textTransform: 'uppercase',
-                                    letterSpacing: '0.05em',
-                                    fontWeight: 600,
-                                    marginBottom: '8px'
+                                    fontSize: '12px',
+                                    color: '#6b6b80',
+                                    marginBottom: '8px',
+                                    fontWeight: 500
                                 }}
                             >
-                                Status
+                                Имя
                             </Text>
                             <Text
                                 style={{
                                     fontSize: '15px',
-                                    fontWeight: 700,
-                                    color: isActive || isExpiringSoon ? '#10b981' : '#ef4444'
+                                    fontWeight: 600,
+                                    color: '#5b8def'
+                                }}
+                            >
+                                {user.username}
+                            </Text>
+                        </div>
+                        <div className={classes.field}>
+                            <Text
+                                style={{
+                                    fontSize: '12px',
+                                    color: '#6b6b80',
+                                    marginBottom: '8px',
+                                    fontWeight: 500
+                                }}
+                            >
+                                Статус
+                            </Text>
+                            <Text
+                                style={{
+                                    fontSize: '15px',
+                                    fontWeight: 600,
+                                    color: isActive || isExpiringSoon ? '#3dd9b0' : '#ef4444'
                                 }}
                             >
                                 {statusText}
@@ -126,20 +135,18 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
                         <div className={classes.field}>
                             <Text
                                 style={{
-                                    fontSize: '11px',
-                                    color: '#666666',
-                                    textTransform: 'uppercase',
-                                    letterSpacing: '0.05em',
-                                    fontWeight: 600,
-                                    marginBottom: '8px'
+                                    fontSize: '12px',
+                                    color: '#6b6b80',
+                                    marginBottom: '8px',
+                                    fontWeight: 500
                                 }}
                             >
-                                Expires
+                                Истекает
                             </Text>
                             <Text
                                 style={{
                                     fontSize: '15px',
-                                    fontWeight: 700,
+                                    fontWeight: 600,
                                     color: '#ffffff'
                                 }}
                             >
@@ -149,20 +156,18 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
                         <div className={classes.field}>
                             <Text
                                 style={{
-                                    fontSize: '11px',
-                                    color: '#666666',
-                                    textTransform: 'uppercase',
-                                    letterSpacing: '0.05em',
-                                    fontWeight: 600,
-                                    marginBottom: '8px'
+                                    fontSize: '12px',
+                                    color: '#6b6b80',
+                                    marginBottom: '8px',
+                                    fontWeight: 500
                                 }}
                             >
-                                Bandwidth
+                                Трафик
                             </Text>
                             <Text
                                 style={{
                                     fontSize: '15px',
-                                    fontWeight: 700,
+                                    fontWeight: 600,
                                     color: '#ffffff'
                                 }}
                             >

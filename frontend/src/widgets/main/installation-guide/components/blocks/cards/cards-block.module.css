@@ -1,1 +1,32 @@
-/* Cards block — dark flat */
+.stepCard {
+    background: #0c0c16;
+    border: 1px solid #18182a;
+    border-radius: 14px;
+    padding: 22px;
+    margin-bottom: 14px;
+    transition: all 0.2s ease;
+}
+
+.stepCard:hover {
+    background: #0f0f1a;
+    border-color: #1f1f35;
+}
+
+.stepHeader {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.stepTitle {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.stepDescription {
+    color: #8888a0;
+    font-size: 14px;
+    line-height: 1.65;
+    white-space: pre-line;
+}

@@ -49,14 +49,14 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
             <ActionIcon
                 component="a"
                 href={supportUrl}
-                radius="md"
+                radius="xl"
                 rel="noopener noreferrer"
-                size={36}
+                size={45}
                 target="_blank"
                 variant="default"
                 className={classes.actionIcon}
             >
-                <IconBrandTelegram style={{ width: 18, height: 18, color: '#3b82f6' }} />
+                <IconBrandTelegram style={{ width: 20, height: 20, color: '#5b8def' }} />
             </ActionIcon>
         )
     }
@@ -66,13 +66,13 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
 
         const subscriptionQrCode = renderSVG(subscriptionUrl, {
             whiteColor: '#ffffff',
-            blackColor: '#1a1a1a'
+            blackColor: '#0a0a0f'
         })
 
         modals.open({
             centered: true,
             title: (
-                <Text style={{ fontSize: '18px', fontWeight: 700, color: '#1a1a1a' }}>
+                <Text style={{ fontSize: '18px', fontWeight: 700, color: '#ffffff' }}>
                     {t(baseTranslations.scanQrCode)}
                 </Text>
             ),
@@ -114,11 +114,11 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
                 <ActionIcon
                     className={classes.actionIcon}
                     onClick={handleGetLink}
-                    radius="md"
-                    size={36}
+                    radius="xl"
+                    size={45}
                     variant="default"
                 >
-                    <IconQrcode style={{ width: 18, height: 18, color: '#4b5563' }} />
+                    <IconQrcode style={{ width: 20, height: 20, color: '#8888a0' }} />
                 </ActionIcon>
             )}
 

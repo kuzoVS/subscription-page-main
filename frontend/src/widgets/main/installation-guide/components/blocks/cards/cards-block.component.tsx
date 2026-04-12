@@ -1,9 +1,10 @@
-import { Group, Stack, Text, Paper } from '@mantine/core'
+import { Group, Stack, Text, ThemeIcon } from '@mantine/core'
 
 import { getLocalizedText } from '@shared/utils/config-parser'
-import { TerminalIcon } from './terminal-icon.component'
+import { getColorGradient } from '@shared/utils/config-parser/color-parser.util'
 
 import { IBlockRendererProps } from '../renderer-block.interface'
+import classes from './cards-block.module.css'
 
 export const CardsBlockRenderer = ({
     blocks,
@@ -13,68 +14,55 @@ export const CardsBlockRenderer = ({
     getIconFromLibrary
 }: IBlockRendererProps) => {
     return (
-        <Stack gap="md">
+        <Stack gap="sm">
             {blocks.map((block, index) => {
+                const iconKey = block.svgIconKey || 'DownloadIcon'
+                const gradientStyle = getColorGradient('cyan')
+
                 return (
-                    <Paper
-                        key={index}
-                        radius="lg"
-                        withBorder
-                        style={{
-                            padding: '20px',
-                            border: '1px solid rgba(255, 255, 255, 0.08)',
-                            background: 'rgba(15, 23, 42, 0.5)',
-                            backdropFilter: 'blur(8px)',
-                            WebkitBackdropFilter: 'blur(8px)',
-                            transition: 'all 0.25s ease',
-                            animation: 'fade-in 0.4s ease-out'
-                        }}
-                    >
-                        <Group gap="md" wrap="nowrap" align="start">
-                            <TerminalIcon
-                                getIconFromLibrary={getIconFromLibrary}
-                                isMobile={isMobile}
-                                svgIconKey={block.svgIconKey}
-                                blockIndex={index}
-                                variant="cards"
-                            />
-                            <Stack gap={isMobile ? 'xs' : 'sm'} style={{ flex: 1, minWidth: 0, paddingTop: '4px' }}>
-                                <Text
-                                    style={{
-                                        fontFamily: "'Inter', sans-serif",
-                                        fontSize: isMobile ? '14px' : '16px',
-                                        fontWeight: 600,
-                                        color: '#f8fafc',
-                                        wordBreak: 'break-word'
+                    <div key={index} className={classes.stepCard}>
+                        <div className={classes.stepHeader}>
+                            <ThemeIcon
+                                size={isMobile ? 36 : 42}
+                                radius="lg"
+                                style={{
+                                    background: gradientStyle.background,
+                                    border: gradientStyle.border,
+                                    flexShrink: 0
+                                }}
+                            >
+                                <span
+                                    dangerouslySetInnerHTML={{
+                                        __html: getIconFromLibrary(iconKey)
                                     }}
-                                >
+                                    style={{
+                                        display: 'flex',
+                                        width: '20px',
+                                        height: '20px',
+                                        color: '#ffffff'
+                                    }}
+                                />
+                            </ThemeIcon>
+                            <Stack gap={6} style={{ flex: 1, minWidth: 0 }}>
+                                <Text className={classes.stepTitle}>
                                     <span
                                         dangerouslySetInnerHTML={{
                                             __html: getLocalizedText(block.title, currentLang)
                                         }}
                                     />
                                 </Text>
-
-                                <Text
-                                    style={{
-                                        fontFamily: "'Inter', sans-serif",
-                                        fontSize: isMobile ? '13px' : '14px',
-                                        color: '#94a3b8',
-                                        whiteSpace: 'pre-line',
-                                        lineHeight: 1.6
-                                    }}
-                                >
+                                <Text className={classes.stepDescription}>
                                     <span
                                         dangerouslySetInnerHTML={{
                                             __html: getLocalizedText(block.description, currentLang)
                                         }}
                                     />
                                 </Text>
-
-                                {renderBlockButtons(block.buttons)}
                             </Stack>
-                        </Group>
-                    </Paper>
+                        </div>
+
+                        {renderBlockButtons(block.buttons)}
+                    </div>
                 )
             })}
         </Stack>

@@ -75,50 +75,52 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
             ? 'brutal'
             : config.uiConfig.subscriptionInfoBlockType]
 
-    const { user } = config
-
     return (
         <Page>
-            <Box className="header-wrapper" py="md">
-                <Container maw={1200} px={{ base: 'md', sm: 'lg', md: 'xl' }}>
+            <Box className="header-wrapper" py={isMobile ? 'sm' : 'md'}>
+                <Container maw={1000} px={{ base: 20, sm: 50 }}>
                     <Group justify="space-between" wrap="nowrap">
-                        <Group gap="md" wrap="nowrap" align="center">
+                        <Group gap="sm" wrap="nowrap" align="center">
                             {hasCustomLogo ? (
                                 <Image
                                     alt="logo"
                                     fit="contain"
                                     src={config.brandingSettings.logoUrl}
                                     style={{
-                                        width: '32px',
-                                        height: '32px'
+                                        width: '34px',
+                                        height: '34px'
                                     }}
                                 />
                             ) : (
-                                <RemnawaveLogo c="#ffffff" size={28} />
+                                <RemnawaveLogo c="#5b8def" size={32} />
                             )}
-                            <Title
-                                c="#ffffff"
-                                fw={700}
-                                order={6}
-                                size="xl"
-                                style={{ fontSize: '20px', letterSpacing: '-0.02em' }}
-                            >
-                                Clay VPN
-                            </Title>
-                        </Group>
-
-                        <Group gap="xs" wrap="nowrap" align="center">
-                            <Stack gap={0} style={{ alignItems: 'flex-end' }}>
+                            <Stack gap={2}>
                                 <Title
-                                    c="#888888"
+                                    c="#ffffff"
+                                    fw={700}
+                                    order={6}
+                                    size="xl"
+                                    style={{ fontSize: '22px', letterSpacing: '-0.02em', lineHeight: 1.2 }}
+                                >
+                                    Clay VPN
+                                </Title>
+                                <Title
+                                    c="#ffffff"
                                     fw={500}
                                     order={6}
                                     size="xs"
-                                    style={{ fontSize: '13px' }}
+                                    style={{ fontSize: '13px', opacity: 0.7 }}
                                 >
-                                    {user?.username || 'user'} | {user?.daysLeft || 0} дней
+                                    VPN Service
                                 </Title>
                             </Stack>
+                        </Group>
+
+                        <Group gap="xs" wrap="nowrap">
+                            <SubscriptionLinkWidget
+                                hideGetLink={config.baseSettings.hideGetLinkButton}
+                                supportUrl={config.brandingSettings.supportUrl}
+                            />
                             <LanguagePicker
                                 currentLang={currentLang}
                                 locales={config.locales}
@@ -130,12 +132,11 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
             </Box>
 
             <Container
-                maw={1200}
-                px={{ base: 'md', sm: 'lg', md: 'xl' }}
-                pt="xl"
-                pb={0}
+                maw={1000}
+                px={{ base: 16, sm: 24 }}
+                py={{ base: 'md', sm: 'lg' }}
             >
-                <Stack gap="xl" style={{ paddingBottom: '0' }}>
+                <Stack gap="md">
                     {SubscriptionInfoBlockRenderer && (
                         <SubscriptionInfoBlockRenderer isMobile={isMobile} />
                     )}

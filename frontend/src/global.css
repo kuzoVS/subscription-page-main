@@ -1,12 +1,13 @@
 /* ═══════════════════════════════════════════════════
    CLAY VPN — DARK FLAT DESIGN
+   Форма блоков из subpagehermit, тёмная flat палитра
    ═══════════════════════════════════════════════════ */
 
 html,
 body {
     min-height: 100vh;
-    background: #0d0d0d;
-    color: #e0e0e0;
+    background: #0a0a0f;
+    color: #e8e8ed;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 15px;
     line-height: 1.6;
@@ -22,40 +23,40 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: #1a1a1a;
+    background: #0a0a0f;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #333333;
+    background: #1e1e2e;
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #444444;
+    background: #2a2a3e;
 }
 
 ::selection {
-    background: #ffffff;
-    color: #1a1a1a;
+    background: #5b8def;
+    color: #ffffff;
 }
 
 a {
-    color: #a0a0a0;
+    color: #5b8def;
     text-decoration: none;
 }
 
 a:hover {
-    color: #ffffff;
+    color: #7ba7f5;
 }
 
 *:focus-visible {
-    outline: 2px solid #ffffff;
+    outline: 2px solid #5b8def;
     outline-offset: 2px;
 }
 
 @keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .animated-background {
@@ -63,16 +64,17 @@ a:hover {
 }
 
 /* ═══════════════════════════════════════════════════
-   HEADER
+   HEADER — скругление снизу 24px
    ═══════════════════════════════════════════════════ */
 
 .header-wrapper {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: #1a1a1a;
-    padding: 20px 24px;
-    border-bottom: 1px solid #2a2a2a;
+    background: #0e0e18;
+    padding: 18px 24px;
+    border-radius: 0 0 24px 24px;
+    border-bottom: 1px solid #1a1a2e;
 }
 
 .header-wrapper::after {
@@ -81,38 +83,49 @@ a:hover {
 
 .logo-text-highlight {
     color: #ffffff;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
     letter-spacing: -0.02em;
 }
 
 .logo-text-normal {
-    color: #666666;
+    color: #6b6b80;
     font-size: 13px;
     font-weight: 500;
+    opacity: 0.7;
 }
 
 /* ═══════════════════════════════════════════════════
-   MAIN CONTAINER
+   WRAPPER / CONTAINER
    ═══════════════════════════════════════════════════ */
 
 .wrapper {
-    padding: 20px 24px;
-    background: transparent;
+    padding: 16px 24px;
     animation: fade-in 0.3s ease-out;
 }
 
 /* ═══════════════════════════════════════════════════
-   TABS — PILL STYLE
+   GUIDE F_CARD — основная карточка установки
+   ═══════════════════════════════════════════════════ */
+
+.guideCard {
+    background: #0e0e18;
+    border: 1px solid #1a1a2e;
+    border-radius: 24px;
+    padding: 28px;
+    margin-bottom: 24px;
+    animation: fade-in 0.4s ease-out;
+}
+
+/* ═══════════════════════════════════════════════════
+   APP TABS — pill-кнопки
    ═══════════════════════════════════════════════════ */
 
 .appsGrid {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 24px;
-    padding-bottom: 0;
-    border-bottom: none;
+    gap: 10px;
+    margin-bottom: 28px;
 }
 
 .appButton {
@@ -120,29 +133,32 @@ a:hover {
     display: flex;
     align-items: center;
     flex: 0 0 auto;
-    padding: 8px 16px;
-    min-height: 36px;
-    background: #2a2a2a;
-    border: none;
-    border-radius: 18px;
+    padding: 0 20px;
+    height: 38px;
+    background: #1a1a2e;
+    border: 1px solid #252540;
+    border-radius: 999px;
     cursor: pointer;
     transition: all 0.2s ease;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
     gap: 8px;
-    color: #888888;
+    color: #8888a0;
 }
 
 .appButton:hover {
-    background: #333333;
-    color: #cccccc;
+    background: #22223a;
+    color: #b0b0c8;
+    border-color: #2f2f50;
 }
 
 .appButtonActive,
 .appButtonActive:hover {
     background: #ffffff;
-    color: #1a1a1a;
+    color: #0a0a0f;
     font-weight: 600;
+    border-color: #ffffff;
+    transform: translateY(-1px);
 }
 
 .appButtonActive::after {
@@ -152,19 +168,19 @@ a:hover {
 .appName {
     position: relative;
     z-index: 1;
-    color: #888888;
-    font-size: 13px;
+    color: #8888a0;
+    font-size: 14px;
     font-weight: 500;
     white-space: nowrap;
 }
 
 .appButtonActive .appName {
-    color: #1a1a1a;
+    color: #0a0a0f;
 }
 
 .bgIcon {
-    width: 16px !important;
-    height: 16px !important;
+    width: 18px !important;
+    height: 18px !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -172,31 +188,113 @@ a:hover {
 }
 
 .bgIcon svg {
-    width: 16px !important;
-    height: 16px !important;
-    stroke: #888888 !important;
+    width: 18px !important;
+    height: 18px !important;
+    stroke: #8888a0 !important;
     fill: none !important;
 }
 
 .appButtonActive .bgIcon svg {
-    stroke: #1a1a1a !important;
+    stroke: #0a0a0f !important;
 }
 
 .featuredBadge {
     position: absolute;
-    top: -4px;
-    right: -4px;
-    width: 8px;
-    height: 8px;
+    top: -3px;
+    left: -3px;
+    width: 6px;
+    height: 6px;
     display: inline-block;
     opacity: 1;
     z-index: 2;
     border-radius: 50%;
-    background: #ffffff;
+    background: #efbf04;
+    box-shadow: 0 0 6px rgba(239, 191, 4, 0.6);
 }
 
 /* ═══════════════════════════════════════════════════
-   INFO CARDS
+   STEP CARDS — карточки шагов
+   ═══════════════════════════════════════════════════ */
+
+.stepCard {
+    background: #0c0c16;
+    border: 1px solid #18182a;
+    border-radius: 14px;
+    padding: 22px;
+    margin-bottom: 14px;
+    transition: all 0.2s ease;
+}
+
+.stepCard:hover {
+    background: #0f0f1a;
+    border-color: #1f1f35;
+}
+
+.stepHeader {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 4px;
+}
+
+.stepTitle {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.stepDescription {
+    color: #8888a0;
+    font-size: 14px;
+    line-height: 1.65;
+    white-space: pre-line;
+}
+
+/* ═══════════════════════════════════════════════════
+   ACTION BUTTONS — pill-форма
+   ═══════════════════════════════════════════════════ */
+
+.stepButtonWrapper {
+    margin-top: 18px;
+    padding-left: 68px;
+}
+
+.stepButton {
+    height: 38px;
+    padding: 0 22px;
+    background: #ffffff;
+    color: #0c0b16;
+    border: none;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stepButton:hover {
+    background: #e8e8f0;
+    transform: translateY(-1px);
+}
+
+.stepButtonSecondary {
+    background: #1a1a2e;
+    color: #c8c8d8;
+    border: 1px solid #252540;
+}
+
+.stepButtonSecondary:hover {
+    background: #22223a;
+    color: #e0e0f0;
+    border-color: #2f2f50;
+}
+
+/* ═══════════════════════════════════════════════════
+   SUBSCRIPTION INFO CARD
    ═══════════════════════════════════════════════════ */
 
 .info-card-cyan,
@@ -207,8 +305,100 @@ a:hover {
 .info-card-blue,
 .info-card-teal,
 .info-card-orange {
+    background: #0e0e18;
+    border: 1px solid #1a1a2e;
+    border-radius: 14px;
     padding: 24px;
-    background: #1a1a1a;
+    margin-bottom: 18px;
+    min-height: 110px;
+}
+
+/* ═══════════════════════════════════════════════════
+   ACCORDION
+   ═══════════════════════════════════════════════════ */
+
+.accordionItem {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 12px;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
+}
+
+.accordionItem:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ═══════════════════════════════════════════════════
+   SUBSCRIPTION LINK WIDGET
+   ═══════════════════════════════════════════════════ */
+
+.actionIcon {
+    width: 45px !important;
+    height: 45px !important;
+    background: #1a1a2e !important;
+    border: 1px solid #252540 !important;
+    border-radius: 14px !important;
+    transition: all 0.2s ease !important;
+}
+
+.actionIcon:hover {
+    background: #22223a !important;
+    border-color: #2f2f50 !important;
+    transform: translateY(-1px);
+}
+
+/* ═══════════════════════════════════════════════════
+   QR MODAL
+   ═══════════════════════════════════════════════════ */
+
+.modalContent {
+    background: #0e0e18;
+    border: 1px solid #1a1a2e;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.modalHeader {
+    border-bottom: 1px solid #1a1a2e;
+    padding: 18px 24px;
+}
+
+.modalTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.qrContainer {
+    border: 1px solid #1a1a2e;
+    background: #ffffff;
+    margin: 20px auto;
+    padding: 18px;
+    display: inline-block;
+    border-radius: 12px;
+}
+
+.qrDescription {
+    font-size: 14px;
+    color: #8888a0;
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.copyButton {
+    font-size: 14px;
+    font-weight: 600;
+    background: #ffffff !important;
+    color: #0a0a0f !important;
+    border: none !important;
+    border-radius: 999px !important;
+    height: 40px !important;
+    margin-top: 18px;
+    transition: all 0.2s ease !important;
+}
+
+.copyButton:hover {
+    background: #e8e8f0 !important;
+    transform: translateY(-1px);
 }

@@ -10,7 +10,8 @@ import {
     NativeSelect,
     Stack,
     Title,
-    UnstyledButton
+    UnstyledButton,
+    Text
 } from '@mantine/core'
 import { notifications } from '@mantine/notifications'
 import { useClipboard } from '@mantine/hooks'
@@ -122,7 +123,7 @@ export const InstallationGuideConnector = (props: IProps) => {
         if (buttons.length === 0) return null
 
         return (
-            <Group gap="xs" wrap="wrap">
+            <Group gap="xs" wrap="wrap" className={classes.buttonsRow}>
                 {buttons.map((button, index) => (
                     <Button
                         key={index}
@@ -134,31 +135,13 @@ export const InstallationGuideConnector = (props: IProps) => {
                                 style={{
                                     display: 'flex',
                                     alignItems: 'center',
-                                    width: '14px',
-                                    height: '14px'
+                                    width: '16px',
+                                    height: '16px'
                                 }}
                             />
                         }
                         onClick={() => handleButtonClick(button)}
-                        radius="lg"
-                        variant="default"
-                        style={{
-                            fontFamily: "'Inter', sans-serif",
-                            fontSize: '13px',
-                            fontWeight: 500,
-                            background: 'rgba(15, 23, 42, 0.5)',
-                            border: '1px solid rgba(255, 255, 255, 0.1)',
-                            color: '#cbd5e1',
-                            padding: '8px 16px',
-                            height: 'auto',
-                            minHeight: '36px'
-                        }}
-                        styles={{
-                            label: {
-                                textTransform: 'none',
-                                letterSpacing: 'normal'
-                            }
-                        }}
+                        className={clsx(classes.stepButton, button.type === 'external' && classes.stepButtonSecondary)}
                     >
                         {t(button.text)}
                     </Button>
@@ -170,18 +153,18 @@ export const InstallationGuideConnector = (props: IProps) => {
     const getIcon = (iconKey: string) => getIconFromLibrary(iconKey, svgLibrary)
 
     return (
-        <div style={{ padding: isMobile ? '12px 0' : '16px 0' }}>
-            <Stack gap="md">
-                <Group gap="sm" justify="space-between" align="center">
-                    <div style={{
-                        fontSize: '16px',
-                        fontFamily: "'Inter', sans-serif",
-                        color: '#f8fafc',
-                        fontWeight: 600,
-                        letterSpacing: '-0.02em'
-                    }}>
-                        Install Apps
-                    </div>
+        <div className={classes.guideCard}>
+            <Stack gap="xl">
+                <Group justify="space-between" wrap="nowrap">
+                    <Title
+                        c="#ffffff"
+                        fw={600}
+                        order={2}
+                        size={isMobile ? '20px' : '24px'}
+                        style={{ letterSpacing: '-0.02em' }}
+                    >
+                        Установка приложения
+                    </Title>
 
                     {availablePlatforms.length > 1 && (
                         <NativeSelect
@@ -201,7 +184,7 @@ export const InstallationGuideConnector = (props: IProps) => {
                                         alignItems: 'center',
                                         width: 16,
                                         height: 16,
-                                        color: '#64748b'
+                                        color: '#8888a0'
                                     }}
                                 />
                             }
@@ -212,24 +195,25 @@ export const InstallationGuideConnector = (props: IProps) => {
                                 setSelectedPlatform(value)
                                 setSelectedAppIndex(0)
                             }}
-                            radius="lg"
+                            radius="xl"
                             size="md"
                             value={selectedPlatform}
                             w={180}
                             styles={{
                                 input: {
                                     borderRadius: '10px',
-                                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                                    background: 'rgba(15, 23, 42, 0.6)',
+                                    border: '1px solid #252540',
+                                    background: '#1a1a2e',
                                     fontSize: '14px',
-                                    color: '#f8fafc',
-                                    fontFamily: "'Inter', sans-serif",
+                                    color: '#c8c8d8',
+                                    fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif',
                                     paddingRight: '32px',
                                     paddingLeft: '12px',
-                                    height: '40px'
+                                    height: '40px',
+                                    fontWeight: 500
                                 },
                                 section: {
-                                    color: '#64748b'
+                                    color: '#8888a0'
                                 }
                             }}
                         />
@@ -271,7 +255,7 @@ export const InstallationGuideConnector = (props: IProps) => {
                                                 }}
                                             />
                                         )}
-                                        <span className={classes.appName} style={{fontSize: '12px'}}>{app.name}</span>
+                                        <span className={classes.appName}>{app.name}</span>
                                     </UnstyledButton>
                                 )
                             })}
