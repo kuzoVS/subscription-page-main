@@ -1,5 +1,5 @@
-import { IconCheck, IconChevronDown, IconChevronUp, IconX } from '@tabler/icons-react'
-import { Collapse, Group, Stack, Text, UnstyledButton, Badge, Paper } from '@mantine/core'
+import { IconChevronDown, IconChevronUp } from '@tabler/icons-react'
+import { Collapse, Group, Stack, Text, UnstyledButton, Badge } from '@mantine/core'
 import { useState } from 'react'
 
 import {
@@ -38,27 +38,22 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
     }
 
     return (
-        <Paper className={classes.wrapper} radius="lg" withBorder>
+        <div className={classes.wrapper}>
             <UnstyledButton onClick={handleToggle} className={classes.header}>
                 <Group gap="md" wrap="nowrap" style={{ width: '100%' }}>
-                    {/* Status indicator */}
-                    <div className={classes.statusIndicator}>
-                        <div 
-                            className={classes.statusDot}
-                            style={{
-                                background: isActive || isExpiringSoon ? '#10b981' : '#ef4444',
-                                animation: (isActive || isExpiringSoon) ? 'status-active 2s ease-in-out infinite' : 'none'
-                            }}
-                        />
-                    </div>
+                    <div
+                        className={classes.statusDot}
+                        style={{
+                            background: isActive || isExpiringSoon ? '#10b981' : '#ef4444'
+                        }}
+                    />
 
                     <Stack gap={4} style={{ minWidth: 0, flex: 1 }}>
                         <Text
                             style={{
-                                fontFamily: "'Inter', sans-serif",
-                                fontSize: '16px',
-                                fontWeight: 600,
-                                color: '#f8fafc',
+                                fontSize: '18px',
+                                fontWeight: 700,
+                                color: '#1a1a1a',
                                 overflow: 'hidden',
                                 textOverflow: 'ellipsis',
                                 whiteSpace: 'nowrap'
@@ -68,9 +63,8 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
                         </Text>
                         <Text
                             style={{
-                                fontFamily: "'Inter', sans-serif",
-                                fontSize: '13px',
-                                color: '#64748b'
+                                fontSize: '14px',
+                                color: '#6b7280'
                             }}
                         >
                             {getExpirationTextUtil(user.expiresAt, currentLang, baseTranslations)}
@@ -79,17 +73,22 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
 
                     <Group gap="sm" wrap="nowrap" style={{ flexShrink: 0 }}>
                         <Badge
-                            className={classes.statusBadge}
                             color={isActive || isExpiringSoon ? 'green' : 'red'}
-                            variant={(isActive || isExpiringSoon) ? 'light' : 'outline'}
                             size="md"
+                            styles={{
+                                root: {
+                                    borderRadius: '6px',
+                                    padding: '6px 12px',
+                                    fontWeight: 600
+                                }
+                            }}
                         >
                             {statusText}
                         </Badge>
                         {isExpanded ? (
-                            <IconChevronUp size={18} style={{ color: '#64748b', flexShrink: 0 }} />
+                            <IconChevronUp size={20} style={{ color: '#9ca3af' }} />
                         ) : (
-                            <IconChevronDown size={18} style={{ color: '#64748b', flexShrink: 0 }} />
+                            <IconChevronDown size={20} style={{ color: '#9ca3af' }} />
                         )}
                     </Group>
                 </Group>
@@ -97,87 +96,79 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
 
             <Collapse in={isExpanded}>
                 <div className={classes.expandedContent}>
-                    <div className={classes.terminalBlock}>
-                        <div className={classes.fieldsGrid}>
-                            <div className={classes.field}>
-                                <Text
-                                    style={{
-                                        fontFamily: "'Inter', sans-serif",
-                                        fontSize: '11px',
-                                        color: '#64748b',
-                                        textTransform: 'uppercase',
-                                        letterSpacing: '0.05em',
-                                        fontWeight: 500
-                                    }}
-                                >
-                                    Status
-                                </Text>
-                                <Text
-                                    style={{
-                                        fontFamily: "'Inter', sans-serif",
-                                        fontSize: '14px',
-                                        fontWeight: 600,
-                                        color: isActive || isExpiringSoon ? '#10b981' : '#ef4444',
-                                        marginTop: '6px'
-                                    }}
-                                >
-                                    {isActive || isExpiringSoon ? '✓' : '✗'} {statusText}
-                                </Text>
-                            </div>
-                            <div className={classes.field}>
-                                <Text
-                                    style={{
-                                        fontFamily: "'Inter', sans-serif",
-                                        fontSize: '11px',
-                                        color: '#64748b',
-                                        textTransform: 'uppercase',
-                                        letterSpacing: '0.05em',
-                                        fontWeight: 500
-                                    }}
-                                >
-                                    Expires
-                                </Text>
-                                <Text
-                                    style={{
-                                        fontFamily: "'Inter', sans-serif",
-                                        fontSize: '14px',
-                                        fontWeight: 600,
-                                        color: '#f8fafc',
-                                        marginTop: '6px'
-                                    }}
-                                >
-                                    {formatDate(user.expiresAt, currentLang, baseTranslations)}
-                                </Text>
-                            </div>
-                            <div className={classes.field}>
-                                <Text
-                                    style={{
-                                        fontFamily: "'Inter', sans-serif",
-                                        fontSize: '11px',
-                                        color: '#64748b',
-                                        textTransform: 'uppercase',
-                                        letterSpacing: '0.05em',
-                                        fontWeight: 500
-                                    }}
-                                >
-                                    Bandwidth
-                                </Text>
-                                <Text
-                                    style={{
-                                        fontFamily: "'Inter', sans-serif",
-                                        fontSize: '14px',
-                                        fontWeight: 600,
-                                        color: '#f8fafc',
-                                        marginTop: '6px'
-                                    }}
-                                >
-                                    {user.trafficUsed} / {user.trafficLimit === '0' ? '∞' : user.trafficLimit}
-                                </Text>
-                            </div>
+                    <div className={classes.fieldsGrid}>
+                        <div className={classes.field}>
+                            <Text
+                                style={{
+                                    fontSize: '12px',
+                                    color: '#6b7280',
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '0.05em',
+                                    fontWeight: 600,
+                                    marginBottom: '8px'
+                                }}
+                            >
+                                Status
+                            </Text>
+                            <Text
+                                style={{
+                                    fontSize: '16px',
+                                    fontWeight: 700,
+                                    color: isActive || isExpiringSoon ? '#10b981' : '#ef4444'
+                                }}
+                            >
+                                {isActive || isExpiringSoon ? '✓' : '✗'} {statusText}
+                            </Text>
+                        </div>
+                        <div className={classes.field}>
+                            <Text
+                                style={{
+                                    fontSize: '12px',
+                                    color: '#6b7280',
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '0.05em',
+                                    fontWeight: 600,
+                                    marginBottom: '8px'
+                                }}
+                            >
+                                Expires
+                            </Text>
+                            <Text
+                                style={{
+                                    fontSize: '16px',
+                                    fontWeight: 700,
+                                    color: '#1a1a1a'
+                                }}
+                            >
+                                {formatDate(user.expiresAt, currentLang, baseTranslations)}
+                            </Text>
+                        </div>
+                        <div className={classes.field}>
+                            <Text
+                                style={{
+                                    fontSize: '12px',
+                                    color: '#6b7280',
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '0.05em',
+                                    fontWeight: 600,
+                                    marginBottom: '8px'
+                                }}
+                            >
+                                Bandwidth
+                            </Text>
+                            <Text
+                                style={{
+                                    fontSize: '16px',
+                                    fontWeight: 700,
+                                    color: '#1a1a1a'
+                                }}
+                            >
+                                {user.trafficUsed} / {user.trafficLimit === '0' ? '∞' : user.trafficLimit}
+                            </Text>
                         </div>
                     </div>
                 </div>
             </Collapse>
-        </Paper>
+        </div>
     )
 }

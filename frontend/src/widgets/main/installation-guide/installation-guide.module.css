@@ -1,14 +1,8 @@
-/* ═══════════════════════════════════════════════════
-   INSTALLATION GUIDE — MODERN TABS
-   ═══════════════════════════════════════════════════ */
-
 .appsGrid {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 16px;
-    padding-bottom: 0;
-    border-bottom: none;
+    margin-bottom: 24px;
 }
 
 .appButton {
@@ -16,33 +10,29 @@
     display: flex;
     align-items: center;
     flex: 0 0 auto;
-    padding: 8px 16px;
+    padding: 10px 18px;
     min-height: 40px;
-    background: rgba(15, 23, 42, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 10px;
+    background: #ffffff;
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
-    transition: all 0.25s ease;
-    font-family: 'Inter', sans-serif;
+    transition: background 0.2s ease;
     font-size: 14px;
     font-weight: 500;
     gap: 8px;
-    color: #94a3b8;
+    color: #4b5563;
 }
 
 .appButton:hover {
-    background: rgba(15, 23, 42, 0.6);
-    color: #cbd5e1;
-    border-color: rgba(255, 255, 255, 0.12);
+    background: #f3f4f6;
+    color: #1a1a1a;
 }
 
 .appButtonActive,
 .appButtonActive:hover {
-    background: rgba(59, 130, 246, 0.15);
-    border: 1px solid rgba(59, 130, 246, 0.3);
-    color: #60a5fa;
+    background: #3b82f6;
+    color: #ffffff;
     font-weight: 600;
-    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.1);
 }
 
 .appButtonActive::after {
@@ -52,19 +42,14 @@
 .appName {
     position: relative;
     z-index: 1;
-    font-family: 'Inter', sans-serif;
-    color: #94a3b8;
+    color: #4b5563;
     font-size: 14px;
     font-weight: 500;
     white-space: nowrap;
 }
 
 .appButtonActive .appName {
-    color: #60a5fa;
-}
-
-.appButtonActive .appName::after {
-    content: '';
+    color: #ffffff;
 }
 
 .bgIcon {
@@ -79,12 +64,12 @@
 .bgIcon svg {
     width: 18px !important;
     height: 18px !important;
-    stroke: #64748b !important;
+    stroke: #6b7280 !important;
     fill: none !important;
 }
 
 .appButtonActive .bgIcon svg {
-    stroke: #60a5fa !important;
+    stroke: #ffffff !important;
 }
 
 .featuredBadge {
@@ -98,5 +83,4 @@
     z-index: 2;
     border-radius: 50%;
     background: #3b82f6;
-    box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
 }

@@ -1,7 +1,6 @@
 import {
     IconBrandTelegram,
     IconCopy,
-    IconLink,
     IconQrcode
 } from '@tabler/icons-react'
 import { ActionIcon, Button, Group, Image, Stack, Text } from '@mantine/core'
@@ -50,14 +49,14 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
             <ActionIcon
                 component="a"
                 href={supportUrl}
-                radius="lg"
+                radius="md"
                 rel="noopener noreferrer"
                 size={36}
                 target="_blank"
                 variant="default"
                 className={classes.actionIcon}
             >
-                <IconBrandTelegram style={{ width: 18, height: 18, color: '#60a5fa' }} />
+                <IconBrandTelegram style={{ width: 18, height: 18, color: '#3b82f6' }} />
             </ActionIcon>
         )
     }
@@ -67,18 +66,13 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
 
         const subscriptionQrCode = renderSVG(subscriptionUrl, {
             whiteColor: '#ffffff',
-            blackColor: '#0a0e17'
+            blackColor: '#1a1a1a'
         })
 
         modals.open({
             centered: true,
             title: (
-                <Text style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: '18px',
-                    fontWeight: 600,
-                    color: '#f8fafc'
-                }}>
+                <Text style={{ fontSize: '18px', fontWeight: 700, color: '#1a1a1a' }}>
                     {t(baseTranslations.scanQrCode)}
                 </Text>
             ),
@@ -106,7 +100,6 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
                         onClick={handleCopy}
                         variant="default"
                         className={classes.copyButton}
-                        radius="lg"
                     >
                         {t(baseTranslations.copyLink)}
                     </Button>
@@ -121,11 +114,11 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
                 <ActionIcon
                     className={classes.actionIcon}
                     onClick={handleGetLink}
-                    radius="lg"
+                    radius="md"
                     size={36}
                     variant="default"
                 >
-                    <IconQrcode style={{ width: 18, height: 18, color: '#94a3b8' }} />
+                    <IconQrcode style={{ width: 18, height: 18, color: '#4b5563' }} />
                 </ActionIcon>
             )}
 

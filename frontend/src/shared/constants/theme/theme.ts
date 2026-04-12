@@ -6,8 +6,8 @@ export const theme = createTheme({
     components,
     cursorType: 'pointer',
     fontFamily:
-        'Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif',
-    fontFamilyMonospace: "'JetBrains Mono', 'Fira Mono', monospace",
+        '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif',
+    fontFamilyMonospace: "'SF Mono', 'Fira Code', monospace",
     breakpoints: {
         xs: '25em',
         sm: '30em',
@@ -22,31 +22,31 @@ export const theme = createTheme({
     fontSmoothing: true,
     focusRing: 'never',
     white: '#ffffff',
-    black: '#0a0e17',
+    black: '#1a1a1a',
     colors: {
         dark: [
-            '#f8fafc',
-            '#f1f5f9',
-            '#e2e8f0',
-            '#cbd5e1',
-            '#94a3b8',
-            '#64748b',
-            '#475569',
-            '#334155',
-            '#1e293b',
-            '#0f172a'
+            '#f9fafb',
+            '#f3f4f6',
+            '#e5e7eb',
+            '#d1d5db',
+            '#9ca3af',
+            '#6b7280',
+            '#4b5563',
+            '#374151',
+            '#1f2937',
+            '#111827'
         ],
         gray: [
-            '#f8fafc',
-            '#f1f5f9',
-            '#e2e8f0',
-            '#cbd5e1',
-            '#94a3b8',
-            '#64748b',
-            '#475569',
-            '#334155',
-            '#1e293b',
-            '#0f172a'
+            '#f9fafb',
+            '#f3f4f6',
+            '#e5e7eb',
+            '#d1d5db',
+            '#9ca3af',
+            '#6b7280',
+            '#4b5563',
+            '#374151',
+            '#1f2937',
+            '#111827'
         ],
         blue: [
             '#eff6ff',
@@ -72,30 +72,6 @@ export const theme = createTheme({
             '#065f46',
             '#064e3b'
         ],
-        yellow: [
-            '#fefce8',
-            '#fef9c3',
-            '#fef08a',
-            '#fde047',
-            '#facc15',
-            '#eab308',
-            '#ca8a04',
-            '#a16207',
-            '#854d0e',
-            '#713f12'
-        ],
-        orange: [
-            '#fff7ed',
-            '#ffedd5',
-            '#fed7aa',
-            '#fdba74',
-            '#fb923c',
-            '#f97316',
-            '#ea580c',
-            '#c2410c',
-            '#9a3412',
-            '#7c2d12'
-        ],
         red: [
             '#fef2f2',
             '#fee2e2',
@@ -107,56 +83,20 @@ export const theme = createTheme({
             '#b91c1c',
             '#991b1b',
             '#7f1d1d'
-        ],
-        violet: [
-            '#f5f3ff',
-            '#ede9fe',
-            '#ddd6fe',
-            '#c4b5fd',
-            '#a78bfa',
-            '#8b5cf6',
-            '#7c3aed',
-            '#6d28d9',
-            '#5b21b6',
-            '#4c1d95'
-        ],
-        pink: [
-            '#fdf2f8',
-            '#fce7f3',
-            '#fbcfe8',
-            '#f9a8d4',
-            '#f472b6',
-            '#ec4899',
-            '#db2777',
-            '#be185d',
-            '#9d174d',
-            '#831843'
-        ],
-        teal: [
-            '#f0fdfa',
-            '#ccfbf1',
-            '#99f6e4',
-            '#5eead4',
-            '#2dd4bf',
-            '#14b8a6',
-            '#0d9488',
-            '#0f766e',
-            '#115e59',
-            '#134e4a'
         ]
     },
-    primaryShade: 5,
+    primaryShade: 6,
     primaryColor: 'blue',
     autoContrast: true,
     luminanceThreshold: 0.3,
     headings: {
-        fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif',
-        fontWeight: '600'
+        fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif',
+        fontWeight: '700'
     },
-    defaultRadius: 'lg',
+    defaultRadius: 'md',
     defaultGradient: {
         from: '#3b82f6',
-        to: '#10b981',
-        deg: 135
+        to: '#3b82f6',
+        deg: 0
     }
 })

@@ -80,45 +80,42 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
             <Box className="header-wrapper" py="md">
                 <Container maw={1200} px={{ base: 'md', sm: 'lg', md: 'xl' }}>
                     <Group justify="space-between" wrap="nowrap" style={{ paddingLeft: '0' }}>
-                        <Stack gap={4} style={{ userSelect: 'none' }}>
-                            <Group gap="sm" wrap="nowrap" align="center">
-                                {hasCustomLogo ? (
-                                    <Image
-                                        alt="logo"
-                                        fit="contain"
-                                        src={config.brandingSettings.logoUrl}
-                                        style={{
-                                            width: '40px',
-                                            height: '40px',
-                                            flexShrink: 0,
-                                            borderRadius: '10px'
-                                        }}
-                                    />
-                                ) : (
-                                    <RemnawaveLogo c="#10b981" size={36} />
-                                )}
-                                <Stack gap={2} style={{ lineHeight: 1.2 }}>
-                                    <Title
-                                        c="#64748b"
-                                        fw={500}
-                                        order={6}
-                                        size="xs"
-                                        style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', letterSpacing: '0.05em', textTransform: 'uppercase' }}
-                                    >
-                                        VPN Service
-                                    </Title>
-                                    <Title
-                                        c="#10b981"
-                                        fw={600}
-                                        order={6}
-                                        size="md"
-                                        style={{ fontFamily: "'Inter', sans-serif", fontSize: '18px', letterSpacing: '-0.02em' }}
-                                    >
-                                        {brandName}
-                                    </Title>
-                                </Stack>
-                            </Group>
-                        </Stack>
+                        <Group gap="md" wrap="nowrap" align="center">
+                            {hasCustomLogo ? (
+                                <Image
+                                    alt="logo"
+                                    fit="contain"
+                                    src={config.brandingSettings.logoUrl}
+                                    style={{
+                                        width: '36px',
+                                        height: '36px',
+                                        flexShrink: 0
+                                    }}
+                                />
+                            ) : (
+                                <RemnawaveLogo c="#3b82f6" size={32} />
+                            )}
+                            <Stack gap={2}>
+                                <Title
+                                    c="#6b7280"
+                                    fw={500}
+                                    order={6}
+                                    size="xs"
+                                    style={{ fontSize: '13px', letterSpacing: '0.05em', textTransform: 'uppercase' }}
+                                >
+                                    VPN Service
+                                </Title>
+                                <Title
+                                    c="#1a1a1a"
+                                    fw={700}
+                                    order={6}
+                                    size="md"
+                                    style={{ fontSize: '20px', letterSpacing: '-0.02em' }}
+                                >
+                                    {brandName}
+                                </Title>
+                            </Stack>
+                        </Group>
 
                         <Group gap="xs" wrap="nowrap">
                             <SubscriptionLinkWidget
@@ -140,12 +137,8 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                 px={{ base: 'md', sm: 'lg', md: 'xl' }}
                 pt="xl"
                 pb={0}
-                style={{
-                    position: 'relative',
-                    zIndex: 1
-                }}
             >
-                <Stack gap="md" style={{ paddingBottom: '0' }}>
+                <Stack gap="xl" style={{ paddingBottom: '0' }}>
                     {SubscriptionInfoBlockRenderer && (
                         <SubscriptionInfoBlockRenderer isMobile={isMobile} />
                     )}
