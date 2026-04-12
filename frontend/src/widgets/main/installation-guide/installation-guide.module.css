@@ -10,28 +10,28 @@
     display: flex;
     align-items: center;
     flex: 0 0 auto;
-    padding: 10px 18px;
-    min-height: 40px;
-    background: #ffffff;
+    padding: 8px 16px;
+    min-height: 36px;
+    background: #2a2a2a;
     border: none;
-    border-radius: 6px;
+    border-radius: 18px;
     cursor: pointer;
-    transition: background 0.2s ease;
-    font-size: 14px;
+    transition: all 0.2s ease;
+    font-size: 13px;
     font-weight: 500;
     gap: 8px;
-    color: #4b5563;
+    color: #888888;
 }
 
 .appButton:hover {
-    background: #f3f4f6;
-    color: #1a1a1a;
+    background: #333333;
+    color: #cccccc;
 }
 
 .appButtonActive,
 .appButtonActive:hover {
-    background: #3b82f6;
-    color: #ffffff;
+    background: #ffffff;
+    color: #1a1a1a;
     font-weight: 600;
 }
 
@@ -42,19 +42,19 @@
 .appName {
     position: relative;
     z-index: 1;
-    color: #4b5563;
-    font-size: 14px;
+    color: #888888;
+    font-size: 13px;
     font-weight: 500;
     white-space: nowrap;
 }
 
 .appButtonActive .appName {
-    color: #ffffff;
+    color: #1a1a1a;
 }
 
 .bgIcon {
-    width: 18px !important;
-    height: 18px !important;
+    width: 16px !important;
+    height: 16px !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -62,14 +62,14 @@
 }
 
 .bgIcon svg {
-    width: 18px !important;
-    height: 18px !important;
-    stroke: #6b7280 !important;
+    width: 16px !important;
+    height: 16px !important;
+    stroke: #888888 !important;
     fill: none !important;
 }
 
 .appButtonActive .bgIcon svg {
-    stroke: #ffffff !important;
+    stroke: #1a1a1a !important;
 }
 
 .featuredBadge {
@@ -82,5 +82,5 @@
     opacity: 1;
     z-index: 2;
     border-radius: 50%;
-    background: #3b82f6;
+    background: #ffffff;
 }

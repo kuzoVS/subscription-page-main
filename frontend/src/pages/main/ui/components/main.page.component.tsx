@@ -75,11 +75,13 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
             ? 'brutal'
             : config.uiConfig.subscriptionInfoBlockType]
 
+    const { user } = config
+
     return (
         <Page>
             <Box className="header-wrapper" py="md">
                 <Container maw={1200} px={{ base: 'md', sm: 'lg', md: 'xl' }}>
-                    <Group justify="space-between" wrap="nowrap" style={{ paddingLeft: '0' }}>
+                    <Group justify="space-between" wrap="nowrap">
                         <Group gap="md" wrap="nowrap" align="center">
                             {hasCustomLogo ? (
                                 <Image
@@ -87,41 +89,36 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                                     fit="contain"
                                     src={config.brandingSettings.logoUrl}
                                     style={{
-                                        width: '36px',
-                                        height: '36px',
-                                        flexShrink: 0
+                                        width: '32px',
+                                        height: '32px'
                                     }}
                                 />
                             ) : (
-                                <RemnawaveLogo c="#3b82f6" size={32} />
+                                <RemnawaveLogo c="#ffffff" size={28} />
                             )}
-                            <Stack gap={2}>
+                            <Title
+                                c="#ffffff"
+                                fw={700}
+                                order={6}
+                                size="xl"
+                                style={{ fontSize: '20px', letterSpacing: '-0.02em' }}
+                            >
+                                Clay VPN
+                            </Title>
+                        </Group>
+
+                        <Group gap="xs" wrap="nowrap" align="center">
+                            <Stack gap={0} style={{ alignItems: 'flex-end' }}>
                                 <Title
-                                    c="#6b7280"
+                                    c="#888888"
                                     fw={500}
                                     order={6}
                                     size="xs"
-                                    style={{ fontSize: '13px', letterSpacing: '0.05em', textTransform: 'uppercase' }}
+                                    style={{ fontSize: '13px' }}
                                 >
-                                    VPN Service
-                                </Title>
-                                <Title
-                                    c="#1a1a1a"
-                                    fw={700}
-                                    order={6}
-                                    size="md"
-                                    style={{ fontSize: '20px', letterSpacing: '-0.02em' }}
-                                >
-                                    {brandName}
+                                    {user?.username || 'user'} | {user?.daysLeft || 0} дней
                                 </Title>
                             </Stack>
-                        </Group>
-
-                        <Group gap="xs" wrap="nowrap">
-                            <SubscriptionLinkWidget
-                                hideGetLink={config.baseSettings.hideGetLinkButton}
-                                supportUrl={config.brandingSettings.supportUrl}
-                            />
                             <LanguagePicker
                                 currentLang={currentLang}
                                 locales={config.locales}

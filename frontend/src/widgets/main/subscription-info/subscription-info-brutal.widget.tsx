@@ -51,9 +51,9 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
                     <Stack gap={4} style={{ minWidth: 0, flex: 1 }}>
                         <Text
                             style={{
-                                fontSize: '18px',
+                                fontSize: '16px',
                                 fontWeight: 700,
-                                color: '#1a1a1a',
+                                color: '#ffffff',
                                 overflow: 'hidden',
                                 textOverflow: 'ellipsis',
                                 whiteSpace: 'nowrap'
@@ -63,8 +63,8 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
                         </Text>
                         <Text
                             style={{
-                                fontSize: '14px',
-                                color: '#6b7280'
+                                fontSize: '13px',
+                                color: '#888888'
                             }}
                         >
                             {getExpirationTextUtil(user.expiresAt, currentLang, baseTranslations)}
@@ -77,18 +77,21 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
                             size="md"
                             styles={{
                                 root: {
-                                    borderRadius: '6px',
-                                    padding: '6px 12px',
-                                    fontWeight: 600
+                                    borderRadius: '16px',
+                                    padding: '6px 14px',
+                                    fontWeight: 600,
+                                    background: isActive || isExpiringSoon ? 'rgba(16, 185, 129, 0.15)' : 'rgba(239, 68, 68, 0.15)',
+                                    color: isActive || isExpiringSoon ? '#10b981' : '#ef4444',
+                                    border: 'none'
                                 }
                             }}
                         >
                             {statusText}
                         </Badge>
                         {isExpanded ? (
-                            <IconChevronUp size={20} style={{ color: '#9ca3af' }} />
+                            <IconChevronUp size={18} style={{ color: '#666666' }} />
                         ) : (
-                            <IconChevronDown size={20} style={{ color: '#9ca3af' }} />
+                            <IconChevronDown size={18} style={{ color: '#666666' }} />
                         )}
                     </Group>
                 </Group>
@@ -100,8 +103,8 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
                         <div className={classes.field}>
                             <Text
                                 style={{
-                                    fontSize: '12px',
-                                    color: '#6b7280',
+                                    fontSize: '11px',
+                                    color: '#666666',
                                     textTransform: 'uppercase',
                                     letterSpacing: '0.05em',
                                     fontWeight: 600,
@@ -112,19 +115,19 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
                             </Text>
                             <Text
                                 style={{
-                                    fontSize: '16px',
+                                    fontSize: '15px',
                                     fontWeight: 700,
                                     color: isActive || isExpiringSoon ? '#10b981' : '#ef4444'
                                 }}
                             >
-                                {isActive || isExpiringSoon ? '✓' : '✗'} {statusText}
+                                {statusText}
                             </Text>
                         </div>
                         <div className={classes.field}>
                             <Text
                                 style={{
-                                    fontSize: '12px',
-                                    color: '#6b7280',
+                                    fontSize: '11px',
+                                    color: '#666666',
                                     textTransform: 'uppercase',
                                     letterSpacing: '0.05em',
                                     fontWeight: 600,
@@ -135,9 +138,9 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
                             </Text>
                             <Text
                                 style={{
-                                    fontSize: '16px',
+                                    fontSize: '15px',
                                     fontWeight: 700,
-                                    color: '#1a1a1a'
+                                    color: '#ffffff'
                                 }}
                             >
                                 {formatDate(user.expiresAt, currentLang, baseTranslations)}
@@ -146,8 +149,8 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
                         <div className={classes.field}>
                             <Text
                                 style={{
-                                    fontSize: '12px',
-                                    color: '#6b7280',
+                                    fontSize: '11px',
+                                    color: '#666666',
                                     textTransform: 'uppercase',
                                     letterSpacing: '0.05em',
                                     fontWeight: 600,
@@ -158,9 +161,9 @@ export const SubscriptionInfoBrutalWidget = ({ isMobile }: IProps) => {
                             </Text>
                             <Text
                                 style={{
-                                    fontSize: '16px',
+                                    fontSize: '15px',
                                     fontWeight: 700,
-                                    color: '#1a1a1a'
+                                    color: '#ffffff'
                                 }}
                             >
                                 {user.trafficUsed} / {user.trafficLimit === '0' ? '∞' : user.trafficLimit}

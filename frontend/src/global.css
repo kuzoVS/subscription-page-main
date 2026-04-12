@@ -1,60 +1,55 @@
 /* ═══════════════════════════════════════════════════
-   FLAT VPN — CLEAN & SIMPLE
+   CLAY VPN — DARK FLAT DESIGN
    ═══════════════════════════════════════════════════ */
 
 html,
 body {
     min-height: 100vh;
-    background: #fafafa;
-    color: #1a1a1a;
+    background: #0d0d0d;
+    color: #e0e0e0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 15px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
     min-height: 100vh;
 }
 
-/* ═══════════════════════════════════════════════════
-   SCROLLBAR
-   ═══════════════════════════════════════════════════ */
-
 ::-webkit-scrollbar {
     width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
+    background: #1a1a1a;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #d1d5db;
+    background: #333333;
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #9ca3af;
+    background: #444444;
 }
 
 ::selection {
-    background: #3b82f6;
-    color: #ffffff;
+    background: #ffffff;
+    color: #1a1a1a;
 }
 
 a {
-    color: #3b82f6;
+    color: #a0a0a0;
     text-decoration: none;
 }
 
 a:hover {
-    color: #2563eb;
+    color: #ffffff;
 }
 
 *:focus-visible {
-    outline: 2px solid #3b82f6;
+    outline: 2px solid #ffffff;
     outline-offset: 2px;
 }
 
@@ -68,16 +63,16 @@ a:hover {
 }
 
 /* ═══════════════════════════════════════════════════
-   HEADER — FLAT
+   HEADER
    ═══════════════════════════════════════════════════ */
 
 .header-wrapper {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: #ffffff;
+    background: #1a1a1a;
     padding: 20px 24px;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid #2a2a2a;
 }
 
 .header-wrapper::after {
@@ -85,22 +80,123 @@ a:hover {
 }
 
 .logo-text-highlight {
-    color: #1a1a1a;
+    color: #ffffff;
     font-size: 20px;
     font-weight: 700;
     letter-spacing: -0.02em;
 }
 
 .logo-text-normal {
-    color: #6b7280;
+    color: #666666;
     font-size: 13px;
     font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
 
 /* ═══════════════════════════════════════════════════
-   CARDS — FLAT
+   MAIN CONTAINER
+   ═══════════════════════════════════════════════════ */
+
+.wrapper {
+    padding: 20px 24px;
+    background: transparent;
+    animation: fade-in 0.3s ease-out;
+}
+
+/* ═══════════════════════════════════════════════════
+   TABS — PILL STYLE
+   ═══════════════════════════════════════════════════ */
+
+.appsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.appButton {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    padding: 8px 16px;
+    min-height: 36px;
+    background: #2a2a2a;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 13px;
+    font-weight: 500;
+    gap: 8px;
+    color: #888888;
+}
+
+.appButton:hover {
+    background: #333333;
+    color: #cccccc;
+}
+
+.appButtonActive,
+.appButtonActive:hover {
+    background: #ffffff;
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.appButtonActive::after {
+    content: none;
+}
+
+.appName {
+    position: relative;
+    z-index: 1;
+    color: #888888;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.appButtonActive .appName {
+    color: #1a1a1a;
+}
+
+.bgIcon {
+    width: 16px !important;
+    height: 16px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+}
+
+.bgIcon svg {
+    width: 16px !important;
+    height: 16px !important;
+    stroke: #888888 !important;
+    fill: none !important;
+}
+
+.appButtonActive .bgIcon svg {
+    stroke: #1a1a1a !important;
+}
+
+.featuredBadge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    opacity: 1;
+    z-index: 2;
+    border-radius: 50%;
+    background: #ffffff;
+}
+
+/* ═══════════════════════════════════════════════════
+   INFO CARDS
    ═══════════════════════════════════════════════════ */
 
 .info-card-cyan,
@@ -112,18 +208,7 @@ a:hover {
 .info-card-teal,
 .info-card-orange {
     padding: 24px;
-    background: #ffffff;
-    border-radius: 8px;
+    background: #1a1a1a;
+    border-radius: 12px;
     margin-bottom: 16px;
-}
-
-.info-card-cyan:hover,
-.info-card-violet:hover,
-.info-card-green:hover,
-.info-card-red:hover,
-.info-card-yellow:hover,
-.info-card-blue:hover,
-.info-card-teal:hover,
-.info-card-orange:hover {
-    background: #f9fafb;
 }
