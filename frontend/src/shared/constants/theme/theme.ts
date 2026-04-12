@@ -6,8 +6,8 @@ export const theme = createTheme({
     components,
     cursorType: 'pointer',
     fontFamily:
-        '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif',
-    fontFamilyMonospace: "'SF Mono', 'Fira Code', monospace",
+        "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Apple Color Emoji, sans-serif",
+    fontFamilyMonospace: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
     breakpoints: {
         xs: '25em',
         sm: '30em',
@@ -22,81 +22,77 @@ export const theme = createTheme({
     fontSmoothing: true,
     focusRing: 'never',
     white: '#ffffff',
-    black: '#1a1a1a',
+    black: '#24292f',
     colors: {
         dark: [
-            '#f9fafb',
-            '#f3f4f6',
-            '#e5e7eb',
-            '#d1d5db',
-            '#9ca3af',
-            '#6b7280',
-            '#4b5563',
-            '#374151',
-            '#1f2937',
-            '#111827'
+            '#c9d1d9',
+            '#b1bac4',
+            '#8b949e',
+            '#6e7681',
+            '#484f58',
+            '#30363d',
+            '#21262d',
+            '#161b22',
+            '#0d1117',
+            '#010409'
         ],
-        gray: [
-            '#f9fafb',
-            '#f3f4f6',
-            '#e5e7eb',
-            '#d1d5db',
-            '#9ca3af',
-            '#6b7280',
-            '#4b5563',
-            '#374151',
-            '#1f2937',
-            '#111827'
-        ],
+
         blue: [
-            '#eff6ff',
-            '#dbeafe',
-            '#bfdbfe',
-            '#93c5fd',
-            '#60a5fa',
-            '#3b82f6',
-            '#2563eb',
-            '#1d4ed8',
-            '#1e40af',
-            '#1e3a8a'
+            '#ddf4ff',
+            '#b6e3ff',
+            '#80ccff',
+            '#54aeff',
+            '#218bff',
+            '#0969da',
+            '#0550ae',
+            '#033d8b',
+            '#0a3069',
+            '#002155'
         ],
         green: [
-            '#ecfdf5',
-            '#d1fae5',
-            '#a7f3d0',
-            '#6ee7b7',
-            '#34d399',
-            '#10b981',
-            '#059669',
-            '#047857',
-            '#065f46',
-            '#064e3b'
+            '#dafbe1',
+            '#aceebb',
+            '#6fdd8b',
+            '#4ac26b',
+            '#2da44e',
+            '#1a7f37',
+            '#116329',
+            '#044f1e',
+            '#003d16',
+            '#002d11'
         ],
-        red: [
-            '#fef2f2',
-            '#fee2e2',
-            '#fecaca',
-            '#fca5a5',
-            '#f87171',
-            '#ef4444',
-            '#dc2626',
-            '#b91c1c',
-            '#991b1b',
-            '#7f1d1d'
+        yellow: [
+            '#fff8c5',
+            '#fae17d',
+            '#eac54f',
+            '#d4a72c',
+            '#bf8700',
+            '#9a6700',
+            '#7d4e00',
+            '#633c01',
+            '#4d2d00',
+            '#3b2300'
+        ],
+        orange: [
+            '#fff1e5',
+            '#ffd8b5',
+            '#ffb77c',
+            '#fb8f44',
+            '#e16f24',
+            '#bc4c00',
+            '#953800',
+            '#762c00',
+            '#5c2200',
+            '#471700'
         ]
     },
-    primaryShade: 6,
-    primaryColor: 'blue',
+    primaryShade: 8,
+    primaryColor: 'cyan',
     autoContrast: true,
     luminanceThreshold: 0.3,
     headings: {
-        fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif',
-        fontWeight: '700'
+        fontFamily: "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+        fontWeight: '600'
     },
-    defaultRadius: 'md',
-    defaultGradient: {
-        from: '#3b82f6',
-        to: '#3b82f6',
-        deg: 0
-    }
+    defaultRadius: 'md'
 })

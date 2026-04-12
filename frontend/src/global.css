@@ -1,404 +1,113 @@
-/* ═══════════════════════════════════════════════════
-   CLAY VPN — DARK FLAT DESIGN
-   Форма блоков из subpagehermit, тёмная flat палитра
-   ═══════════════════════════════════════════════════ */
-
 html,
 body {
     min-height: 100vh;
-    background: #0a0a0f;
-    color: #e8e8ed;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 15px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
+    background-color: #02000f;
+    background-image: none;
+    background-attachment: fixed;
+    position: relative;
 }
 
 #root {
-    min-height: 100vh;
-}
-
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #0a0a0f;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #1e1e2e;
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #2a2a3e;
-}
-
-::selection {
-    background: #5b8def;
-    color: #ffffff;
-}
-
-a {
-    color: #5b8def;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #7ba7f5;
-}
-
-*:focus-visible {
-    outline: 2px solid #5b8def;
-    outline-offset: 2px;
-}
-
-@keyframes fade-in {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
+    height: 100vh;
 }
 
 .animated-background {
-    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+        radial-gradient(
+            120% 58% at 50% 100%,
+            rgb(45, 23, 255, 0.9) 0%,
+            rgb(14, 9, 85, 0.55) 45%,
+            rgb(2, 0, 15, 0) 74%
+        ),
+        linear-gradient(180deg, rgb(2, 0, 15, 0.96) 0%, rgb(2, 0, 15, 1) 75%);
 }
-
-/* ═══════════════════════════════════════════════════
-   HEADER — скругление снизу 24px
-   ═══════════════════════════════════════════════════ */
 
 .header-wrapper {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: #0e0e18;
-    padding: 18px 24px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background: rgb(0, 0, 0, 0.12);
     border-radius: 0 0 24px 24px;
-    border-bottom: 1px solid #1a1a2e;
-}
-
-.header-wrapper::after {
-    display: none;
-}
-
-.logo-text-highlight {
-    color: #ffffff;
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-}
-
-.logo-text-normal {
-    color: #6b6b80;
-    font-size: 13px;
-    font-weight: 500;
-    opacity: 0.7;
-}
-
-/* ═══════════════════════════════════════════════════
-   WRAPPER / CONTAINER
-   ═══════════════════════════════════════════════════ */
-
-.wrapper {
-    padding: 16px 24px;
-    animation: fade-in 0.3s ease-out;
-}
-
-/* ═══════════════════════════════════════════════════
-   GUIDE F_CARD — основная карточка установки
-   ═══════════════════════════════════════════════════ */
-
-.guideCard {
-    background: #0e0e18;
-    border: 1px solid #1a1a2e;
-    border-radius: 24px;
-    padding: 28px;
-    margin-bottom: 24px;
-    animation: fade-in 0.4s ease-out;
-}
-
-/* ═══════════════════════════════════════════════════
-   APP TABS — pill-кнопки
-   ═══════════════════════════════════════════════════ */
-
-.appsGrid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 28px;
-}
-
-.appButton {
-    position: relative;
-    display: flex;
-    align-items: center;
-    flex: 0 0 auto;
-    padding: 0 20px;
-    height: 38px;
-    background: #1a1a2e;
-    border: 1px solid #252540;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-size: 14px;
-    font-weight: 500;
-    gap: 8px;
-    color: #8888a0;
-}
-
-.appButton:hover {
-    background: #22223a;
-    color: #b0b0c8;
-    border-color: #2f2f50;
-}
-
-.appButtonActive,
-.appButtonActive:hover {
-    background: #ffffff;
-    color: #0a0a0f;
-    font-weight: 600;
-    border-color: #ffffff;
-    transform: translateY(-1px);
-}
-
-.appButtonActive::after {
-    content: none;
-}
-
-.appName {
-    position: relative;
-    z-index: 1;
-    color: #8888a0;
-    font-size: 14px;
-    font-weight: 500;
-    white-space: nowrap;
-}
-
-.appButtonActive .appName {
-    color: #0a0a0f;
-}
-
-.bgIcon {
-    width: 18px !important;
-    height: 18px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    flex-shrink: 0 !important;
-}
-
-.bgIcon svg {
-    width: 18px !important;
-    height: 18px !important;
-    stroke: #8888a0 !important;
-    fill: none !important;
-}
-
-.appButtonActive .bgIcon svg {
-    stroke: #0a0a0f !important;
-}
-
-.featuredBadge {
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    width: 6px;
-    height: 6px;
-    display: inline-block;
-    opacity: 1;
-    z-index: 2;
-    border-radius: 50%;
-    background: #efbf04;
-    box-shadow: 0 0 6px rgba(239, 191, 4, 0.6);
-}
-
-/* ═══════════════════════════════════════════════════
-   STEP CARDS — карточки шагов
-   ═══════════════════════════════════════════════════ */
-
-.stepCard {
-    background: #0c0c16;
-    border: 1px solid #18182a;
-    border-radius: 14px;
-    padding: 22px;
-    margin-bottom: 14px;
-    transition: all 0.2s ease;
-}
-
-.stepCard:hover {
-    background: #0f0f1a;
-    border-color: #1f1f35;
-}
-
-.stepHeader {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    margin-bottom: 4px;
-}
-
-.stepTitle {
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 6px;
-}
-
-.stepDescription {
-    color: #8888a0;
-    font-size: 14px;
-    line-height: 1.65;
-    white-space: pre-line;
-}
-
-/* ═══════════════════════════════════════════════════
-   ACTION BUTTONS — pill-форма
-   ═══════════════════════════════════════════════════ */
-
-.stepButtonWrapper {
-    margin-top: 18px;
-    padding-left: 68px;
-}
-
-.stepButton {
-    height: 38px;
-    padding: 0 22px;
-    background: #ffffff;
-    color: #0c0b16;
-    border: none;
-    border-radius: 999px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.stepButton:hover {
-    background: #e8e8f0;
-    transform: translateY(-1px);
-}
-
-.stepButtonSecondary {
-    background: #1a1a2e;
-    color: #c8c8d8;
-    border: 1px solid #252540;
-}
-
-.stepButtonSecondary:hover {
-    background: #22223a;
-    color: #e0e0f0;
-    border-color: #2f2f50;
-}
-
-/* ═══════════════════════════════════════════════════
-   SUBSCRIPTION INFO CARD
-   ═══════════════════════════════════════════════════ */
-
-.info-card-cyan,
-.info-card-violet,
-.info-card-green,
-.info-card-red,
-.info-card-yellow,
-.info-card-blue,
-.info-card-teal,
-.info-card-orange {
-    background: #0e0e18;
-    border: 1px solid #1a1a2e;
-    border-radius: 14px;
-    padding: 24px;
-    margin-bottom: 18px;
-    min-height: 110px;
-}
-
-/* ═══════════════════════════════════════════════════
-   ACCORDION
-   ═══════════════════════════════════════════════════ */
-
-.accordionItem {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
-    margin-bottom: 10px;
-}
-
-.accordionItem:hover {
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(255, 255, 255, 0.1);
-}
-
-/* ═══════════════════════════════════════════════════
-   SUBSCRIPTION LINK WIDGET
-   ═══════════════════════════════════════════════════ */
-
-.actionIcon {
-    width: 45px !important;
-    height: 45px !important;
-    background: #1a1a2e !important;
-    border: 1px solid #252540 !important;
-    border-radius: 14px !important;
-    transition: all 0.2s ease !important;
-}
-
-.actionIcon:hover {
-    background: #22223a !important;
-    border-color: #2f2f50 !important;
-    transform: translateY(-1px);
-}
-
-/* ═══════════════════════════════════════════════════
-   QR MODAL
-   ═══════════════════════════════════════════════════ */
-
-.modalContent {
-    background: #0e0e18;
-    border: 1px solid #1a1a2e;
-    border-radius: 20px;
     overflow: hidden;
 }
 
-.modalHeader {
-    border-bottom: 1px solid #1a1a2e;
-    padding: 18px 24px;
+.header-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgb(255, 255, 255, 0.15);
+    border-top: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(
+        90deg,
+        rgb(0 0 0 / 0%) 0%,
+        rgb(0 0 0 / 100%) 8%,
+        rgb(0 0 0 / 100%) 92%,
+        rgb(0 0 0 / 0%) 100%
+    );
+    mask-image: linear-gradient(
+        90deg,
+        rgb(0 0 0 / 0%) 0%,
+        rgb(0 0 0 / 100%) 8%,
+        rgb(0 0 0 / 100%) 92%,
+        rgb(0 0 0 / 0%) 100%
+    );
 }
 
-.modalTitle {
-    font-size: 18px;
-    font-weight: 700;
-    color: #ffffff;
+.logo-text-highlight {
+    color: var(--mantine-color-cyan-4);
 }
 
-.qrContainer {
-    border: 1px solid #1a1a2e;
-    background: #ffffff;
-    margin: 20px auto;
-    padding: 18px;
-    display: inline-block;
-    border-radius: 12px;
+.logo-text-normal {
+    color: white;
 }
 
-.qrDescription {
-    font-size: 14px;
-    color: #8888a0;
-    text-align: center;
-    margin-bottom: 14px;
+.info-card-cyan {
+    background: linear-gradient(135deg, rgb(34, 211, 238, 0.1) 0%, rgb(6, 182, 212, 0.05) 100%);
+    border: 1px solid rgb(34, 211, 238, 0.2);
 }
 
-.copyButton {
-    font-size: 14px;
-    font-weight: 600;
-    background: #ffffff !important;
-    color: #0a0a0f !important;
-    border: none !important;
-    border-radius: 999px !important;
-    height: 40px !important;
-    margin-top: 18px;
-    transition: all 0.2s ease !important;
+.info-card-violet {
+    background: linear-gradient(135deg, rgb(151, 117, 250, 0.1) 0%, rgb(132, 94, 247, 0.05) 100%);
+    border: 1px solid rgb(151, 117, 250, 0.2);
 }
 
-.copyButton:hover {
-    background: #e8e8f0 !important;
-    transform: translateY(-1px);
+.info-card-green {
+    background: linear-gradient(135deg, rgb(64, 192, 87, 0.1) 0%, rgb(55, 178, 77, 0.05) 100%);
+    border: 1px solid rgb(64, 192, 87, 0.2);
+}
+
+.info-card-red {
+    background: linear-gradient(135deg, rgb(250, 82, 82, 0.1) 0%, rgb(224, 49, 49, 0.05) 100%);
+    border: 1px solid rgb(250, 82, 82, 0.2);
+}
+
+.info-card-yellow {
+    background: linear-gradient(135deg, rgb(250, 176, 5, 0.1) 0%, rgb(245, 159, 0, 0.05) 100%);
+    border: 1px solid rgb(250, 176, 5, 0.2);
+}
+
+.info-card-blue {
+    background: linear-gradient(135deg, rgb(34, 139, 230, 0.1) 0%, rgb(28, 126, 214, 0.05) 100%);
+    border: 1px solid rgb(34, 139, 230, 0.2);
+}
+
+.info-card-teal {
+    background: linear-gradient(135deg, rgb(32, 201, 151, 0.1) 0%, rgb(18, 184, 134, 0.05) 100%);
+    border: 1px solid rgb(32, 201, 151, 0.2);
+}
+
+.info-card-orange {
+    background: linear-gradient(135deg, rgb(253, 126, 20, 0.1) 0%, rgb(247, 103, 7, 0.05) 100%);
+    border: 1px solid rgb(253, 126, 20, 0.2);
 }

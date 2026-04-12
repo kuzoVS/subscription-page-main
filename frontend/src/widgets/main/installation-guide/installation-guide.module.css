@@ -1,133 +1,246 @@
 .guideCard {
-    background: #0e0e18;
-    border: 1px solid #1a1a2e;
-    border-radius: 24px;
-    padding: 28px;
-    margin-bottom: 24px;
-    animation: fade-in 0.4s ease-out;
+    background: rgb(0, 0, 0, 0.12);
+    border: 1px solid rgb(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
 }
 
 .appsGrid {
     display: flex;
     flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.buttonsGroup {
+    width: 100%;
+}
+
+.buttonsGroupStacked {
+    align-items: stretch;
+}
+
+.platformSelect {
+    width: 180px;
+    flex-shrink: 0;
+}
+
+.platformSelect :global(.mantine-Input-input) {
+    height: 38px;
+    border-radius: 10px;
+    border: 1px solid rgb(255, 255, 255, 0.18);
+    background: rgb(255, 255, 255, 0.1);
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.platformSelectDropdown {
+    background: rgb(30, 30, 40);
+    border: 1px solid rgb(255, 255, 255, 0.18);
+    border-radius: 10px;
+}
+
+.platformSelectOption {
+    color: #fff;
+    border-radius: 8px;
+}
+
+.platformSelectOption:hover,
+.platformSelectOption[data-combobox-selected] {
+    background: rgb(255, 255, 255, 0.12);
+}
+
+.platformSelect :global(.mantine-Input-section) {
+    color: rgb(255, 255, 255, 0.8);
+}
+
+.platformSelect :global(.mantine-Input-section svg) {
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+
+.platformsGrid {
+    display: flex;
+    flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 28px;
+}
+
+.platformButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 34px;
+    padding: 0 14px;
+    border-radius: 999px;
+    background: rgb(255, 255, 255, 0.12);
+    border: 1px solid transparent;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.platformButton:hover {
+    background: rgb(255, 255, 255, 0.2);
+}
+
+.platformButtonActive,
+.platformButtonActive:hover {
+    background: #fff;
+    border-color: #fff;
+    transform: translateY(-1px);
+}
+
+.platformButtonIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    color: rgb(255, 255, 255, 0.85);
+}
+
+.platformButtonIcon svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+}
+
+.platformButtonLabel {
+    color: rgb(255, 255, 255, 0.85);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.platformButtonActive .platformButtonIcon,
+.platformButtonActive .platformButtonLabel {
+    color: #0c0b16;
 }
 
 .appButton {
     position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex: 0 0 auto;
     padding: 0 20px;
-    height: 38px;
-    background: #1a1a2e;
-    border: 1px solid #252540;
+    height: 36px;
+    min-width: 0;
+    overflow: hidden;
+    background: rgb(255, 255, 255, 0.15);
+    border: 1px solid transparent;
     border-radius: 999px;
     cursor: pointer;
-    transition: all 0.2s ease;
-    font-size: 14px;
-    font-weight: 500;
-    gap: 8px;
-    color: #8888a0;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .appButton:hover {
-    background: #22223a;
-    color: #b0b0c8;
-    border-color: #2f2f50;
+    background: rgb(255, 255, 255, 0.22);
 }
 
 .appButtonActive,
 .appButtonActive:hover {
-    background: #ffffff;
-    color: #0a0a0f;
-    font-weight: 600;
-    border-color: #ffffff;
+    background: #fff;
+    border-color: #fff;
     transform: translateY(-1px);
+    box-shadow: none;
 }
 
-.appButtonActive::after {
-    content: none;
+.appButtonActive .appName {
+    color: #16192b;
 }
 
 .appName {
     position: relative;
     z-index: 1;
-    color: #8888a0;
-    font-size: 14px;
+    color: rgb(255, 255, 255, 0.72);
+    font-size: 16px;
     font-weight: 500;
     white-space: nowrap;
 }
 
-.appButtonActive .appName {
-    color: #0a0a0f;
-}
-
-.bgIcon {
-    width: 18px !important;
-    height: 18px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    flex-shrink: 0 !important;
-}
-
-.bgIcon svg {
-    width: 18px !important;
-    height: 18px !important;
-    stroke: #8888a0 !important;
-    fill: none !important;
-}
-
-.appButtonActive .bgIcon svg {
-    stroke: #0a0a0f !important;
-}
-
 .featuredBadge {
     position: absolute;
-    top: -3px;
-    left: -3px;
+    top: 2px;
+    left: 4px;
     width: 6px;
     height: 6px;
     display: inline-block;
     opacity: 1;
-    z-index: 2;
+    z-index: 0;
     border-radius: 50%;
     background: #efbf04;
-    box-shadow: 0 0 6px rgba(239, 191, 4, 0.6);
+
+    box-shadow: 0 0 6px rgb(239, 191, 4, 0.6);
 }
 
-.buttonsRow {
-    margin-top: 16px;
+.appButtonActive .featuredBadge {
+    opacity: 0.8;
+    box-shadow: 0 0 8px rgb(239, 191, 4, 0.4);
 }
 
-.stepButton {
-    height: 38px;
-    padding: 0 22px;
-    background: #ffffff;
+.guideActionButton[data-variant='subtle'],
+.guideActionButton[data-variant='light'] {
+    background: #fff;
     color: #0c0b16;
     border: none;
     border-radius: 999px;
-    font-size: 14px;
+    height: 36px;
+    padding-inline: 20px;
     font-weight: 600;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    transition: all 0.2s ease;
 }
 
-.stepButton:hover {
-    background: #e8e8f0;
-    transform: translateY(-1px);
+.guideActionButton[data-variant='subtle'] :global(.mantine-Button-section),
+.guideActionButton[data-variant='light'] :global(.mantine-Button-section) {
+    color: #0c0b16;
 }
 
-.stepButtonSecondary {
-    background: #1a1a2e;
-    color: #c8c8d8;
-    border: 1px solid #252540 !important;
+.guideActionButton[data-variant='subtle'] :global(.mantine-Button-section svg),
+.guideActionButton[data-variant='light'] :global(.mantine-Button-section svg) {
+    width: 18px;
+    height: 18px;
+    display: block;
 }
 
-.stepButtonSecondary:hover {
-    background: #22223a;
-    color: #e0e0f0;
-    border-color: #2f2f50 !important;
+.guideActionButton[data-variant='subtle']:hover,
+.guideActionButton[data-variant='light']:hover {
+    background: rgb(255, 255, 255, 0.92);
+}
+
+.guideActionButtonFullWidth {
+    width: auto;
+}
+
+@media (max-width: 48em) {
+    .platformSelect {
+        width: 150px;
+    }
+
+    .platformsGrid {
+        width: 100%;
+        gap: 8px;
+    }
+
+    .platformButton {
+        height: 32px;
+        padding: 0 12px;
+    }
+
+    .guideActionButton[data-variant='subtle'],
+    .guideActionButton[data-variant='light'] {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 482px) {
+    .buttonsGroupStacked {
+        flex-direction: column;
+    }
+
+    .guideActionButtonFullWidth {
+        width: 100%;
+        justify-content: center;
+    }
 }

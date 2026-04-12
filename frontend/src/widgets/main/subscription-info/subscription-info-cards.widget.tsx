@@ -1,5 +1,5 @@
-import { IconArrowsUpDown, IconCalendar, IconCheck, IconUserScan, IconX } from '@tabler/icons-react'
-import { Box, Group, SimpleGrid, Stack, Text, ThemeIcon } from '@mantine/core'
+import { Box, Card, Group, Stack, Text, ThemeIcon } from '@mantine/core'
+import { IconCheck, IconX } from '@tabler/icons-react'
 
 import { useSubscription } from '@entities/subscription-info-store'
 import { formatDate } from '@shared/utils/config-parser'
@@ -7,107 +7,51 @@ import { useTranslation } from '@shared/hooks'
 
 import classes from './subscription-info-cards.module.css'
 
-type ColorVariant = 'blue' | 'gray' | 'green' | 'orange' | 'red' | 'teal' | 'violet' | 'yellow'
-
-const iconColorClasses: Record<ColorVariant, string> = {
-    blue: classes.iconBlue,
-    gray: classes.iconCyan, /* Using the same class as cyan for now */
-    green: classes.iconGreen,
-    teal: classes.iconTeal,
-    red: classes.iconRed,
-    yellow: classes.iconYellow,
-    orange: classes.iconOrange,
-    violet: classes.iconViolet
-}
-
-interface CardItemProps {
-    color: ColorVariant
-    icon: React.ReactNode
-    label: string
-    value: string
-}
-
-const CardItem = ({ icon, label, value, color }: CardItemProps) => {
-    return (
-        <Box className={classes.cardItem}>
-            <Group gap="xs" wrap="nowrap">
-                <ThemeIcon
-                    className={iconColorClasses[color]}
-                    color={color}
-                    radius="md"
-                    size={36}
-                    style={{ flexShrink: 0 }}
-                    variant="light"
-                >
-                    {icon}
-                </ThemeIcon>
-                <Stack gap={2} style={{ minWidth: 0, flex: 1 }}>
-                    <Text
-                        c="dimmed"
-                        className={classes.label}
-                        fw={500}
-                        lh={1}
-                        size="xs"
-                        tt="uppercase"
-                    >
-                        {label}
-                    </Text>
-                    <Text c="white" className={classes.value} fw={600} size="sm">
-                        {value}
-                    </Text>
-                </Stack>
-            </Group>
-        </Box>
-    )
-}
-
 interface IProps {
     isMobile: boolean
 }
 
-export const SubscriptionInfoCardsWidget = ({ isMobile: _ }: IProps) => {
+export const SubscriptionInfoCardsWidget = ({ isMobile: __ }: IProps) => {
     const { t, currentLang, baseTranslations } = useTranslation()
     const subscription = useSubscription()
 
     const { user } = subscription
 
     const isActive = user.userStatus === 'ACTIVE'
-    const statusText = isActive ? t(baseTranslations.active) : t(baseTranslations.inactive)
-
+    const statusBadgeText = isActive ? t(baseTranslations.active) : t(baseTranslations.inactive)
     const bandwidthValue =
-        user.trafficLimit === '0'
-            ? `${user.trafficUsed} / ∞`
-            : `${user.trafficUsed} / ${user.trafficLimit}`
+        user.trafficLimit === '0' ? `${user.trafficUsed}/∞` : `${user.trafficUsed}/${user.trafficLimit}`
+
+    const expiresValue = `${t(baseTranslations.expires)} ${formatDate(user.expiresAt, currentLang, baseTranslations)}`
 
     return (
-        <SimpleGrid cols={{ base: 1, xs: 1, sm: 2 }} spacing="xs" verticalSpacing="xs">
-            <CardItem
-                color="blue"
-                icon={<IconUserScan size={18} />}
-                label={t(baseTranslations.name)}
-                value={user.username}
-            />
+        <Card className={classes.cardRoot} p={24} radius={12}>
+            <Group justify="space-between" wrap="nowrap">
+                <Stack className={classes.leftInfo} gap={12}>
+                    <Box className={classes.statusBadge}>
+                        <ThemeIcon
+                            className={classes.statusIcon}
+                            color="transparent"
+                            radius="md"
+                            size={24}
+                            variant="transparent"
+                        >
+                            {isActive ? <IconCheck size={20} /> : <IconX size={20} />}
+                        </ThemeIcon>
+                        <Text c="white" className={classes.username} fw={500}>
+                            {statusBadgeText}
+                        </Text>
+                    </Box>
+                    <Text className={classes.expireText}>{expiresValue}</Text>
+                </Stack>
 
-            <CardItem
-                color={isActive ? 'green' : 'red'}
-                icon={isActive ? <IconCheck size={18} /> : <IconX size={18} />}
-                label={t(baseTranslations.status)}
-                value={statusText}
-            />
-
-            <CardItem
-                color="orange"
-                icon={<IconCalendar size={18} />}
-                label={t(baseTranslations.expires)}
-                value={formatDate(user.expiresAt, currentLang, baseTranslations)}
-            />
-
-            <CardItem
-                color="gray"
-                icon={<IconArrowsUpDown size={18} />}
-                label={t(baseTranslations.bandwidth)}
-                value={bandwidthValue}
-            />
-        </SimpleGrid>
+                <Stack align="flex-end" gap={6} justify="flex-end" style={{ minHeight: 79 }}>
+                    <Text className={classes.trafficLabel}>{t(baseTranslations.bandwidth)}:</Text>
+                    <Text c="white" className={classes.trafficValue} fw={500}>
+                        {bandwidthValue}
+                    </Text>
+                </Stack>
+            </Group>
+        </Card>
     )
 }

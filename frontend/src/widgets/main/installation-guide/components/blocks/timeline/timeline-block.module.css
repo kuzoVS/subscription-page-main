@@ -1,28 +1,26 @@
-/* ═══════════════════════════════════════════════════
-   TIMELINE BLOCK — MODERN STYLE
-   ═══════════════════════════════════════════════════ */
-
+/* Timeline styles */
 .timelineRoot {
-    padding: 8px 0;
+    --tl-line-color: rgba(255, 255, 255, 0.08);
 }
 
 .timelineItem {
-    position: relative;
-    padding: 16px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    padding-bottom: var(--mantine-spacing-md);
 }
 
-.timelineItem:last-child {
-    border-bottom: none;
+.timelineItemBullet {
+    background: transparent !important;
+    border: none !important;
 }
 
-.timelineItemContent {
-    padding-left: 0;
-}
-
-.timelineHeader {
+.bulletIconSvg {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+.bulletIconSvg svg {
+    width: 18px;
+    height: 18px;
 }

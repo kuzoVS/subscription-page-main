@@ -1,4 +1,4 @@
-import { Box, Center, Container, Group, Image, Stack, Title } from '@mantine/core'
+import { Box, Center, Container, Group, Image, Stack, Text } from '@mantine/core'
 import { TSubscriptionPagePlatformKey } from '@remnawave/subscription-page-types'
 
 import {
@@ -6,20 +6,15 @@ import {
     CardsBlockRenderer,
     InstallationGuideConnector,
     MinimalBlockRenderer,
-    RawKeysWidget,
     SubscriptionInfoCardsWidget,
     SubscriptionInfoCollapsedWidget,
     SubscriptionInfoExpandedWidget,
-    SubscriptionInfoCardsMinimalDarkWidget,
-    SubscriptionInfoCollapsedMinimalDarkWidget,
-    SubscriptionInfoExpandedMinimalDarkWidget,
-    SubscriptionInfoBrutalWidget,
     SubscriptionLinkWidget,
     TimelineBlockRenderer
 } from '@widgets/main'
 import { useAppConfig, useAppConfigStoreActions, useCurrentLang } from '@entities/app-config-store'
 import { LanguagePicker } from '@shared/ui/language-picker/language-picker.shared'
-import { Page, RemnawaveLogo } from '@shared/ui'
+import { Page } from '@shared/ui'
 
 interface IMainPageComponentProps {
     isMobile: boolean
@@ -37,10 +32,6 @@ const SUBSCRIPTION_INFO_BLOCK_RENDERERS = {
     cards: SubscriptionInfoCardsWidget,
     collapsed: SubscriptionInfoCollapsedWidget,
     expanded: SubscriptionInfoExpandedWidget,
-    minimalDark: SubscriptionInfoCardsMinimalDarkWidget,
-    minimalDarkCollapsed: SubscriptionInfoCollapsedMinimalDarkWidget,
-    minimalDarkExpanded: SubscriptionInfoExpandedMinimalDarkWidget,
-    brutal: SubscriptionInfoBrutalWidget,
     hidden: null
 } as const
 
@@ -48,15 +39,6 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
     const config = useAppConfig()
     const currentLang = useCurrentLang()
     const { setLanguage } = useAppConfigStoreActions()
-
-    const brandName = config.brandingSettings.title
-    let hasCustomLogo = !!config.brandingSettings.logoUrl
-
-    if (hasCustomLogo) {
-        if (config.brandingSettings.logoUrl.includes('docs.rw')) {
-            hasCustomLogo = false
-        }
-    }
 
     const hasPlatformApps: Record<TSubscriptionPagePlatformKey, boolean> = {
         ios: Boolean(config.platforms.ios?.apps.length),
@@ -70,71 +52,67 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
 
     const atLeastOnePlatformApp = Object.values(hasPlatformApps).some((value) => value)
 
-    const SubscriptionInfoBlockRenderer =
-        SUBSCRIPTION_INFO_BLOCK_RENDERERS[config.uiConfig.subscriptionInfoBlockType === 'cards'
-            ? 'brutal'
-            : config.uiConfig.subscriptionInfoBlockType]
+    const SubscriptionInfoBlockRenderer = SUBSCRIPTION_INFO_BLOCK_RENDERERS.cards
+    const normalizedSupportUrl =
+        config.brandingSettings.supportUrl.trim() === 'https://t.me/remnawave'
+            ? 'https://t.me/HermitVPNBot'
+            : config.brandingSettings.supportUrl
 
     return (
         <Page>
-            <Box className="header-wrapper" py={isMobile ? 'sm' : 'md'}>
-                <Container maw={1000} px={{ base: 20, sm: 50 }}>
-                    <Group justify="space-between" wrap="nowrap">
-                        <Group gap="sm" wrap="nowrap" align="center">
-                            {hasCustomLogo ? (
+            <Box className="header-wrapper" py={{ base: 'sm', md: 'md' }}>
+                <Container maw={1000} px={{ base: 20, md: 50 }}>
+                    <Group justify="space-between">
+                        <Group gap="sm" style={{ userSelect: 'none' }} wrap="nowrap">
+                            <Image
+                                alt="Hermit icon"
+                                fit="contain"
+                                src="/assets/icons/figma/hermit-brand-logo.svg"
+                                style={{
+                                    width: isMobile ? '39px' : '39px',
+                                    height: isMobile ? '37px' : '37px',
+                                    flexShrink: 0
+                                }}
+                            />
+                            <Stack gap={3.52} style={{ width: '50.91px' }}>
                                 <Image
-                                    alt="logo"
+                                    alt="Hermit"
                                     fit="contain"
-                                    src={config.brandingSettings.logoUrl}
+                                    src="/assets/icons/figma/logo-hermit-wordmark.svg"
                                     style={{
-                                        width: '34px',
-                                        height: '34px'
+                                        width: '50.91px',
+                                        height: '11.65px',
+                                        flexShrink: 0
                                     }}
                                 />
-                            ) : (
-                                <RemnawaveLogo c="#5b8def" size={32} />
-                            )}
-                            <Stack gap={2}>
-                                <Title
-                                    c="#ffffff"
-                                    fw={700}
-                                    order={6}
-                                    size="xl"
-                                    style={{ fontSize: '22px', letterSpacing: '-0.02em', lineHeight: 1.2 }}
-                                >
-                                    Clay VPN
-                                </Title>
-                                <Title
-                                    c="#ffffff"
+                                <Text
+                                    c="rgba(255, 255, 255, 0.7)"
                                     fw={500}
-                                    order={6}
-                                    size="xs"
-                                    style={{ fontSize: '13px', opacity: 0.7 }}
+                                    size="8.79049px"
+                                    style={{
+                                        lineHeight: '10px',
+                                        width: '48px',
+                                        height: '10px',
+                                        whiteSpace: 'nowrap'
+                                    }}
                                 >
                                     VPN Service
-                                </Title>
+                                </Text>
                             </Stack>
                         </Group>
 
-                        <Group gap="xs" wrap="nowrap">
-                            <SubscriptionLinkWidget
-                                hideGetLink={config.baseSettings.hideGetLinkButton}
-                                supportUrl={config.brandingSettings.supportUrl}
-                            />
-                            <LanguagePicker
-                                currentLang={currentLang}
-                                locales={config.locales}
-                                onLanguageChange={setLanguage}
-                            />
-                        </Group>
+                        <SubscriptionLinkWidget
+                            supportUrl={normalizedSupportUrl}
+                        />
                     </Group>
                 </Container>
             </Box>
 
             <Container
                 maw={1000}
-                px={{ base: 16, sm: 24 }}
-                py={{ base: 'md', sm: 'lg' }}
+                px={{ base: 16, md: 24 }}
+                py={{ base: 'md', md: 'lg' }}
+                style={{ position: 'relative', zIndex: 1 }}
             >
                 <Stack gap="md">
                     {SubscriptionInfoBlockRenderer && (
@@ -146,13 +124,18 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                             BlockRenderer={
                                 BLOCK_RENDERERS[config.uiConfig.installationGuidesBlockType]
                             }
-                            hasPlatformApps={hasPlatformApps}
                             isMobile={isMobile}
                             platform={platform}
                         />
                     )}
 
-                    <RawKeysWidget isMobile={isMobile} />
+                    <Center>
+                        <LanguagePicker
+                            currentLang={currentLang}
+                            locales={config.locales}
+                            onLanguageChange={setLanguage}
+                        />
+                    </Center>
                 </Stack>
             </Container>
         </Page>

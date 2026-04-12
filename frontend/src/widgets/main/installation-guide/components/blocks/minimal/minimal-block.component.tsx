@@ -1,9 +1,10 @@
 import { Box, Group, Stack, Text } from '@mantine/core'
 
-import { getLocalizedText } from '@shared/utils/config-parser'
-import { TerminalIcon } from '../cards/terminal-icon.component'
+import { getColorGradient, getLocalizedText } from '@shared/utils/config-parser'
+import { ThemeIconShared } from '@shared/ui'
 
 import { IBlockRendererProps } from '../renderer-block.interface'
+import classes from './minimal-block.module.css'
 
 export const MinimalBlockRenderer = ({
     blocks,
@@ -15,55 +16,42 @@ export const MinimalBlockRenderer = ({
     return (
         <Stack gap="md">
             {blocks.map((block, index) => {
+                const gradientStyle = getColorGradient(block.svgIconColor)
+                const forcedIconKey =
+                    index === 0 ? 'download' : index === 1 ? 'cloud-download' : 'check'
+
                 return (
-                    <Box key={index} style={{
-                        padding: '12px 0 12px 14px',
-                        borderBottom: '1px solid #111',
-                        borderLeft: '2px solid #3a6a3a',
-                        background: 'transparent',
-                        position: 'relative'
-                    }}>
-                        <Group gap="sm" mb="xs" wrap="nowrap">
-                            <TerminalIcon
+                    <Box className={classes.stepCard} key={index}>
+                        <Group className={classes.stepHeader} gap="md" wrap="nowrap">
+                            <ThemeIconShared
                                 getIconFromLibrary={getIconFromLibrary}
+                                gradientStyle={gradientStyle}
                                 isMobile={isMobile}
-                                svgIconKey={block.svgIconKey}
-                                blockIndex={index}
-                                variant="minimal"
+                                svgIconColor={block.svgIconColor}
+                                svgIconKey={forcedIconKey}
                             />
-                            <Text
-                                style={{
-                                    fontFamily: "'JetBrains Mono', monospace",
-                                    fontSize: isMobile ? '12px' : '13px',
-                                    fontWeight: 500,
-                                    color: '#60a5fa'
-                                }}
-                            >
-                                <span style={{ color: '#666' }}>{'→ '}</span>
-                                <span
+                            <Stack className={classes.stepTextContent} gap={6}>
+                                <Text
+                                    c="white"
+                                    className={classes.stepTitle}
                                     dangerouslySetInnerHTML={{
                                         __html: getLocalizedText(block.title, currentLang)
                                     }}
+                                    fw={400}
+                                    size="sm"
                                 />
-                            </Text>
+                                <Text
+                                    className={classes.stepDescription}
+                                    dangerouslySetInnerHTML={{
+                                        __html: getLocalizedText(block.description, currentLang)
+                                    }}
+                                    size="xs"
+                                />
+                            </Stack>
                         </Group>
-                        <Text
-                            style={{
-                                fontFamily: "'JetBrains Mono', monospace",
-                                fontSize: isMobile ? '11px' : '12px',
-                                color: '#bbb',
-                                lineHeight: 1.6
-                            }}
-                        >
-                            <span
-                                dangerouslySetInnerHTML={{
-                                    __html: getLocalizedText(block.description, currentLang)
-                                }}
-                            />
-                        </Text>
                         {block.buttons.length > 0 && (
-                            <Box style={{ marginTop: 8 }}>
-                                {renderBlockButtons(block.buttons)}
+                            <Box className={classes.stepButtonWrapper}>
+                                {renderBlockButtons(block.buttons, 'subtle')}
                             </Box>
                         )}
                     </Box>

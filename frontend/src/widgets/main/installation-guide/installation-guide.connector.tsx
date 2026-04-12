@@ -6,12 +6,13 @@ import {
 import {
     Box,
     Button,
+    ButtonVariant,
+    Card,
     Group,
-    NativeSelect,
+    Select,
     Stack,
     Title,
-    UnstyledButton,
-    Text
+    UnstyledButton
 } from '@mantine/core'
 import { notifications } from '@mantine/notifications'
 import { useClipboard } from '@mantine/hooks'
@@ -33,13 +34,12 @@ export type TBlockVariant = 'accordion' | 'cards' | 'minimal' | 'timeline'
 
 interface IProps {
     BlockRenderer: React.ComponentType<IBlockRendererProps>
-    hasPlatformApps: Record<TSubscriptionPagePlatformKey, boolean>
     isMobile: boolean
     platform: TSubscriptionPagePlatformKey | undefined
 }
 
 export const InstallationGuideConnector = (props: IProps) => {
-    const { isMobile, hasPlatformApps, BlockRenderer, platform } = props
+    const { isMobile, BlockRenderer, platform } = props
 
     const { t, currentLang, baseTranslations } = useTranslation()
 
@@ -47,33 +47,32 @@ export const InstallationGuideConnector = (props: IProps) => {
     const { copy } = useClipboard({ timeout: 2_000 })
     const subscription = useSubscription()
 
-    const [selectedAppIndex, setSelectedAppIndex] = useState(0)
-    const [selectedPlatform, setSelectedPlatform] = useState<TSubscriptionPagePlatformKey>(() => {
-        if (platform && hasPlatformApps[platform]) {
-            return platform
-        }
-
-        const firstAvailable = (
-            Object.keys(hasPlatformApps) as TSubscriptionPagePlatformKey[]
-        ).find((key) => hasPlatformApps[key])
-        return firstAvailable!
-    })
-
-    const platformApps = platforms[selectedPlatform]!.apps
-    const selectedApp = platformApps[selectedAppIndex] ?? platformApps[0]
-
     const availablePlatforms = (
-        Object.entries(hasPlatformApps) as [TSubscriptionPagePlatformKey, boolean][]
+        Object.entries(platforms) as [
+            TSubscriptionPagePlatformKey,
+            (typeof platforms)[TSubscriptionPagePlatformKey]
+        ][]
     )
-        .filter(([_, hasApps]) => hasApps)
-        .map(([platform]) => {
-            const platformConfig = platforms[platform]!
+        .filter(([_, platformConfig]) => Boolean(platformConfig?.apps?.length))
+        .map(([platform, platformConfig]) => {
             return {
                 value: platform,
-                label: t(platformConfig.displayName),
-                icon: getIconFromLibrary(platformConfig.svgIconKey, svgLibrary)
+                label: t(platformConfig!.displayName),
+                icon: getIconFromLibrary(platformConfig!.svgIconKey, svgLibrary)
             }
         })
+
+    const [selectedAppIndex, setSelectedAppIndex] = useState(0)
+    const [selectedPlatform, setSelectedPlatform] = useState<TSubscriptionPagePlatformKey>(() => {
+        if (platform && availablePlatforms.some((item) => item.value === platform)) {
+            return platform
+        }
+        return availablePlatforms[0]!.value
+    })
+    const selectedPlatformOption = availablePlatforms.find((item) => item.value === selectedPlatform)
+
+    const platformApps = platforms[selectedPlatform]?.apps ?? []
+    const selectedApp = platformApps[selectedAppIndex] ?? platformApps[0]
 
     const subscriptionUrl = constructSubscriptionUrl(
         window.location.href,
@@ -98,7 +97,7 @@ export const InstallationGuideConnector = (props: IProps) => {
                 notifications.show({
                     title: t(baseTranslations.linkCopied),
                     message: t(baseTranslations.linkCopiedToClipboard),
-                    color: 'gray'
+                    color: 'cyan'
                 })
                 break
             }
@@ -118,34 +117,60 @@ export const InstallationGuideConnector = (props: IProps) => {
     }
 
     const renderBlockButtons = (
-        buttons: TSubscriptionPageButtonConfig[]
+        buttons: TSubscriptionPageButtonConfig[],
+        variant: ButtonVariant
     ) => {
         if (buttons.length === 0) return null
+        const shouldStretchButtons = buttons.some((button) => t(button.text).length >= 14)
 
         return (
-            <Group gap="xs" wrap="wrap" className={classes.buttonsRow}>
-                {buttons.map((button, index) => (
-                    <Button
-                        key={index}
-                        leftSection={
-                            <span
-                                dangerouslySetInnerHTML={{
-                                    __html: getIconFromLibrary(button.svgIconKey, svgLibrary)
-                                }}
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    width: '16px',
-                                    height: '16px'
-                                }}
-                            />
-                        }
-                        onClick={() => handleButtonClick(button)}
-                        className={clsx(classes.stepButton, button.type === 'external' && classes.stepButtonSecondary)}
-                    >
-                        {t(button.text)}
-                    </Button>
-                ))}
+            <Group
+                className={clsx(
+                    classes.buttonsGroup,
+                    shouldStretchButtons && classes.buttonsGroupStacked
+                )}
+                gap="xs"
+                wrap="wrap"
+            >
+                {buttons.map((button, index) => {
+                    const resolvedIconKey =
+                        button.type === 'subscriptionLink'
+                            ? 'plus'
+                            : button.type === 'external'
+                              ? 'external-link'
+                              : (button.svgIconKey ?? 'external-link')
+
+                    return (
+                        <Button
+                            className={clsx(
+                                classes.guideActionButton,
+                                shouldStretchButtons && classes.guideActionButtonFullWidth
+                            )}
+                            key={index}
+                            leftSection={
+                                <span
+                                    dangerouslySetInnerHTML={{
+                                        __html: getIconFromLibrary(resolvedIconKey, svgLibrary)
+                                    }}
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        width: 18,
+                                        height: 18,
+                                        color: '#0c0b16'
+                                    }}
+                                />
+                            }
+                            onClick={() => handleButtonClick(button)}
+                            radius="xl"
+                            size="md"
+                            variant={variant}
+                        >
+                            {t(button.text)}
+                        </Button>
+                    )
+                })}
             </Group>
         )
     }
@@ -153,69 +178,50 @@ export const InstallationGuideConnector = (props: IProps) => {
     const getIcon = (iconKey: string) => getIconFromLibrary(iconKey, svgLibrary)
 
     return (
-        <div className={classes.guideCard}>
-            <Stack gap="xl">
-                <Group justify="space-between" wrap="nowrap">
-                    <Title
-                        c="#ffffff"
-                        fw={600}
-                        order={2}
-                        size={isMobile ? '20px' : '24px'}
-                        style={{ letterSpacing: '-0.02em' }}
-                    >
-                        Установка приложения
+        <Card className={classes.guideCard} p={{ base: 'md', md: 'xl' }} radius={24}>
+            <Stack gap="md">
+                <Group gap="sm" justify="space-between">
+                    <Title c="white" fw={600} order={2} size={24}>
+                        {t(baseTranslations.installationGuideHeader)}
                     </Title>
 
                     {availablePlatforms.length > 1 && (
-                        <NativeSelect
+                        <Select
+                            allowDeselect={false}
+                            className={classes.platformSelect}
+                            classNames={{
+                                dropdown: classes.platformSelectDropdown,
+                                option: classes.platformSelectOption
+                            }}
+                            comboboxProps={{ withinPortal: true }}
                             data={availablePlatforms.map((opt) => ({
                                 value: opt.value,
                                 label: opt.label
                             }))}
                             leftSection={
-                                <span
-                                    dangerouslySetInnerHTML={{
-                                        __html: availablePlatforms.find(
-                                            (opt) => opt.value === selectedPlatform
-                                        )!.icon
-                                    }}
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        width: 16,
-                                        height: 16,
-                                        color: '#8888a0'
-                                    }}
-                                />
+                                selectedPlatformOption ? (
+                                    <span
+                                        dangerouslySetInnerHTML={{
+                                            __html: selectedPlatformOption.icon
+                                        }}
+                                        style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            width: 16,
+                                            height: 16
+                                        }}
+                                    />
+                                ) : undefined
                             }
-                            onChange={(event) => {
+                            onChange={(value) => {
+                                if (!value) return
                                 vibrate([80])
-                                const value = event.target
-                                    .value as unknown as TSubscriptionPagePlatformKey
-                                setSelectedPlatform(value)
+                                setSelectedPlatform(value as TSubscriptionPagePlatformKey)
                                 setSelectedAppIndex(0)
                             }}
-                            radius="xl"
-                            size="md"
+                            radius="md"
+                            size="sm"
                             value={selectedPlatform}
-                            w={180}
-                            styles={{
-                                input: {
-                                    borderRadius: '10px',
-                                    border: '1px solid #252540',
-                                    background: '#1a1a2e',
-                                    fontSize: '14px',
-                                    color: '#c8c8d8',
-                                    fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif',
-                                    paddingRight: '32px',
-                                    paddingLeft: '12px',
-                                    height: '40px',
-                                    fontWeight: 500
-                                },
-                                section: {
-                                    color: '#8888a0'
-                                }
-                            }}
                         />
                     )}
                 </Group>
@@ -225,7 +231,6 @@ export const InstallationGuideConnector = (props: IProps) => {
                         <div className={classes.appsGrid}>
                             {platformApps.map((app: TSubscriptionPageAppConfig, index: number) => {
                                 const isActive = index === selectedAppIndex
-                                const hasIcon = Boolean(app.svgIconKey)
 
                                 return (
                                     <UnstyledButton
@@ -241,20 +246,6 @@ export const InstallationGuideConnector = (props: IProps) => {
                                         }}
                                     >
                                         {app.featured && <span className={classes.featuredBadge} />}
-                                        {hasIcon && (
-                                            <span
-                                                className={clsx(
-                                                    classes.bgIcon,
-                                                    isActive && classes.bgIconActive
-                                                )}
-                                                dangerouslySetInnerHTML={{
-                                                    __html: getIconFromLibrary(
-                                                        app.svgIconKey!,
-                                                        svgLibrary
-                                                    )
-                                                }}
-                                            />
-                                        )}
                                         <span className={classes.appName}>{app.name}</span>
                                     </UnstyledButton>
                                 )
@@ -274,6 +265,6 @@ export const InstallationGuideConnector = (props: IProps) => {
                     </Box>
                 )}
             </Stack>
-        </div>
+        </Card>
     )
 }

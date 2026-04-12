@@ -3,6 +3,7 @@ import {
     TSubscriptionPageButtonConfig,
     TSubscriptionPageLanguageCode
 } from '@remnawave/subscription-page-types'
+import { ButtonVariant } from '@mantine/core'
 
 export interface IBlockRendererProps {
     blocks: TSubscriptionPageBlockConfig[]
@@ -10,7 +11,8 @@ export interface IBlockRendererProps {
     getIconFromLibrary: (iconKey: string) => string
     isMobile: boolean
     renderBlockButtons: (
-        buttons: TSubscriptionPageButtonConfig[]
+        buttons: TSubscriptionPageButtonConfig[],
+        variant: ButtonVariant
     ) => React.ReactNode
     svgLibrary: Record<string, string>
 }

@@ -2,9 +2,9 @@ import { Accordion, Group, Stack, Text } from '@mantine/core'
 import { IconChevronDown } from '@tabler/icons-react'
 import { useState } from 'react'
 
-import { getLocalizedText } from '@shared/utils/config-parser'
+import { getColorGradient, getLocalizedText } from '@shared/utils/config-parser'
 import { vibrate } from '@shared/utils/vibrate'
-import { TerminalIcon } from '../cards/terminal-icon.component'
+import { ThemeIconShared } from '@shared/ui'
 
 import { IBlockRendererProps } from '../renderer-block.interface'
 import classes from './accordion-block.module.css'
@@ -20,7 +20,7 @@ export const AccordionBlockRenderer = ({
 
     return (
         <Accordion
-            chevron={<IconChevronDown size={18} style={{ color: '#64748b' }} />}
+            chevron={<IconChevronDown size={18} />}
             classNames={{
                 item: classes.accordionItem,
                 control: classes.accordionControl,
@@ -38,52 +38,47 @@ export const AccordionBlockRenderer = ({
             variant="separated"
         >
             {blocks.map((block, index) => {
+                const gradientStyle = getColorGradient(block.svgIconColor)
+
                 return (
                     <Accordion.Item key={index} value={String(index)}>
                         <Accordion.Control>
                             <Group gap="sm" wrap="nowrap">
-                                <TerminalIcon
+                                <ThemeIconShared
                                     getIconFromLibrary={getIconFromLibrary}
+                                    gradientStyle={gradientStyle}
                                     isMobile={isMobile}
+                                    svgIconColor={block.svgIconColor}
                                     svgIconKey={block.svgIconKey}
-                                    blockIndex={index}
-                                    variant="accordion"
                                 />
                                 <Stack gap={2} style={{ flex: 1, minWidth: 0 }}>
                                     <Text
-                                        style={{
-                                            fontFamily: "'Inter', sans-serif",
-                                            fontSize: isMobile ? '14px' : '15px',
-                                            fontWeight: 600,
-                                            color: '#f8fafc'
+                                        c="white"
+                                        dangerouslySetInnerHTML={{
+                                            __html: getLocalizedText(block.title, currentLang)
                                         }}
-                                    >
-                                        <span
-                                            dangerouslySetInnerHTML={{
-                                                __html: getLocalizedText(block.title, currentLang)
-                                            }}
-                                        />
-                                    </Text>
+                                        fw={600}
+                                        size={isMobile ? 'sm' : 'md'}
+                                        style={{
+                                            overflow: 'hidden',
+                                            textOverflow: 'ellipsis',
+                                            whiteSpace: 'nowrap'
+                                        }}
+                                    />
                                 </Stack>
                             </Group>
                         </Accordion.Control>
                         <Accordion.Panel>
                             <Text
-                                style={{
-                                    fontFamily: "'Inter', sans-serif",
-                                    fontSize: isMobile ? '13px' : '14px',
-                                    color: '#94a3b8',
-                                    lineHeight: 1.6
+                                c="dimmed"
+                                dangerouslySetInnerHTML={{
+                                    __html: getLocalizedText(block.description, currentLang)
                                 }}
-                            >
-                                <span
-                                    dangerouslySetInnerHTML={{
-                                        __html: getLocalizedText(block.description, currentLang)
-                                    }}
-                                />
-                            </Text>
-                            <Group gap="xs" mt="md" wrap="wrap">
-                                {renderBlockButtons(block.buttons)}
+                                size={isMobile ? 'xs' : 'sm'}
+                                style={{ lineHeight: 1.7 }}
+                            />
+                            <Group gap="xs" mt="sm" wrap="wrap">
+                                {renderBlockButtons(block.buttons, 'light')}
                             </Group>
                         </Accordion.Panel>
                     </Accordion.Item>
